@@ -1,0 +1,172 @@
+define FlurBeleuchtung structure room Switch_Shelly10 Switch_Shelly11
+setuuid FlurBeleuchtung 6279e977-f33f-9d3c-2d98-7afd95eed34586a8
+attr FlurBeleuchtung alias FlurBeleuchtung
+attr FlurBeleuchtung async_delay 2
+attr FlurBeleuchtung room Shelly
+
+define WohnzimmerBeleuchtung structure room Switch_Shelly2 Switch_Shelly4
+setuuid WohnzimmerBeleuchtung 69845a80-f33f-9d3c-01a5-5d68c807fd635667
+attr WohnzimmerBeleuchtung alias WZBeleuchtung
+attr WohnzimmerBeleuchtung async_delay 2
+attr WohnzimmerBeleuchtung room Shelly
+
+define TabletLaden structure room Switch_Shelly9 Switch_ShellyPlug_02
+setuuid TabletLaden 6864f536-f33f-9d3c-ffcd-f08396c33077eb32
+attr TabletLaden alias TabletLaden
+attr TabletLaden async_delay 2
+attr TabletLaden room Shelly
+
+define BodenlichtKueche_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}] and [HomeStatus:state] ne "away") (set Switch_Shelly7 on)
+setuuid BodenlichtKueche_ON_DOIF 5c77fe96-f33f-9d3c-ec95-6db97bcf0fe98932
+attr BodenlichtKueche_ON_DOIF alias BodenlichtKueche_ON_DOIF
+attr BodenlichtKueche_ON_DOIF do always
+attr BodenlichtKueche_ON_DOIF room Kueche,Licht
+
+define BodenlichtKueche_OFF_DOIF DOIF ([22:30]) (set Switch_Shelly7 off)
+setuuid BodenlichtKueche_OFF_DOIF 5c77fe96-f33f-9d3c-4d66-83bdc45235647649
+attr BodenlichtKueche_OFF_DOIF alias BodenlichtKueche_OFF_DOIF
+attr BodenlichtKueche_OFF_DOIF do always
+attr BodenlichtKueche_OFF_DOIF room Licht,Kueche
+
+define BodenlichtKueche_ON_morgens_DOIF DOIF (([[RolloUpWT]]|8) and [HomeStatus:state] eq "home_work") (set Switch_Shelly7 on) DOELSEIF ((([([RolloUpWT]+[00:30])])|8) and [HomeStatus:state] eq "home_work") (set Switch_Shelly7 off)
+setuuid BodenlichtKueche_ON_morgens_DOIF 5c77fe96-f33f-9d3c-471f-3dbdaa68c3b95cd8
+attr BodenlichtKueche_ON_morgens_DOIF alias BodenlichtKueche_ON_morgens_DOIF
+attr BodenlichtKueche_ON_morgens_DOIF do always
+attr BodenlichtKueche_ON_morgens_DOIF room Kueche,Licht
+
+
+define BodenlichtKueche_OFF_morgens_DOIF DOIF ((([([RolloUpWT]+[00:30])])|8) and [HomeStatus:state] eq "home_work") (set Switch_Shelly7 off) DOELSE (([([RolloUpFT]+[01:00])]) and [HomeStatus:state] eq "home_home")  (set Switch_Shelly7 off)
+setuuid BodenlichtKueche_OFF_morgens_DOIF 5ed53ef5-f33f-9d3c-461b-bb77b6b1632cfa28
+attr BodenlichtKueche_OFF_morgens_DOIF alias BodenlichtKueche_OFF_morgens_DOIF
+attr BodenlichtKueche_OFF_morgens_DOIF do always
+attr BodenlichtKueche_OFF_morgens_DOIF room Kueche,Licht
+
+
+define TreppenhausLeuchte_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}] and [HomeStatus:state] ne "away") (set FlurBeleuchtung on)
+setuuid TreppenhausLeuchte_ON_DOIF 5c77fe96-f33f-9d3c-a911-00e1dcc7601535b5
+attr TreppenhausLeuchte_ON_DOIF alias TreppenhausLeuchte_ON_DOIF
+attr TreppenhausLeuchte_ON_DOIF do always
+attr TreppenhausLeuchte_ON_DOIF room Licht,Treppenhaus
+
+define TreppenhausLeuchte_OFF_DOIF DOIF ([22:30]) (set FlurBeleuchtung off)
+setuuid TreppenhausLeuchte_OFF_DOIF 5c77fe96-f33f-9d3c-da82-69129a4ac8970a91
+attr TreppenhausLeuchte_OFF_DOIF alias TreppenhausLeuchte_OFF_DOIF
+attr TreppenhausLeuchte_OFF_DOIF do always
+attr TreppenhausLeuchte_OFF_DOIF room Licht,Treppenhaus
+
+define TreppenhausLeuchte_ON_morgens_DOIF DOIF ([[RolloUpWT]] and [HomeStatus:state] eq "home_work")  (set FlurBeleuchtung on)
+setuuid TreppenhausLeuchte_ON_morgens_DOIF 5c77fe96-f33f-9d3c-bafd-29ee99444228a1d1
+attr TreppenhausLeuchte_ON_morgens_DOIF alias TreppenhausLeuchte_ON_morgens_DOIF
+attr TreppenhausLeuchte_ON_morgens_DOIF do always
+attr TreppenhausLeuchte_ON_morgens_DOIF room Licht,Treppenhaus
+
+
+define TreppenhausLeuchte_OFF_morgens_DOIF DOIF (([([RolloUpWT]+[00:30])]) and [HomeStatus:state] eq "home_work")  (set FlurBeleuchtung off)
+setuuid TreppenhausLeuchte_OFF_morgens_DOIF 5ed53ef5-f33f-9d3c-4829-b91e22d3be988c70
+attr TreppenhausLeuchte_OFF_morgens_DOIF alias TreppenhausLeuchte_OFF_morgens_DOIF
+attr TreppenhausLeuchte_OFF_morgens_DOIF do always
+attr TreppenhausLeuchte_OFF_morgens_DOIF room Licht,Treppenhaus
+
+define SchrankSchlafzimmer_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}] and [HomeStatus:state] ne "away") (set Switch_Shelly6 on)
+setuuid SchrankSchlafzimmer_ON_DOIF 64070843-f33f-9d3c-dca7-b83ec24df611883e
+attr SchrankSchlafzimmer_ON_DOIF alias SchrankSchlafzimmer_ON_DOIF
+attr SchrankSchlafzimmer_ON_DOIF do always
+attr SchrankSchlafzimmer_ON_DOIF room Schlafzimmer,Licht
+
+define SchrankSchlafzimmer_OFF_DOIF DOIF ([22:15]) (set Switch_Shelly6 off)
+setuuid SchrankSchlafzimmer_OFF_DOIF 64070843-f33f-9d3c-860d-58be42c187e1de93
+attr SchrankSchlafzimmer_OFF_DOIF alias SchrankSchlafzimmer_OFF_DOIF
+attr SchrankSchlafzimmer_OFF_DOIF do always
+attr SchrankSchlafzimmer_OFF_DOIF room Licht,Schlafzimmer
+
+define RegalWohnzimmer_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}] and [HomeStatus:state] ne "away") (set WohnzimmerBeleuchtung on)
+setuuid RegalWohnzimmer_ON_DOIF 64418349-f33f-9d3c-1321-40e3e4281bfd796f
+attr RegalWohnzimmer_ON_DOIF alias RegalWohnzimmer_ON_DOIF
+attr RegalWohnzimmer_ON_DOIF do always
+attr RegalWohnzimmer_ON_DOIF room Wohnzimmer,Licht
+
+define RegalWohnzimmer_Werktags_OFF at *22:30 {fhem("set WohnzimmerBeleuchtung off") if !$we}
+setuuid RegalWohnzimmer_Werktags_OFF 6530e808-f33f-9d3c-85ce-85b3f040223524d0
+attr RegalWohnzimmer_Werktags_OFF alias RegalWohnzimmer_Werktags_OFF
+
+define RegalWohnzimmer_Wochenende_OFF at *23:30 {fhem("set WohnzimmerBeleuchtung off")}
+setuuid RegalWohnzimmer_Wochenende_OFF 6530e808-f33f-9d3c-537b-c4c3b0fcca837f41
+attr RegalWohnzimmer_Wochenende_OFF alias RegalWohnzimmer_Wochenende_OFF
+attr RegalWohnzimmer_Wochenende_OFF room Licht,Wohnzimmer
+
+
+define MagicMirror_Werktag_Morgens_ON_DOIF DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set Switch_Shelly8 on) DOELSEIF ([HomeStatus:state] eq "home_work" and ([([RolloUpWT]+[00:30])])) (set Switch_Shelly8 off) DOELSEIF ([HomeStatus:state] eq "home_home" and ([[RolloUpFT]]|8))  (set Switch_Shelly8 on) DOELSEIF ([HomeStatus:state] eq "home_home" and (([([RolloUpFT]+[01:00])])|8)) (set ESPEasy_Sonoff_Basic_5_Sonoff_Basic_5 off) DOELSEIF ([HomeStatus:state] eq "home_home" and ([[RolloUpWE]]|7))  (set Switch_Shelly8 on) DOELSEIF ([22:30:00]|7) (set Switch_Shelly8 off)
+setuuid MagicMirror_Werktag_Morgens_ON_DOIF 5c77fe96-f33f-9d3c-286e-3bab4522ca56f9dd
+attr MagicMirror_Werktag_Morgens_ON_DOIF alias MagicMirror_Werktag_Morgens_ON_DOIF
+attr MagicMirror_Werktag_Morgens_ON_DOIF do always
+attr MagicMirror_Werktag_Morgens_ON_DOIF room Flur,MagicMirror
+
+# define MagicMirror_Werktag_Morgens_OFF_DOIF DOIF ([HomeStatus:state] eq "home_home" and ([[RolloUpWE]]|7)  (set ESPEasy_Sonoff_Basic_5_Sonoff_Basic_5 on)
+# setuuid MagicMirror_Werktag_Morgens_OFF_DOIF 5c77fe96-f33f-9d3c-61e4-3ee99e2ed092f458
+# attr MagicMirror_Werktag_Morgens_OFF_DOIF do always
+# attr MagicMirror_Werktag_Morgens_OFF_DOIF room Flur,MagicMirror
+
+define MagicMirror_Werktag_Abends_ON_DOIF DOIF ([17:30:00] and ($wday == 1 || $wday == 2  || $wday == 3  || $wday == 4  || $wday == 5 ) and [HomeStatus:state] ne "away") (set Switch_Shelly8 on)
+setuuid MagicMirror_Werktag_Abends_ON_DOIF 5c77fe96-f33f-9d3c-494b-273abf7ff649e889
+attr MagicMirror_Werktag_Abends_ON_DOIF alias MagicMirror_Werktag_Abends_ON_DOIF
+attr MagicMirror_Werktag_Abends_ON_DOIF do always
+attr MagicMirror_Werktag_Abends_ON_DOIF room Flur,MagicMirror
+
+define MagicMirror_Werktag_Abends_OFF_DOIF DOIF ([22:30:00] and ($wday == 1 || $wday == 2  || $wday == 3  || $wday == 4  || $wday == 5 )) (set Switch_Shelly8 off)
+setuuid MagicMirror_Werktag_Abends_OFF_DOIF 5c77fe96-f33f-9d3c-2fbd-d3d939309a6c008e
+attr MagicMirror_Werktag_Abends_OFF_DOIF alias MagicMirror_Werktag_Abends_OFF_DOIF
+attr MagicMirror_Werktag_Abends_OFF_DOIF do always
+attr MagicMirror_Werktag_Abends_OFF_DOIF room Flur,MagicMirror
+
+
+define structure_KodiShutdown structure room Kueche_XBMC WZ_XBMC Buero_XBMC
+setuuid structure_KodiShutdown 5c77fe96-f33f-9d3c-4a52-17366ef865baf642
+attr structure_KodiShutdown alias structure_KodiShutdown
+attr structure_KodiShutdown room Kodi
+
+
+define NiemandZuhause notify dummy_Anwesend:Abwesend {\
+{fhem("set structure_KodiShutdown shutdown")}\
+{fhem("define tmp_time1 at +00:00:30 set ESPEasy_Sonoff_Basic_6_Sonoff_Basic_6 off")}\
+}
+setuuid NiemandZuhause 5c77fe96-f33f-9d3c-5b3d-858cca1879708a0e
+attr NiemandZuhause alias NiemandZuhause
+
+define JemandZuhause notify dummy_Anwesend:Anwesend set ESPEasy_Sonoff_Basic_6_Sonoff_Basic_6 on
+setuuid JemandZuhause 5c77fe96-f33f-9d3c-f9f2-7bf05c1725762313
+attr JemandZuhause alias JemandZuhause
+
+define TabletLaden_ON at *05:00:00 { if($wday == 1 || $wday == 3 || $wday == 5 || $wday == 7) { fhem ("set TabletLaden on") }}
+setuuid TabletLaden_ON 5cdaf69b-f33f-9d3c-3f65-e6a45681882b97d6
+attr TabletLaden_ON alias TabletLaden_ON
+define TabletLaden_OFF at *12:00:00 { if($wday == 1 || $wday == 3 || $wday == 5 || $wday == 7) { fhem ("set TabletLaden off") }}
+setuuid TabletLaden_OFF 5cdaf69b-f33f-9d3c-055e-4108f890aa986e6c
+attr TabletLaden_OFF alias TabletLaden_OFF
+
+
+define KodiKueche_Wochenende DOIF ([HomeStatus:state] eq "home_home" and ([[RolloUpWE]]|7))  (set Switch_Shelly5 on) DOELSEIF ([14:00:00|7] and [HomeStatus:state] ne "away") (set Switch_Shelly5 off)
+setuuid KodiKueche_Wochenende 5ed53ef5-f33f-9d3c-c136-fa55809333d2dc5f
+attr KodiKueche_Wochenende alias KodiKueche_Wochenende
+attr KodiKueche_Wochenende do always
+attr KodiKueche_Wochenende room Kueche,Kodi
+
+define KodiKueche_ON_Wochenende DOIF ([HomeStatus:state] ne "away" and (([([RolloUpWE]+[00:02])]|7)))  (set Kueche_KODI open http://wdr-wdr2-ruhrgebiet.icecast.wdr.de/wdr/wdr2/ruhrgebiet/mp3/128/stream.mp3) DOELSEIF ([13:30:00|7] and [HomeStatus:state] ne "away")  (set Kueche_KODI stop)
+setuuid KodiKueche_ON_Wochenende 5ed53ef5-f33f-9d3c-6b2e-9a418bb167edc629
+attr KodiKueche_ON_Wochenende userattr do always
+attr KodiKueche_ON_Wochenende alias KodiKueche_ON_Wochenende
+attr KodiKueche_ON_Wochenende do always
+attr KodiKueche_ON_Wochenende room Kueche,Kodi
+attr KodiKueche_ON_Wochenende wait 0,60
+
+
+define Alle_Verbraucher_ESPEASY structure room ESPEasy_Sonoff_Basic_2_Sonoff_Basic_2 Switch_Shelly8 Switch_Shelly5 Switch_Shelly7 Switch_Shelly6
+setuuid Alle_Verbraucher_ESPEASY 5ddc4960-f33f-9d3c-9fd9-d1640cc60e649629
+attr Alle_Verbraucher_ESPEASY alias Alle_Verbraucher_ESPEASY
+attr Alle_Verbraucher_ESPEASY async_delay 2
+attr Alle_Verbraucher_ESPEASY room ESPEasy
+
+define Alle_Verbraucher_ESPEASY_OFF_DOIF DOIF ([HomeStatus:state] eq "away") (set Alle_Verbraucher_ESPEASY off)
+setuuid Alle_Verbraucher_ESPEASY_OFF_DOIF 5ddc4960-f33f-9d3c-4ac9-0764c0d1f0ffd036
+attr Alle_Verbraucher_ESPEASY_OFF_DOIF alias Alle_Verbraucher_ESPEASY_OFF_DOIF
+
+# define ShellyTest_DOIF DOIF ([07:54]) (set Switch_Shelly1 on)
