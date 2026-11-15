@@ -1,0 +1,155 @@
+define ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 ESPEasy 192.168.178.108 80 espBridge Sonoff_Basic_9_Sonoff_Basic_9
+setuuid ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 5ce43085-f33f-9d3c-f304-19b2da2eb33aa53e
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 IODev espBridge
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 Interval 300
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 alias ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 room ESPEasy
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 setState 3
+attr ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+
+
+define ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 ESPEasy 192.168.178.153 80 espBridge Sonoff_Basic_12_Sonoff_Basic_12
+setuuid ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 5d3093d8-f33f-9d3c-7475-9725cfc84ee88c1f
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 IODev espBridge
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 Interval 300
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 alias ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 room ESPEasy
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 setState 3
+attr ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+
+define ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 ESPEasy 192.168.178.164 80 espBridge Sonoff_Basic_14_Sonoff_Basic_14
+setuuid ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 5d30b5c8-f33f-9d3c-03c3-beb4dbcc4b08098f
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 IODev espBridge
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 Interval 300
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 alias ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 room ESPEasy
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 setState 3
+attr ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+define ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 ESPEasy 192.168.178.162 80 espBridge Sonoff_Basic_15_Sonoff_Basic_15
+setuuid ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 5d4c72bb-f33f-9d3c-ec83-ea9dcdc6b1757401
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 IODev espBridge
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 Interval 300
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 alias ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 room ESPEasy
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 setState 3
+attr ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+define ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 ESPEasy 192.168.178.125 80 espBridge Sonoff_Basic_16_Sonoff_Basic_16
+setuuid ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 5d4c74f8-f33f-9d3c-c120-09d6516f3812a668
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 IODev espBridge
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 Interval 300
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 alias ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 room ESPEasy
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 setState 3
+attr ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+define ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 ESPEasy 192.168.178.159 80 espBridge Sonoff_Basic_17_Sonoff_Basic_17
+setuuid ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 5d4c854c-f33f-9d3c-03e7-723cc1b81f055d9e
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 IODev espBridge
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 Interval 300
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 alias ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 room ESPEasy
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 setState 3
+attr ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+define ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 ESPEasy 192.168.178.152 80 espBridge Sonoff_Basic_18_Sonoff_Basic_18
+setuuid ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 5d4c863a-f33f-9d3c-d3d3-1f0bb9be44d8d894
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 userattr room_map structexclude
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 IODev espBridge
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 Interval 300
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 alias ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 room ESPEasy
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 setState 3
+attr ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+define ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 ESPEasy 192.168.178.93 80 espBridge Sonoff_Basic_19_Sonoff_Basic_19
+setuuid ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 5dde99ed-f33f-9d3c-0968-f27a1cff1ce87ab5
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 IODev espBridge
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 Interval 300
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 alias ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 eventMap /gpio 12 on:on/gpio 12 off:off/
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 group ESPEasy Device
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 presenceCheck 1
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 readingSwitchText 1
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 room ESPEasy
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 setState 3
+attr ESPEasy_Sonoff_Basic_19_Sonoff_Basic_19 stateFormat {ReadingsVal($name,"presence","") eq "absent" ? "absent" : ReadingsVal($name,"Switch","")}
+
+
+define ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich ESPEasy 192.168.178.154 80 espBridge ESP_Easy_TeichTemperatur_TemperaturTeich
+setuuid ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich 63557c19-f33f-9d3c-9567-f8ad6b19f6899eee
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich Interval 300
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich alias ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich group ESPEasy Device
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich presenceCheck 1
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich readingSwitchText 1
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich room ESPEasy
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich setState 3
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeich verbose 0
+
+define ESPEasy_Collection_B_Wasserfass_IBC ESPEasy 192.168.178.155 80 espBridge Collection_B_Wasserfass_IBC
+setuuid ESPEasy_Collection_B_Wasserfass_IBC 635a3e7e-f33f-9d3c-67d6-675bee0340e0496e
+attr ESPEasy_Collection_B_Wasserfass_IBC Interval 300
+attr ESPEasy_Collection_B_Wasserfass_IBC alias ESPEasy_Collection_B_Wasserfass_IBC
+attr ESPEasy_Collection_B_Wasserfass_IBC group ESPEasy Device
+attr ESPEasy_Collection_B_Wasserfass_IBC presenceCheck 1
+attr ESPEasy_Collection_B_Wasserfass_IBC readingSwitchText 1
+attr ESPEasy_Collection_B_Wasserfass_IBC room ESPEasy
+attr ESPEasy_Collection_B_Wasserfass_IBC setState 3
+attr ESPEasy_Collection_B_Wasserfass_IBC stateFormat {ReadingsVal($name,"state",0)}
+attr ESPEasy_Collection_B_Wasserfass_IBC userReadings Inhalt {sprintf("%.2f",(2000*(1-((ReadingsVal($name,"Distance",0))-185)/1000)))}
+attr ESPEasy_Collection_B_Wasserfass_IBC verbose 0
+
+define ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief ESPEasy 192.168.178.154 80 espBridge ESP_Easy_TeichTemperatur_TemperaturTeichtief
+setuuid ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief 635a4ef9-f33f-9d3c-8f43-58fea75e64dfddbf
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief Interval 300
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief alias ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief group ESPEasy Device
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief presenceCheck 1
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief readingSwitchText 1
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief room ESPEasy
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief setState 3
+attr ESPEasy_ESP_Easy_TeichTemperatur_TemperaturTeichtief verbose 0
+
+
+define ESPEasy_Wasserfass ESPEasy 192.168.178.82 80 espBridge Wasserfass_Zisterne2
+setuuid ESPEasy_Wasserfass 6696b40c-f33f-9d3c-d005-197ed94d53dd9d9b
+attr ESPEasy_Wasserfass alias ESPEasy_Wasserfass
+attr ESPEasy_Wasserfass userReadings Inhalt {sprintf("%.2f",(800*(1-((ReadingsVal($name,"Distance",0))-80)/1000)))}
