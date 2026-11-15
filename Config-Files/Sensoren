@@ -1,0 +1,127 @@
+# Temperatursensoren
+define FileLog_NC_WS_94 FileLog ./log/NC_WS_94-%Y.log NC_WS_94
+setuuid FileLog_NC_WS_94 5c77fe97-f33f-9d3c-4935-d2388be84994a352
+attr FileLog_NC_WS_94 alias FileLog_NC_WS_94
+attr FileLog_NC_WS_94 logtype temp4hum4:Temp/Hum,text
+attr FileLog_NC_WS_94 room CUL_TCM97001
+define SVG_NC_WS_94 SVG FileLog_NC_WS_94:SVG_NC_WS_94:CURRENT
+setuuid SVG_NC_WS_94 5c77fe97-f33f-9d3c-2257-c212b171bba7d5e8
+attr SVG_NC_WS_94 alias SVG_NC_WS_94
+attr SVG_NC_WS_94 label "NC_WS_94 Min $data{min1}, Max $data{max1}, Last $data{currval1}"
+attr SVG_NC_WS_94 room Plots
+
+define FileLog_GT_WT_02_0 FileLog ./log/GT_WT_02_0-%Y.log GT_WT_02_0
+setuuid FileLog_GT_WT_02_0 5c77fe97-f33f-9d3c-74b7-86d305b5e1e3136b
+attr FileLog_GT_WT_02_0 alias FileLog_GT_WT_02_0
+attr FileLog_GT_WT_02_0 logtype temp4hum4:Temp/Hum,text
+attr FileLog_GT_WT_02_0 room CUL_TCM97001
+define SVG_GT_WT_02_0 SVG FileLog_GT_WT_02_0:SVG_GT_WT_02_0:CURRENT
+setuuid SVG_GT_WT_02_0 5c77fe97-f33f-9d3c-6c51-71990645bd023085
+attr SVG_GT_WT_02_0 alias SVG_GT_WT_02_0
+attr SVG_GT_WT_02_0 label "GT_WT_02_0 Min $data{min1}, Max $data{max1}, Last $data{currval1}"
+attr SVG_GT_WT_02_0 room Plots
+define Prologue_153 CUL_TCM97001 CUL_TCM97001_153
+setuuid Prologue_153 5c77fe97-f33f-9d3c-5506-bf74eb405bae5c23
+attr Prologue_153 alias AT_Sensor1
+attr Prologue_153 event-on-change-reading state
+attr Prologue_153 model Prologue
+attr Prologue_153 room Aussen,CUL_TCM97001
+define FileLog_Prologue_153 FileLog ./log/Prologue_153-%Y.log Prologue_153
+setuuid FileLog_Prologue_153 5c77fe97-f33f-9d3c-1322-07f83e93ab703d55
+attr FileLog_Prologue_153 alias FileLog_Prologue_153
+attr FileLog_Prologue_153 logtype temp4hum4:Temp/Hum,text
+attr FileLog_Prologue_153 room CUL_TCM97001
+define SVG_Prologue_153 SVG FileLog_Prologue_153:SVG_Prologue_153:CURRENT
+setuuid SVG_Prologue_153 5c77fe97-f33f-9d3c-f5ad-f9178724d228f88e
+attr SVG_Prologue_153 alias SVG_Prologue_153
+attr SVG_Prologue_153 label "Prologue_153 Min $data{min1}, Max $data{max1}, Last $data{currval1}"
+attr SVG_Prologue_153 room Plots
+
+
+#Sonnensensor
+define Sonnensensor1 CUL_HM 6AB926
+setuuid Sonnensensor1 5f912d49-f33f-9d3c-3001-1104118553266bb9
+attr Sonnensensor1 .mId 00FD
+attr Sonnensensor1 IOgrp VCCU:CUL868
+attr Sonnensensor1 actCycle 028:00
+attr Sonnensensor1 actStatus alive
+attr Sonnensensor1 alias Helligkeit
+attr Sonnensensor1 autoReadReg 4_reqStatus
+attr Sonnensensor1 expert rawReg
+attr Sonnensensor1 firmware 1.1
+attr Sonnensensor1 model HM-SEN-LI-O
+attr Sonnensensor1 room CUL_HM,ioBroker
+attr Sonnensensor1 serialNr PEQ1448553
+attr Sonnensensor1 subType senBright
+
+
+#Aussentemperatursensor
+define AussenTempSens1 CUL_HM 4BE2F4
+setuuid AussenTempSens1 5c77fe97-f33f-9d3c-edbc-b6988de5f863b75f
+attr AussenTempSens1 .mId 00A8
+attr AussenTempSens1 IOgrp VCCU:myHmUART
+attr AussenTempSens1 actCycle 012:00
+attr AussenTempSens1 actStatus alive
+attr AussenTempSens1 alias AussenTempSens1
+attr AussenTempSens1 autoReadReg 4_reqStatus
+attr AussenTempSens1 event-on-change-reading state
+attr AussenTempSens1 expert defReg,rawReg
+attr AussenTempSens1 firmware 1.1
+attr AussenTempSens1 model HM-WDS30-OT2-SM
+attr AussenTempSens1 room Aussen,CUL_HM
+attr AussenTempSens1 serialNr NEQ0534573
+attr AussenTempSens1 subType THSensor
+attr AussenTempSens1 webCmd getConfig:clear msgEvents
+
+define FileLog_AussenTempSens1 FileLog ./log/AussenTempSens1-%Y.log AussenTempSens1
+setuuid FileLog_AussenTempSens1 5c77fe97-f33f-9d3c-6daf-d08d4dc5adfda0b9
+attr FileLog_AussenTempSens1 alias FileLog_AussenTempSens1
+attr FileLog_AussenTempSens1 logtype text
+attr FileLog_AussenTempSens1 room CUL_HM
+
+define AussenTempSens1_T1 CUL_HM 4BE2F401
+setuuid AussenTempSens1_T1 5c77fe97-f33f-9d3c-98da-ddf0867f3d70a162
+attr AussenTempSens1_T1 alias Aussentemperatur
+attr AussenTempSens1_T1 model HM-WDS30-OT2-SM
+attr AussenTempSens1_T1 peerIDs 00000000
+
+define AussenTempSens1_T2 CUL_HM 4BE2F402
+setuuid AussenTempSens1_T2 5c77fe97-f33f-9d3c-2d5a-3405713921d3e594
+attr AussenTempSens1_T2 alias AussenTempSens1_T2
+attr AussenTempSens1_T2 model HM-WDS30-OT2-SM
+attr AussenTempSens1_T2 peerIDs 00000000
+
+define AussenTempSens1_T1_T2 CUL_HM 4BE2F403
+setuuid AussenTempSens1_T1_T2 5c77fe97-f33f-9d3c-eb5d-f775a6b3203cbbc8
+attr AussenTempSens1_T1_T2 alias AussenTempSens1_T1_T2
+attr AussenTempSens1_T1_T2 model HM-WDS30-OT2-SM
+attr AussenTempSens1_T1_T2 peerIDs 00000000
+
+define AussenTempSens1_T2_T1 CUL_HM 4BE2F404
+setuuid AussenTempSens1_T2_T1 5c77fe97-f33f-9d3c-4729-64fcd30081a8aab2
+attr AussenTempSens1_T2_T1 alias AussenTempSens1_T2_T1
+attr AussenTempSens1_T2_T1 model HM-WDS30-OT2-SM
+attr AussenTempSens1_T2_T1 peerIDs 00000000
+
+define AussenTempSens1_Event CUL_HM 4BE2F405
+setuuid AussenTempSens1_Event 5c77fe97-f33f-9d3c-bda1-f5d50d265c020547
+attr AussenTempSens1_Event alias AussenTempSens1_Event
+attr AussenTempSens1_Event model HM-WDS30-OT2-SM
+attr AussenTempSens1_Event peerIDs 00000000
+
+#Neigungssensor Garage
+define Neigungssensor_Garage CUL_HM 557613
+setuuid Neigungssensor_Garage 5c77fe97-f33f-9d3c-41f2-63fb1b45825fba57
+attr Neigungssensor_Garage .mId 0043
+attr Neigungssensor_Garage IOgrp VCCU:myHmUART
+attr Neigungssensor_Garage actCycle 028:00
+attr Neigungssensor_Garage actStatus alive
+attr Neigungssensor_Garage alias Neigungssensor_Garage
+attr Neigungssensor_Garage autoReadReg 4_reqStatus
+attr Neigungssensor_Garage expert defReg,rawReg
+attr Neigungssensor_Garage firmware 1.5
+attr Neigungssensor_Garage model HM-SEC-TIS
+attr Neigungssensor_Garage peerIDs 00000000
+attr Neigungssensor_Garage room Garage
+attr Neigungssensor_Garage serialNr OEQ0148748
+attr Neigungssensor_Garage subType threeStateSensor
