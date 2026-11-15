@@ -1,0 +1,112 @@
+# Diese Zeilen auskommentieren wenn der 25er für die Gartenbewässerung eingesetzt wird
+# define WasserGartenOff DOIF ([Switch_Shelly20:"on"]) (define a7 at +*{5}00:00:04 set Switch_Shelly20 off)
+# setuuid WasserGartenOff 5f3bb3a2-f33f-9d3c-2d4e-30d2abb132ee3d54
+# attr WasserGartenOff alias WasserGartenOff
+# attr WasserGartenOff do always
+# attr WasserGartenOff room Aussen
+# attr WasserGartenOff wait [WasserAutoOffTimer:state]
+
+define GartenBeleuchtung structure room Switch_Shelly12 Switch_Shelly13
+setuuid GartenBeleuchtung 631f0568-f33f-9d3c-4a0e-146a0ba84e2af2b2
+attr GartenBeleuchtung alias GartenBeleuchtung
+attr GartenBeleuchtung async_delay 2
+attr GartenBeleuchtung room Garten
+
+define GartenBeleuchtung_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}]) (set GartenBeleuchtung on)
+setuuid GartenBeleuchtung_ON_DOIF 631f0568-f33f-9d3c-0e00-4205f60a46b82bcf
+attr GartenBeleuchtung_ON_DOIF alias GartenBeleuchtung_ON_DOIF
+attr GartenBeleuchtung_ON_DOIF do always
+attr GartenBeleuchtung_ON_DOIF room Garten,Licht
+
+define GartenBeleuchtung_OFF_DOIF DOIF ([22:00]) (set GartenBeleuchtung off)
+setuuid GartenBeleuchtung_OFF_DOIF 631f0568-f33f-9d3c-ecbf-5e15f8bbc34a96e2
+attr GartenBeleuchtung_OFF_DOIF alias GartenBeleuchtung_OFF_DOIF
+attr GartenBeleuchtung_OFF_DOIF do always
+attr GartenBeleuchtung_OFF_DOIF room Garten,Licht
+
+define Skimmer_ON_DOIF DOIF ([17:00]) (set Switch_Shelly16 on)
+setuuid Skimmer_ON_DOIF 69a07c5d-f33f-9d3c-e5aa-3d3a21b18d20eb16
+attr Skimmer_ON_DOIF alias Skimmer_ON_DOIF
+attr Skimmer_ON_DOIF do always
+attr Skimmer_ON_DOIF room Garten
+
+define Skimmer_OFF_DOIF DOIF ([18:00]) (set Switch_Shelly16 off)
+setuuid Skimmer_OFF_DOIF 69a07c5d-f33f-9d3c-ad22-9c7d125d342a5ff0
+attr Skimmer_OFF_DOIF alias Skimmer_OFF_DOIF
+attr Skimmer_OFF_DOIF do always
+attr Skimmer_OFF_DOIF room Garten
+
+define Skimmer_HighTemp DOIF ( [AussenTempSens1_T1:temperature] > 28) (set Switch_Shelly16 on) DOELSE (set Switch_Shelly16 off)
+setuuid Skimmer_HighTemp 631f0568-f33f-9d3c-8ef1-ab4e029653bbbcc8
+attr Skimmer_HighTemp alias Skimmer_HighTemp
+attr Skimmer_HighTemp room Garten
+attr Skimmer_HighTemp wait 600:600
+# attr Skimmer_HighTemp do always
+
+define UV_ON_DOIF DOIF ([09:00]) (set Switch_Shelly14 on)
+setuuid UV_ON_DOIF 69a07c5d-f33f-9d3c-976c-cb6ca1a686abd32d
+attr UV_ON_DOIF alias UV_ON_DOIF
+attr UV_ON_DOIF do always
+attr UV_ON_DOIF room Garten
+
+define UV_OFF_DOIF DOIF ([22:00]) (set Switch_Shelly14 off)
+setuuid UV_OFF_DOIF 69a07c5d-f33f-9d3c-6b73-44bfde55d735a3bd
+attr UV_OFF_DOIF alias UV_OFF_DOIF
+attr UV_OFF_DOIF do always
+attr UV_OFF_DOIF room Garten
+
+
+define Teichlicht_ON_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}]) (set Switch_Shelly15 on)
+setuuid Teichlicht_ON_DOIF 631f0568-f33f-9d3c-008e-d9efaa078b2a0ca1
+attr Teichlicht_ON_DOIF alias Teichlicht_ON_DOIF
+attr Teichlicht_ON_DOIF do always
+attr Teichlicht_ON_DOIF room Garten
+
+define Teichlicht_OFF_DOIF DOIF ([22:00]) (set Switch_Shelly15 off)
+setuuid Teichlicht_OFF_DOIF 631f0568-f33f-9d3c-c795-499455cabac86915
+attr Teichlicht_OFF_DOIF alias Teichlicht_OFF_DOIF
+attr Teichlicht_OFF_DOIF do always
+attr Teichlicht_OFF_DOIF room Garten
+
+define Brunnen_Vorbeet_ON1_DOIF DOIF ([08:00]) (set Switch_Shelly1 on)
+setuuid Brunnen_Vorbeet_ON1_DOIF 69ad9e4e-f33f-9d3c-d275-7b51dd90b81cec6a
+attr Brunnen_Vorbeet_ON1_DOIF alias Brunnen_Vorbeet_ON1_DOIF
+
+define Brunnen_Vorbeet_OFF1_DOIF DOIF ([10:00]) (set Switch_Shelly1 off)
+setuuid Brunnen_Vorbeet_OFF1_DOIF 6441834d-f33f-9d3c-e083-b863104dd6b14c7f
+attr Brunnen_Vorbeet_OFF1_DOIF alias Brunnen_Vorbeet_OFF1_DOIF
+attr Brunnen_Vorbeet_OFF1_DOIF do always
+attr Brunnen_Vorbeet_OFF1_DOIF room Garten
+
+define Brunnen_Vorbeet_ON2_DOIF DOIF ([15:00]) (set Switch_Shelly1 on)
+setuuid Brunnen_Vorbeet_ON2_DOIF 69ad9e4e-f33f-9d3c-9f21-a25fd06db78f08c6
+attr Brunnen_Vorbeet_ON2_DOIF alias Brunnen_Vorbeet_ON2_DOIF
+
+define Brunnen_Vorbeet_OFF2_DOIF DOIF ([21:00]) (set Switch_Shelly1 off)
+setuuid Brunnen_Vorbeet_OFF2_DOIF 6441834e-f33f-9d3c-868c-e534ae20b3a44369
+attr Brunnen_Vorbeet_OFF2_DOIF alias Brunnen_Vorbeet_OFF2_DOIF
+attr Brunnen_Vorbeet_OFF2_DOIF do always
+attr Brunnen_Vorbeet_OFF2_DOIF room Garten
+
+define Steelenlicht_ON_ABENDS_DOIF DOIF ([{sunset("HORIZON=1.0",0,"17:00","21:00")}]) (set Switch_Shelly23 on)
+setuuid Steelenlicht_ON_ABENDS_DOIF 6a9a702d-f33f-9d3c-f4bc-c12e54bc60340e31
+attr Steelenlicht_ON_ABENDS_DOIF alias Steelenlicht_ON_ABENDS_DOIF
+attr Steelenlicht_ON_ABENDS_DOIF do always
+attr Steelenlicht_ON_ABENDS_DOIF room Garten
+
+define Steelenlicht_OFF_ABENDS_DOIF DOIF ([23:59]) (set Switch_Shelly23 off)
+setuuid Steelenlicht_OFF_ABENDS_DOIF 6a9a702d-f33f-9d3c-4cd7-8e3798103f835a05
+attr Steelenlicht_OFF_ABENDS_DOIF alias Steelenlicht_OFF_ABENDS_DOIF
+attr Steelenlicht_OFF_ABENDS_DOIF do always
+attr Steelenlicht_OFF_ABENDS_DOIF room Garten
+
+define Steelenlicht_ON_MORGENS_DOIF DOIF ([05:50]) (set Switch_Shelly23 on)
+setuuid Steelenlicht_ON_MORGENS_DOIF 6a9a702d-f33f-9d3c-96f1-1dddb5391feede0f
+attr Steelenlicht_ON_MORGENS_DOIF alias Steelenlicht_ON_MORGENS_DOIF
+attr Steelenlicht_ON_MORGENS_DOIF do always
+attr Steelenlicht_ON_MORGENS_DOIF room Garten
+
+define Steelenlicht_OFF_MORGENS_DOIF DOIF ([{sunrise("HORIZON=1.0",0,"07:00","09:00")}]) (set Switch_Shelly23 off)
+setuuid Steelenlicht_OFF_MORGENS_DOIF 6a9a702d-f33f-9d3c-f418-b682314cee5b1003
+attr Steelenlicht_OFF_MORGENS_DOIF alias Steelenlicht_OFF_MORGENS_DOIF
+attr Steelenlicht_OFF_MORGENS_DOIF do always
