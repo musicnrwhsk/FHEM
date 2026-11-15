@@ -1,0 +1,297 @@
+define HeizungSteuerung dummy
+setuuid HeizungSteuerung 5ed53ef5-f33f-9d3c-9c9a-d6fcb07bd0ca0b0d
+attr HeizungSteuerung alias HeizungSteuerung
+attr HeizungSteuerung room Heizung
+
+define Buero_heizung CUL_HM 513183
+setuuid Buero_heizung 5c77fe97-f33f-9d3c-f6e2-5010cd9d780c1ace
+attr Buero_heizung .mId 0095
+attr Buero_heizung IOgrp VCCU:myHmUART
+attr Buero_heizung actCycle 000:10
+attr Buero_heizung actStatus alive
+attr Buero_heizung alias Buero_heizung
+attr Buero_heizung autoReadReg 4_reqStatus
+attr Buero_heizung expert defReg,rawReg
+attr Buero_heizung firmware 1.4
+attr Buero_heizung model HM-CC-RT-DN
+attr Buero_heizung room Buero,CUL_HM,ioBroker
+attr Buero_heizung serialNr NEQ1520020
+attr Buero_heizung subType thermostat
+attr Buero_heizung webCmd getConfig:clear msgEvents:burstXmit
+define FileLog_Buero_heizung FileLog ./log/Buero_heizung-%Y.log Buero_heizung
+setuuid FileLog_Buero_heizung 5c77fe97-f33f-9d3c-03da-62eb9ed4150c7c4c
+attr FileLog_Buero_heizung alias FileLog_Buero_heizung
+attr FileLog_Buero_heizung logtype text
+attr FileLog_Buero_heizung room CUL_HM
+define Buero_heizung_Weather CUL_HM 51318301
+setuuid Buero_heizung_Weather 5c77fe97-f33f-9d3c-8a83-8a1e21117a642c46
+attr Buero_heizung_Weather alias Buero_heizung_Weather
+attr Buero_heizung_Weather model HM-CC-RT-DN
+attr Buero_heizung_Weather peerIDs 00000000
+define Buero_heizung_Climate CUL_HM 51318302
+setuuid Buero_heizung_Climate 5c77fe97-f33f-9d3c-6d32-919abc1b485c17dd
+attr Buero_heizung_Climate alias Buero_heizung_Climate
+attr Buero_heizung_Climate model HM-CC-RT-DN
+attr Buero_heizung_Climate peerIDs 00000000
+define Buero_heizung_WindowRec CUL_HM 51318303
+setuuid Buero_heizung_WindowRec 5c77fe97-f33f-9d3c-c1ad-28073a2b3ac20d5e
+attr Buero_heizung_WindowRec alias Buero_heizung_WindowRec
+attr Buero_heizung_WindowRec model HM-CC-RT-DN
+attr Buero_heizung_WindowRec peerIDs 00000000
+attr Buero_heizung_WindowRec stateFormat last:trigLast
+define Buero_heizung_Clima CUL_HM 51318304
+setuuid Buero_heizung_Clima 5c77fe97-f33f-9d3c-fa10-9af78f70f057d12f
+attr Buero_heizung_Clima alias Büro Temperatur
+attr Buero_heizung_Clima model HM-CC-RT-DN
+attr Buero_heizung_Clima peerIDs 00000000
+attr Buero_heizung_Clima room Buero,ioBroker
+define Buero_heizung_ClimaTeam CUL_HM 51318305
+setuuid Buero_heizung_ClimaTeam 5c77fe97-f33f-9d3c-380c-e4297030ad2187b8
+attr Buero_heizung_ClimaTeam alias Buero_heizung_ClimaTeam
+attr Buero_heizung_ClimaTeam model HM-CC-RT-DN
+attr Buero_heizung_ClimaTeam peerIDs 00000000
+define Buero_heizung_remote CUL_HM 51318306
+setuuid Buero_heizung_remote 5c77fe97-f33f-9d3c-c3b5-a802b866c49d0a42
+attr Buero_heizung_remote alias Buero_heizung_remote
+attr Buero_heizung_remote model HM-CC-RT-DN
+attr Buero_heizung_remote peerIDs 00000000
+define ActionDetector CUL_HM 000000
+setuuid ActionDetector 5c77fe97-f33f-9d3c-f9eb-a9082a44013dfdbd
+attr ActionDetector .mId no
+attr ActionDetector alias ActionDetector
+attr ActionDetector event-on-change-reading .*
+attr ActionDetector model ACTIONDETECTOR
+attr ActionDetector subType no
+
+define BueroFrank_heizung CUL_HM 76EBE1
+setuuid BueroFrank_heizung 61e14627-f33f-9d3c-e950-9944d4f5a7e9f582
+attr BueroFrank_heizung .mId 0095
+attr BueroFrank_heizung IOgrp VCCU:myHmUART
+attr BueroFrank_heizung actCycle 000:10
+attr BueroFrank_heizung actStatus alive
+attr BueroFrank_heizung alias BueroFrank_heizung
+attr BueroFrank_heizung autoReadReg 4_reqStatus
+attr BueroFrank_heizung expert rawReg
+attr BueroFrank_heizung firmware 1.5
+attr BueroFrank_heizung model HM-CC-RT-DN
+attr BueroFrank_heizung room CUL_HM,ioBroker
+attr BueroFrank_heizung serialNr SEQ2852616
+attr BueroFrank_heizung subType thermostat
+attr BueroFrank_heizung webCmd getConfig:clear msgEvents:burstXmit
+define FileLog_BueroFrank_heizung FileLog ./log/HM_76EBE1-%Y.log HM_76EBE1
+setuuid FileLog_BueroFrank_heizung 61e14627-f33f-9d3c-5f80-1db34ce5eeee6dcb
+attr FileLog_BueroFrank_heizung alias FileLog_BueroFrank_heizung
+attr FileLog_BueroFrank_heizung logtype text
+attr FileLog_BueroFrank_heizung room CUL_HM
+define BueroFrank_heizung_Weather CUL_HM 76EBE101
+setuuid BueroFrank_heizung_Weather 61e14627-f33f-9d3c-45a2-a5dbf5255034a99e
+attr BueroFrank_heizung_Weather alias BueroFrank_heizung_Weather
+attr BueroFrank_heizung_Weather model HM-CC-RT-DN
+attr BueroFrank_heizung_Weather peerIDs 00000000
+define BueroFrank_heizung_Climate CUL_HM 76EBE102
+setuuid BueroFrank_heizung_Climate 61e14627-f33f-9d3c-1b0b-f97c93ffb36f1529
+attr BueroFrank_heizung_Climate alias BueroFrank_heizung_Climate
+attr BueroFrank_heizung_Climate model HM-CC-RT-DN
+attr BueroFrank_heizung_Climate peerIDs 00000000
+define BueroFrank_heizung_WindowRec CUL_HM 76EBE103
+setuuid BueroFrank_heizung_WindowRec 61e14627-f33f-9d3c-b63e-da49ccc50e6aa0c9
+attr BueroFrank_heizung_WindowRec alias BueroFrank_heizung_WindowRec
+attr BueroFrank_heizung_WindowRec model HM-CC-RT-DN
+attr BueroFrank_heizung_WindowRec peerIDs 00000000
+attr BueroFrank_heizung_WindowRec stateFormat last:trigLast
+define BueroFrank_heizung_Clima CUL_HM 76EBE104
+setuuid BueroFrank_heizung_Clima 61e14627-f33f-9d3c-4290-9034997da595a2ed
+attr BueroFrank_heizung_Clima alias BüroFrank Temperatur
+attr BueroFrank_heizung_Clima model HM-CC-RT-DN
+attr BueroFrank_heizung_Clima peerIDs 00000000
+define BueroFrank_heizung_ClimaTeam CUL_HM 76EBE105
+setuuid BueroFrank_heizung_ClimaTeam 61e14627-f33f-9d3c-e096-3179473c6d491b84
+attr BueroFrank_heizung_ClimaTeam alias BueroFrank_heizung_ClimaTeam
+attr BueroFrank_heizung_ClimaTeam model HM-CC-RT-DN
+attr BueroFrank_heizung_ClimaTeam peerIDs 00000000
+define BueroFrank_heizung_remote CUL_HM 76EBE106
+setuuid BueroFrank_heizung_remote 61e14627-f33f-9d3c-3d8c-b6ee018d6b114b09
+attr BueroFrank_heizung_remote alias BueroFrank_heizung_remote
+attr BueroFrank_heizung_remote model HM-CC-RT-DN
+attr BueroFrank_heizung_remote peerIDs 00000000
+
+
+define Kueche_heizung CUL_HM 422E14
+setuuid Kueche_heizung 5c77fe97-f33f-9d3c-95aa-fcf0607165aea40e
+attr Kueche_heizung .mId 0095
+attr Kueche_heizung IOgrp VCCU:myHmUART
+attr Kueche_heizung actCycle 000:10
+attr Kueche_heizung actStatus alive
+attr Kueche_heizung alias Kueche_heizung
+attr Kueche_heizung autoReadReg 4_reqStatus
+attr Kueche_heizung expert defReg,rawReg
+attr Kueche_heizung firmware 1.4
+attr Kueche_heizung model HM-CC-RT-DN
+attr Kueche_heizung room CUL_HM,Heizung,Kueche,ioBroker
+attr Kueche_heizung serialNr MEQ1514579
+attr Kueche_heizung subType thermostat
+attr Kueche_heizung webCmd getConfig:clear msgEvents:burstXmit
+define FileLog_Kueche_heizung FileLog ./log/Kueche_heizung-%Y.log Kueche_heizung
+setuuid FileLog_Kueche_heizung 5c77fe97-f33f-9d3c-3097-234c1681e61df64e
+attr FileLog_Kueche_heizung alias FileLog_Kueche_heizung
+attr FileLog_Kueche_heizung logtype text
+attr FileLog_Kueche_heizung room CUL_HM
+define Kueche_heizung_Weather CUL_HM 422E1401
+setuuid Kueche_heizung_Weather 5c77fe97-f33f-9d3c-6838-f0334505e7b5af04
+attr Kueche_heizung_Weather alias Kueche_heizung_Weather
+attr Kueche_heizung_Weather model HM-CC-RT-DN
+attr Kueche_heizung_Weather peerIDs 00000000
+define Kueche_heizung_Climate CUL_HM 422E1402
+setuuid Kueche_heizung_Climate 5c77fe97-f33f-9d3c-abea-39f8a1e5aee35bf5
+attr Kueche_heizung_Climate alias Kueche_heizung_Climate
+attr Kueche_heizung_Climate model HM-CC-RT-DN
+attr Kueche_heizung_Climate peerIDs 00000000
+define Kueche_heizung_WindowRec CUL_HM 422E1403
+setuuid Kueche_heizung_WindowRec 5c77fe97-f33f-9d3c-ce15-f184e3a63fdf9535
+attr Kueche_heizung_WindowRec alias Kueche_heizung_WindowRec
+attr Kueche_heizung_WindowRec model HM-CC-RT-DN
+attr Kueche_heizung_WindowRec peerIDs 00000000
+attr Kueche_heizung_WindowRec stateFormat last:trigLast
+define Kueche_heizung_Clima CUL_HM 422E1404
+setuuid Kueche_heizung_Clima 5c77fe97-f33f-9d3c-5f68-7a1690e6113f28e7
+attr Kueche_heizung_Clima alias Küche Temperatur
+attr Kueche_heizung_Clima model HM-CC-RT-DN
+attr Kueche_heizung_Clima peerIDs 00000000
+attr Kueche_heizung_Clima room Kueche,ioBroker
+define Kueche_heizung_ClimaTeam CUL_HM 422E1405
+setuuid Kueche_heizung_ClimaTeam 5c77fe97-f33f-9d3c-2120-3a1ca25a6b11fd3f
+attr Kueche_heizung_ClimaTeam alias Kueche_heizung_ClimaTeam
+attr Kueche_heizung_ClimaTeam model HM-CC-RT-DN
+attr Kueche_heizung_ClimaTeam peerIDs 00000000
+define Kueche_heizung_remote CUL_HM 422E1406
+setuuid Kueche_heizung_remote 5c77fe97-f33f-9d3c-d08d-698995bcd4710295
+attr Kueche_heizung_remote alias Kueche_heizung_remote
+attr Kueche_heizung_remote model HM-CC-RT-DN
+attr Kueche_heizung_remote peerIDs 00000000
+
+
+define Bad_heizung CUL_HM 3A28E2
+setuuid Bad_heizung 5c77fe97-f33f-9d3c-20ba-8a754a9759110a09
+attr Bad_heizung .mId 0095
+attr Bad_heizung IOgrp VCCU:myHmUART
+attr Bad_heizung actCycle 000:10
+attr Bad_heizung actStatus alive
+attr Bad_heizung alias Bad_heizung
+attr Bad_heizung autoReadReg 4_reqStatus
+attr Bad_heizung expert defReg,rawReg
+attr Bad_heizung firmware 1.4
+attr Bad_heizung model HM-CC-RT-DN
+attr Bad_heizung room Bad,CUL_HM,ioBroker
+attr Bad_heizung serialNr MEQ0550987
+attr Bad_heizung subType thermostat
+attr Bad_heizung webCmd getConfig:clear msgEvents:burstXmit
+define FileLog_Bad_heizung FileLog ./log/Bad_heizung-%Y.log Bad_heizung
+setuuid FileLog_Bad_heizung 5c77fe97-f33f-9d3c-9b6c-17a37cf8af83a7d1
+attr FileLog_Bad_heizung alias FileLog_Bad_heizung
+attr FileLog_Bad_heizung logtype text
+attr FileLog_Bad_heizung room CUL_HM
+define Bad_heizung_Weather CUL_HM 3A28E201
+setuuid Bad_heizung_Weather 5c77fe97-f33f-9d3c-5ef4-1dccc5156835bb79
+attr Bad_heizung_Weather alias Bad_heizung_Weather
+attr Bad_heizung_Weather model HM-CC-RT-DN
+attr Bad_heizung_Weather peerIDs 00000000
+attr Bad_heizung_Weather room ioBroker
+define Bad_heizung_Climate CUL_HM 3A28E202
+setuuid Bad_heizung_Climate 5c77fe97-f33f-9d3c-6429-d08945e1faa73592
+attr Bad_heizung_Climate alias Bad_heizung_Climate
+attr Bad_heizung_Climate model HM-CC-RT-DN
+attr Bad_heizung_Climate peerIDs 00000000
+define Bad_heizung_WindowRec CUL_HM 3A28E203
+setuuid Bad_heizung_WindowRec 5c77fe97-f33f-9d3c-cafc-f52a0f8255f435fb
+attr Bad_heizung_WindowRec alias Bad_heizung_WindowRec
+attr Bad_heizung_WindowRec model HM-CC-RT-DN
+attr Bad_heizung_WindowRec peerIDs 00000000
+attr Bad_heizung_WindowRec stateFormat last:trigLast
+define Bad_heizung_Clima CUL_HM 3A28E204
+setuuid Bad_heizung_Clima 5c77fe97-f33f-9d3c-dae3-1ad48d62a3ae4b19
+attr Bad_heizung_Clima alias Bad Temperatur
+attr Bad_heizung_Clima model HM-CC-RT-DN
+attr Bad_heizung_Clima peerIDs 00000000
+attr Bad_heizung_Clima room Bad,ioBroker
+define Bad_heizung_ClimaTeam CUL_HM 3A28E205
+setuuid Bad_heizung_ClimaTeam 5c77fe97-f33f-9d3c-0c26-eae9f72f37402e3b
+attr Bad_heizung_ClimaTeam alias Bad_heizung_ClimaTeam
+attr Bad_heizung_ClimaTeam model HM-CC-RT-DN
+attr Bad_heizung_ClimaTeam peerIDs 00000000
+define Bad_heizung_remote CUL_HM 3A28E206
+setuuid Bad_heizung_remote 5c77fe97-f33f-9d3c-8b67-911b529f00a0d6c5
+attr Bad_heizung_remote alias Bad_heizung_remote
+attr Bad_heizung_remote model HM-CC-RT-DN
+attr Bad_heizung_remote peerIDs 00000000
+
+
+define Wohnzimmer_heizung CUL_HM 3A38ED
+setuuid Wohnzimmer_heizung 5c77fe97-f33f-9d3c-892b-b130b99970662196
+attr Wohnzimmer_heizung .mId 0095
+attr Wohnzimmer_heizung IOgrp VCCU:myHmUART
+attr Wohnzimmer_heizung actCycle 000:10
+attr Wohnzimmer_heizung actStatus alive
+attr Wohnzimmer_heizung alias Wohnzimmer_heizung
+attr Wohnzimmer_heizung autoReadReg 4_reqStatus
+attr Wohnzimmer_heizung expert defReg,rawReg
+attr Wohnzimmer_heizung firmware 1.4
+attr Wohnzimmer_heizung model HM-CC-RT-DN
+attr Wohnzimmer_heizung room CUL_HM,Wohnzimmer,ioBroker
+attr Wohnzimmer_heizung serialNr MEQ0558530
+attr Wohnzimmer_heizung subType thermostat
+attr Wohnzimmer_heizung webCmd getConfig:clear msgEvents:burstXmit
+define FileLog_Wohnzimmer_heizung FileLog ./log/Wohnzimmer_heizung-%Y.log Wohnzimmer_heizung
+setuuid FileLog_Wohnzimmer_heizung 5c77fe97-f33f-9d3c-e021-57632f858676e75b
+attr FileLog_Wohnzimmer_heizung alias FileLog_Wohnzimmer_heizung
+attr FileLog_Wohnzimmer_heizung logtype text
+attr FileLog_Wohnzimmer_heizung room CUL_HM
+define Wohnzimmer_heizung_Weather CUL_HM 3A38ED01
+setuuid Wohnzimmer_heizung_Weather 5c77fe97-f33f-9d3c-eae4-7006bee90f92d7ca
+attr Wohnzimmer_heizung_Weather alias Wohnzimmer_heizung_Weather
+attr Wohnzimmer_heizung_Weather model HM-CC-RT-DN
+attr Wohnzimmer_heizung_Weather peerIDs 00000000
+define Wohnzimmer_heizung_Climate CUL_HM 3A38ED02
+setuuid Wohnzimmer_heizung_Climate 5c77fe97-f33f-9d3c-d915-d549bfa28961cc51
+attr Wohnzimmer_heizung_Climate alias Wohnzimmer_heizung_Climate
+attr Wohnzimmer_heizung_Climate model HM-CC-RT-DN
+attr Wohnzimmer_heizung_Climate peerIDs 00000000
+define Wohnzimmer_heizung_WindowRec CUL_HM 3A38ED03
+setuuid Wohnzimmer_heizung_WindowRec 5c77fe97-f33f-9d3c-1ae6-0d0d3079901e4d68
+attr Wohnzimmer_heizung_WindowRec alias Wohnzimmer_heizung_WindowRec
+attr Wohnzimmer_heizung_WindowRec model HM-CC-RT-DN
+attr Wohnzimmer_heizung_WindowRec peerIDs 00000000
+attr Wohnzimmer_heizung_WindowRec stateFormat last:trigLast
+define Wohnzimmer_heizung_Clima CUL_HM 3A38ED04
+setuuid Wohnzimmer_heizung_Clima 5c77fe97-f33f-9d3c-7ce9-9dab6a74c4aec6a3
+attr Wohnzimmer_heizung_Clima alias Wohnzimmer Temperatur
+attr Wohnzimmer_heizung_Clima model HM-CC-RT-DN
+attr Wohnzimmer_heizung_Clima peerIDs 00000000
+attr Wohnzimmer_heizung_Clima room Wohnzimmer,ioBroker
+define Wohnzimmer_heizung_ClimaTeam CUL_HM 3A38ED05
+setuuid Wohnzimmer_heizung_ClimaTeam 5c77fe97-f33f-9d3c-eda3-26b5997cb3e5a9db
+attr Wohnzimmer_heizung_ClimaTeam alias Wohnzimmer_heizung_ClimaTeam
+attr Wohnzimmer_heizung_ClimaTeam model HM-CC-RT-DN
+attr Wohnzimmer_heizung_ClimaTeam peerIDs 00000000
+define Wohnzimmer_heizung_remote CUL_HM 3A38ED06
+setuuid Wohnzimmer_heizung_remote 5c77fe97-f33f-9d3c-539f-a85b1543f3ac66a8
+attr Wohnzimmer_heizung_remote alias Wohnzimmer_heizung_remote
+attr Wohnzimmer_heizung_remote model HM-CC-RT-DN
+attr Wohnzimmer_heizung_remote peerIDs 00000000
+
+define hm HMinfo
+setuuid hm 5c77fe97-f33f-9d3c-f7ae-f0a225a9f26c27f3
+attr hm alias hm
+attr hm configDir FHEM
+attr hm configTempFile UrlaubIn.cfg,Arbeitstag.cfg,HomeOffice.cfg,UrlaubOut.cfg
+attr hm room System,CUL_HM
+attr hm sumERROR battery:ok,sabotageError:off,powerError:ok,overload:off,overheat:off,reduced:off,motorErr:ok,error:none,uncertain: [no|yes],smoke_detect:none,cover:closed
+attr hm sumStatus battery,sabotageError,powerError,motor
+attr hm webCmd update:protoEvents short:rssi:peerXref:configCheck:models
+# set hm tempList save
+
+# Heizpläne abhängig vom Homestatus zuweisen
+define Heizung_steuern DOIF ([HomeStatus:state] eq "home_home" and [HeizungSteuerung:state] eq "on") (set Wohnzimmer_heizung_Clima controlMode auto) (set Buero_heizung_Clima controlMode auto) (set BueroFrank_heizung_Clima controlMode auto) (set Kueche_heizung_Clima controlMode auto) (set Bad_heizung_Clima controlMode auto) (attr hm configTempFile UrlaubIn.cfg,Arbeitstag.cfg,UrlaubOut.cfg) (set hm tempListG restore) DOELSEIF ([HomeStatus:state] eq "home_work" and [HeizungSteuerung:state] eq "on") (set Wohnzimmer_heizung_Clima controlMode auto) (set Buero_heizung_Clima controlMode auto) (set BueroFrank_heizung_Clima controlMode auto) (set Kueche_heizung_Clima controlMode auto) (set Bad_heizung_Clima controlMode auto) (attr hm configTempFile HomeOffice.cfg,UrlaubIn.cfg,UrlaubOut.cfg) (set hm tempListG restore) DOELSEIF ([HomeStatus:state] eq "away" and [HeizungSteuerung:state] eq "on") (set Wohnzimmer_heizung_Clima controlMode auto) (set Buero_heizung_Clima controlMode auto) (set BueroFrank_heizung_Clima controlMode auto) (set Kueche_heizung_Clima controlMode auto) (set Bad_heizung_Clima controlMode auto) (attr hm configTempFile UrlaubOut.cfg,Arbeitstag.cfg,UrlaubIn.cfg) (set hm tempListG restore)
+setuuid Heizung_steuern 5ed53ef5-f33f-9d3c-f325-00bdcf02b138d2ac
+attr Heizung_steuern userattr do always
+attr Heizung_steuern alias Heizung_steuern
+attr Heizung_steuern room Heizung
