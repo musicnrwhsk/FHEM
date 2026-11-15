@@ -1,0 +1,697 @@
+attr global userattr cmdIcon devStateIcon devStateIcon:textField-long devStateStyle icon sortby webCmd webCmdLabel:textField-long widgetOverride
+attr global alias global
+attr global autoload_undefined_devices 1
+attr global autosave 0
+attr global holiday2we NRW
+attr global latitude 51.46410
+attr global logfile ./log/fhem-%Y-%m-%d.log
+attr global longitude 7.90685
+attr global modpath .
+attr global motd SecurityCheck:\
+  telnetPort is not password protected\
+  MagicM is not password protected\
+\
+Protect this FHEM installation by configuring the allowed device allowed_WEB\
+You can disable this message with attr global motd none
+attr global statefile ./log/fhem.save
+attr global updateInBackground 1
+attr global verbose 2
+# attr global motd Messages collected while initializing FHEM:
+
+define MagicM FHEMWEB 8086 global
+setuuid MagicM 5c77fe90-f33f-9d3c-fa90-e8fc7cea7f232d27
+attr MagicM alias MagicM
+attr MagicM allowfrom 192.168.178.68
+attr MagicM csrfToken none
+
+
+
+define Logfile FileLog ./log/fhem-%Y-%m-%d.log fakelog
+setuuid Logfile 5c77fe90-f33f-9d3c-5889-d88932ffe6aa0d32
+attr Logfile alias Logfile
+attr Logfile archivedir Old_Logs
+
+define NRW holiday
+setuuid NRW 5c77fe90-f33f-9d3c-04d3-4a21162b1323d35c
+attr NRW alias NRW
+attr NRW room Kalender
+define telnetPort telnet 7072 global
+setuuid telnetPort 5c77fe90-f33f-9d3c-aba6-e9981a6d801c183b
+attr telnetPort alias telnetPort
+
+# Backup machen
+# define AT_Backup DOIF ([23:59:30|0]) (backup)
+# setuuid AT_Backup 5c77fe90-f33f-9d3c-8805-8ef7a0a1b6d47cd8
+# define AT_Backup at *23:59:00 backup
+
+
+define WEB FHEMWEB 8083 global
+setuuid WEB 5c77fe90-f33f-9d3c-0483-da622c0231b1dfe6
+attr WEB alias WEB
+attr WEB confirmDelete 0
+attr WEB editConfig 1
+attr WEB longpoll websocket
+attr WEB stylesheetPrefix dark
+define allowed_WEB allowed
+setuuid allowed_WEB 5c77fe90-f33f-9d3c-428b-c2e602d5ecb63300
+attr allowed_WEB alias allowed_WEB
+attr allowed_WEB basicAuth dGhvbWFzOmJyYXNzMDEx
+attr allowed_WEB validFor WEB
+
+define WEBmm FHEMWEB 8087 global
+setuuid WEBmm 604f39b3-f33f-9d3c-3c36-bc44cf074092c02c
+attr WEBmm alias WEBmm
+attr WEBmm allowfrom 192.168.178.34|127.0.0.1
+attr WEBmm csrfToken none
+
+define WEBphone FHEMWEB 8084 global
+setuuid WEBphone 5c77fe90-f33f-9d3c-9357-61bc4a1182bf9d29
+attr WEBphone alias WEBphone
+attr WEBphone stylesheetPrefix smallscreen
+define allowed_WEBphone allowed
+setuuid allowed_WEBphone 5c77fe90-f33f-9d3c-9b0d-538ac711b9630df7
+attr allowed_WEBphone alias allowed_WEBphone
+attr allowed_WEBphone basicAuth dGhvbWFzOmJyYXNzMDEx
+attr allowed_WEBphone validFor WEBphone
+
+define WEBtablet FHEMWEB 8085 global
+setuuid WEBtablet 5c77fe90-f33f-9d3c-6c03-8045e6ca847279e7
+attr WEBtablet alias WEBtablet
+attr WEBtablet stylesheetPrefix touchpad
+define allowed_WEBtablet allowed
+setuuid allowed_WEBtablet 5c77fe90-f33f-9d3c-f2a9-07750546904ca19d
+attr allowed_WEBtablet alias allowed_WEBtablet
+attr allowed_WEBtablet basicAuth dGhvbWFzOmJyYXNzMDEx
+attr allowed_WEBtablet validFor WEBtablet
+
+# Fake FileLog entry, to access the fhem log from FHEMWEB 
+
+# Dummy definieren als Zuhause-Erkennung 
+define dummy_Anwesend dummy
+setuuid dummy_Anwesend 5c77fe90-f33f-9d3c-38ef-0027e48a5e6c130d
+attr dummy_Anwesend alias dummy_Anwesend
+attr dummy_Anwesend devStateIcon on:Anwesend off:Abwesend
+attr dummy_Anwesend eventMap 1
+attr dummy_Anwesend room System
+
+
+define autocreate autocreate
+setuuid autocreate 5c77fe90-f33f-9d3c-af73-3c181c93d5d83030
+attr autocreate alias autocreate
+attr autocreate filelog ./log/%NAME-%Y.log
+attr autocreate ignoreTypes CUL_TCM97*|CUL_HOERMANN*|IT_0*|CUL_TX_*|TCM97*|CUL_F*|FHT*|IT_15*|IT_V3*|FS20*|HM_41*
+
+define eventTypes eventTypes ./log/eventTypes.txt
+setuuid eventTypes 5c77fe90-f33f-9d3c-5303-c4a731a99b275eb8
+attr eventTypes alias eventTypes
+
+
+# Disable this to avoid looking for new USB devices on startup
+# define initialUsbCheck notify global:INITIALIZED usb create
+# setuuid initialUsbCheck 5c77fe90-f33f-9d3c-9ddb-9c545bc286d0e8a6
+
+
+define CUL868 CUL /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A9M9DV3R-if00-port0@38400 0000
+setuuid CUL868 5c77fe93-f33f-9d3c-833c-a254a4f20217faca
+attr CUL868 alias CUL868
+attr CUL868 hmId AABBCC
+attr CUL868 rfmode HomeMatic
+
+
+define TABLETUI HTTPSRV ftui/ ./www/tablet Tablet-UI
+setuuid TABLETUI 5c77fe96-f33f-9d3c-2a8d-846bec9cb477f2a5
+attr TABLETUI alias TABLETUI
+
+define rgBatterieStatus readingsGroup .*:[bB]attery
+setuuid rgBatterieStatus 5c77fe96-f33f-9d3c-2f29-86687d9be485679d
+attr rgBatterieStatus alias rgBatterieStatus
+
+include /opt/fhem/FHEM/Steckdosen_neu.cfg
+include /opt/fhem/FHEM/Heizung_neu.cfg
+include /opt/fhem/FHEM/Rolladen.cfg
+include /opt/fhem/FHEM/Sensoren_neu.cfg
+include /opt/fhem/FHEM/Kalenderabfragen_neu.cfg
+include /opt/fhem/FHEM/Sonoff.cfg
+include /opt/fhem/FHEM/Steckdosen_Garten.cfg
+include /opt/fhem/FHEM/Shelly.cfg
+# include /opt/fhem/FHEM/Fritzbox.cfg
+include /opt/fhem/FHEM/Steckdosen_Pflanzenlicht.cfg
+# include /opt/fhem/FHEM/Steckdosen_XMAS.cfg
+# include /opt/fhem/FHEM/Backup_neu.cfg
+# include /opt/fhem/FHEM/Test.cfg
+# include /opt/fhem/FHEM/Alarmanlage.cfg
+# include /opt/fhem/FHEM/Wetterabfragen_neu.cfg
+# include /opt/fhem/FHEM/CUL_TX.cfg
+# include /opt/fhem/FHEM/Spritpreise_neu.cfg
+
+define Kueche_KODI KODI 192.168.178.48 tcp root openelec
+setuuid Kueche_KODI 5c77fe97-f33f-9d3c-eec2-e057cb616082c6f5
+attr Kueche_KODI userattr room_map structexclude
+attr Kueche_KODI alias Kueche_KODI
+attr Kueche_KODI devStateIcon opened:rc_GREEN:on disconnected:rc_RED:off Initialized:message_socket_disabled
+attr Kueche_KODI room Kodi
+attr Kueche_KODI updateInterval 60
+
+
+define HM_68F324 CUL_HM 68F324
+setuuid HM_68F324 5c77fe97-f33f-9d3c-b104-0d97af360d6a0a27
+attr HM_68F324 .mId 0103
+attr HM_68F324 IOgrp VCCU:myHmUART
+attr HM_68F324 alias Garage_Taster
+attr HM_68F324 autoReadReg 4_reqStatus
+attr HM_68F324 expert defReg,rawReg
+attr HM_68F324 firmware 2.8
+attr HM_68F324 model HM-LC-SW1-PCB
+attr HM_68F324 peerIDs 00000000
+attr HM_68F324 room Garage
+attr HM_68F324 serialNr PEQ0663394
+attr HM_68F324 subType switch
+attr HM_68F324 webCmd statusRequest:toggle:on:off
+
+
+define espBridge ESPEasy bridge 8383
+setuuid espBridge 5cc618ce-f33f-9d3c-6324-bb9ead1f826ce974
+attr espBridge alias espBridge
+attr espBridge authentication 0
+attr espBridge combineDevices 0
+attr espBridge group ESPEasy Bridge
+attr espBridge room ESPEasy
+attr espBridge verbose 0
+
+define HM_7BE3C1 CUL_HM 7BE3C1
+setuuid HM_7BE3C1 5d278db7-f33f-9d3c-6c49-d02923f1805b2c5b
+attr HM_7BE3C1 .mId 00D4
+attr HM_7BE3C1 IOgrp VCCU:myHmUART
+attr HM_7BE3C1 alias HM_7BE3C1
+attr HM_7BE3C1 autoReadReg 4_reqStatus
+attr HM_7BE3C1 expert defReg,rawReg
+attr HM_7BE3C1 firmware 1.1
+attr HM_7BE3C1 model HM-RC-4-3
+attr HM_7BE3C1 room CUL_HM
+attr HM_7BE3C1 serialNr UEQ1887467
+attr HM_7BE3C1 subType remote
+attr HM_7BE3C1 webCmd getConfig:clear msgEvents
+define FileLog_HM_7BE3C1 FileLog ./log/HM_7BE3C1-%Y.log HM_7BE3C1
+setuuid FileLog_HM_7BE3C1 5d278db7-f33f-9d3c-5879-ebc9b0cde1dc4315
+attr FileLog_HM_7BE3C1 alias FileLog_HM_7BE3C1
+attr FileLog_HM_7BE3C1 logtype text
+attr FileLog_HM_7BE3C1 room CUL_HM
+define HM_7BE3C1_Btn_01 CUL_HM 7BE3C101
+setuuid HM_7BE3C1_Btn_01 5d278db7-f33f-9d3c-d68f-62a085e80da5966c
+attr HM_7BE3C1_Btn_01 alias HM_7BE3C1_Btn_01
+attr HM_7BE3C1_Btn_01 model HM-RC-4-3
+attr HM_7BE3C1_Btn_01 peerIDs peerUnread
+define HM_7BE3C1_Btn_02 CUL_HM 7BE3C102
+setuuid HM_7BE3C1_Btn_02 5d278db7-f33f-9d3c-290b-428dd5dcbc3c5811
+attr HM_7BE3C1_Btn_02 alias HM_7BE3C1_Btn_02
+attr HM_7BE3C1_Btn_02 model HM-RC-4-3
+define HM_7BE3C1_Btn_03 CUL_HM 7BE3C103
+setuuid HM_7BE3C1_Btn_03 5d278db7-f33f-9d3c-93a8-e9da0224dc65fc6e
+attr HM_7BE3C1_Btn_03 alias HM_7BE3C1_Btn_03
+attr HM_7BE3C1_Btn_03 model HM-RC-4-3
+define HM_7BE3C1_Btn_04 CUL_HM 7BE3C104
+setuuid HM_7BE3C1_Btn_04 5d278db7-f33f-9d3c-b9d1-3e1a058b5daa055e
+attr HM_7BE3C1_Btn_04 alias HM_7BE3C1_Btn_04
+attr HM_7BE3C1_Btn_04 model HM-RC-4-3
+
+define HomeStatus dummy
+setuuid HomeStatus 5d406d7a-f33f-9d3c-dc81-b8c9da7fdba83bda
+attr HomeStatus alias HomeStatus
+attr HomeStatus readingList # state
+attr HomeStatus setList home_home home_work away
+
+define Status_WasserGartenOn notify HM_7BE3C1_Btn_01 set Switch_Shelly20 on
+setuuid Status_WasserGartenOn 5ed53ef7-f33f-9d3c-184d-9c6c3a2081bb8739
+attr Status_WasserGartenOn alias Status_WasserGartenOn
+define Status_WasserGartenOff notify HM_7BE3C1_Btn_02 set Switch_Shelly20 off
+setuuid Status_WasserGartenOff 5ed53ef7-f33f-9d3c-9796-a70b0060b16f2d81
+attr Status_WasserGartenOff alias Status_WasserGartenOff
+
+define Status_SpringbrunnenOn notify HM_7BE3C1_Btn_03 set Switch_Shelly17 on
+setuuid Status_SpringbrunnenOn 631f0568-f33f-9d3c-cebd-ccf69f0a10d2b02d
+attr Status_SpringbrunnenOn alias Status_SpringbrunnenOn
+
+define Status_SpringbrunnenOff notify HM_7BE3C1_Btn_04 set Switch_Shelly17 off
+setuuid Status_SpringbrunnenOff 631f0568-f33f-9d3c-f49e-ec061ea27c8e8adf
+attr Status_SpringbrunnenOff alias Status_SpringbrunnenOff
+
+define WasserAutoOffTimer dummy
+setuuid WasserAutoOffTimer 5ed53ef7-f33f-9d3c-5e7b-923bfecf0d0b2a13
+attr WasserAutoOffTimer alias WasserAutoOffTimer
+
+
+define HM_00000A CUL_HM 00000A
+setuuid HM_00000A 5e5bd529-f33f-9d3c-a072-8c179a448cce58a1
+attr HM_00000A .mId no
+attr HM_00000A alias HM_00000A
+attr HM_00000A autoReadReg 4_reqStatus
+attr HM_00000A expert defReg,rawReg
+attr HM_00000A model ACTIONDETECTOR
+attr HM_00000A room CUL_HM
+attr HM_00000A subType no
+define FileLog_HM_00000A FileLog ./log/HM_00000A-%Y.log HM_00000A
+setuuid FileLog_HM_00000A 5e5bd529-f33f-9d3c-d7df-fa3427d8ade2e384
+attr FileLog_HM_00000A alias FileLog_HM_00000A
+attr FileLog_HM_00000A logtype text
+attr FileLog_HM_00000A room CUL_HM
+
+define HM_9B7872 CUL_HM 9B7872
+setuuid HM_9B7872 5e5bd529-f33f-9d3c-3d60-f99f2bc91d660a50
+attr HM_9B7872 .mId no
+attr HM_9B7872 alias HM_9B7872
+attr HM_9B7872 autoReadReg 4_reqStatus
+attr HM_9B7872 expert defReg,rawReg
+attr HM_9B7872 model ACTIONDETECTOR
+attr HM_9B7872 room CUL_HM
+attr HM_9B7872 subType no
+define FileLog_HM_9B7872 FileLog ./log/HM_9B7872-%Y.log HM_9B7872
+setuuid FileLog_HM_9B7872 5e5bd529-f33f-9d3c-2b98-5b8fe1785f40fe8a
+attr FileLog_HM_9B7872 alias FileLog_HM_9B7872
+attr FileLog_HM_9B7872 logtype text
+attr FileLog_HM_9B7872 room CUL_HM
+
+define HM_00C100 CUL_HM 00C100
+setuuid HM_00C100 5e5bd533-f33f-9d3c-7f53-136a63212ee23f26
+attr HM_00C100 .mId no
+attr HM_00C100 alias HM_00C100
+attr HM_00C100 autoReadReg 4_reqStatus
+attr HM_00C100 expert defReg,rawReg
+attr HM_00C100 model ACTIONDETECTOR
+attr HM_00C100 room CUL_HM
+attr HM_00C100 subType no
+define FileLog_HM_00C100 FileLog ./log/HM_00C100-%Y.log HM_00C100
+setuuid FileLog_HM_00C100 5e5bd533-f33f-9d3c-797f-d04b9375abfd4858
+attr FileLog_HM_00C100 alias FileLog_HM_00C100
+attr FileLog_HM_00C100 logtype text
+attr FileLog_HM_00C100 room CUL_HM
+
+define HM_C10005 CUL_HM C10005
+setuuid HM_C10005 5e5bd535-f33f-9d3c-79bb-7d08419cf2af7941
+attr HM_C10005 .mId no
+attr HM_C10005 alias HM_C10005
+attr HM_C10005 autoReadReg 4_reqStatus
+attr HM_C10005 expert defReg,rawReg
+attr HM_C10005 model ACTIONDETECTOR
+attr HM_C10005 room CUL_HM
+attr HM_C10005 subType no
+define FileLog_HM_C10005 FileLog ./log/HM_C10005-%Y.log HM_C10005
+setuuid FileLog_HM_C10005 5e5bd535-f33f-9d3c-6a4d-a76153cfb76fdd19
+attr FileLog_HM_C10005 alias FileLog_HM_C10005
+attr FileLog_HM_C10005 logtype text
+attr FileLog_HM_C10005 room CUL_HM
+
+define HM_000A8C CUL_HM 000A8C
+setuuid HM_000A8C 5e5bd535-f33f-9d3c-9183-0207a53cdfa6325e
+attr HM_000A8C .mId no
+attr HM_000A8C alias HM_000A8C
+attr HM_000A8C autoReadReg 4_reqStatus
+attr HM_000A8C expert defReg,rawReg
+attr HM_000A8C model ACTIONDETECTOR
+attr HM_000A8C room CUL_HM
+attr HM_000A8C subType no
+define FileLog_HM_000A8C FileLog ./log/HM_000A8C-%Y.log HM_000A8C
+setuuid FileLog_HM_000A8C 5e5bd535-f33f-9d3c-44d6-b147788df5b583a8
+attr FileLog_HM_000A8C alias FileLog_HM_000A8C
+attr FileLog_HM_000A8C logtype text
+attr FileLog_HM_000A8C room CUL_HM
+
+
+define VCCU CUL_HM AABBCC
+setuuid VCCU 5e70bff1-f33f-9d3c-ec49-2195890ab7e21bed
+attr VCCU .mId FFF0
+attr VCCU IOList CUL868,myHmUART
+attr VCCU IOgrp VCCU
+attr VCCU alias VCCU
+attr VCCU model CCU-FHEM
+attr VCCU subType virtual
+attr VCCU webCmd virtual:update
+
+define myHmUART HMUARTLGW /dev/ttyAMA0
+setuuid myHmUART 5e70c04f-f33f-9d3c-0aab-e0d049a2b6165fe0
+attr myHmUART alias myHmUART
+attr myHmUART hmId AABBCC
+define VCCU_Btn1 CUL_HM AABBCC01
+setuuid VCCU_Btn1 5e70f7a8-f33f-9d3c-f064-8b89bf3985e6d2c6
+attr VCCU_Btn1 alias VCCU_Btn1
+attr VCCU_Btn1 model CCU-FHEM
+attr VCCU_Btn1 webCmd press short:press long
+
+define MQTT2_Server MQTT2_SERVER 1883 global
+setuuid MQTT2_Server 673b7d4f-f33f-9d3c-1a34-0707d218295b869b
+attr MQTT2_Server alias MQTT2_Server
+attr MQTT2_Server autocreate simple
+attr MQTT2_Server room MQTT2
+attr MQTT2_Server verbose 2
+
+define MQTT2_Switch_Shelly4 MQTT2_DEVICE Switch_Shelly4
+setuuid MQTT2_Switch_Shelly4 674c8a6b-f33f-9d3c-1382-a5e7dc9cc00b7bdf
+attr MQTT2_Switch_Shelly4 alias MQTT2_Switch_Shelly4
+attr MQTT2_Switch_Shelly4 readingList Switch_Shelly4:Switch_Shelly4/online:.* online\
+Switch_Shelly4:Switch_Shelly4/events/rpc:.* { json2nameValue($EVENT) }
+attr MQTT2_Switch_Shelly4 room MQTT2_DEVICE,ioBroker
+
+
+define MQTT2_shellyplus1pm_002 MQTT2_DEVICE shellyplus1pm_002
+setuuid MQTT2_shellyplus1pm_002 674c8a8e-f33f-9d3c-fe7f-e0d39874c1196b4a
+attr MQTT2_shellyplus1pm_002 alias MQTT2_shellyplus1pm_002
+attr MQTT2_shellyplus1pm_002 readingList shellyplus1pm_002:shellyplus1pm-002/online:.* online\
+shellyplus1pm_002:shellyplus1pm-002/status/ble:.* ble\
+shellyplus1pm_002:shellyplus1pm-002/status/cloud:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/input_0:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/mqtt:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/switch_0:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/sys:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/wifi:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/status/ws:.* { json2nameValue($EVENT) }\
+shellyplus1pm_002:shellyplus1pm-002/events/rpc:.* { json2nameValue($EVENT) }
+attr MQTT2_shellyplus1pm_002 room MQTT2_DEVICE,ioBroker
+
+define fhem.0.send2ioB dummy
+setuuid fhem.0.send2ioB 676590bb-f33f-9d3c-dab4-8cda1d732e4f0e41
+attr fhem.0.send2ioB alias fhem.0.send2ioB
+attr fhem.0.send2ioB comment Auto-created by ioBroker fhem.0
+attr fhem.0.send2ioB room ioB_System
+
+define fhem.0.alive dummy
+setuuid fhem.0.alive 676590bb-f33f-9d3c-7ed8-ecf5212f8ea7f765
+attr fhem.0.alive alias fhem.0.alive
+attr fhem.0.alive comment Auto-created by ioBroker fhem.0
+attr fhem.0.alive room ioB_System
+attr fhem.0.alive setList on:noArg off:noArg
+attr fhem.0.alive useSetExtensions 1
+
+define allowed_telnetPort allowed
+setuuid allowed_telnetPort 67659254-f33f-9d3c-5d34-8196ea11fbdeeb5f
+attr allowed_telnetPort alias allowed_telnetPort
+attr allowed_telnetPort password brass011
+attr allowed_telnetPort validFor telnetPort
+
+define ESPEasy_Climate_2_Wasserstand2_Sysinfo ESPEasy 192.168.178.103 80 espBridge Climate_2_Wasserstand2_Sysinfo
+setuuid ESPEasy_Climate_2_Wasserstand2_Sysinfo 67c0a644-f33f-9d3c-ae54-d4c301226f67200f
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo Interval 300
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo alias Wasserstand2_Sysinfo
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo group ESPEasy Device
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo presenceCheck 1
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo readingSwitchText 1
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo room ESPEasy
+attr ESPEasy_Climate_2_Wasserstand2_Sysinfo setState 3
+
+define ESPEasy_Climate_2_Wasserstand2 ESPEasy 192.168.178.103 80 espBridge Climate_2_Wasserstand2
+setuuid ESPEasy_Climate_2_Wasserstand2 67c0a723-f33f-9d3c-3f5f-45c8e1d8959dc230
+attr ESPEasy_Climate_2_Wasserstand2 Interval 300
+attr ESPEasy_Climate_2_Wasserstand2 alias Wasserstand2
+attr ESPEasy_Climate_2_Wasserstand2 group ESPEasy Device
+attr ESPEasy_Climate_2_Wasserstand2 presenceCheck 1
+attr ESPEasy_Climate_2_Wasserstand2 readingSwitchText 1
+attr ESPEasy_Climate_2_Wasserstand2 room ESPEasy
+attr ESPEasy_Climate_2_Wasserstand2 setState 3
+
+define ESPEasy_Climate_Wasserstand1 ESPEasy 192.168.178.102 80 espBridge Climate_Wasserstand1
+setuuid ESPEasy_Climate_Wasserstand1 67c0a7c5-f33f-9d3c-f5ca-a6a6b0a72b952406
+attr ESPEasy_Climate_Wasserstand1 Interval 300
+attr ESPEasy_Climate_Wasserstand1 alias Wasserstand1
+attr ESPEasy_Climate_Wasserstand1 group ESPEasy Device
+attr ESPEasy_Climate_Wasserstand1 presenceCheck 1
+attr ESPEasy_Climate_Wasserstand1 readingSwitchText 1
+attr ESPEasy_Climate_Wasserstand1 room ESPEasy
+attr ESPEasy_Climate_Wasserstand1 setState 3
+
+define ESPEasy_Climate_Wasserstand1_Sysinfo ESPEasy 192.168.178.102 80 espBridge Climate_Wasserstand1_Sysinfo
+setuuid ESPEasy_Climate_Wasserstand1_Sysinfo 67c0a7eb-f33f-9d3c-93b7-ec4538cca0c3e063
+attr ESPEasy_Climate_Wasserstand1_Sysinfo Interval 300
+attr ESPEasy_Climate_Wasserstand1_Sysinfo alias Wasserstand1_Sysinfo
+attr ESPEasy_Climate_Wasserstand1_Sysinfo group ESPEasy Device
+attr ESPEasy_Climate_Wasserstand1_Sysinfo presenceCheck 1
+attr ESPEasy_Climate_Wasserstand1_Sysinfo readingSwitchText 1
+attr ESPEasy_Climate_Wasserstand1_Sysinfo room ESPEasy
+attr ESPEasy_Climate_Wasserstand1_Sysinfo setState 3
+
+define ESPEasy_Climate_Gartenhaus_Neu ESPEasy 192.168.178.137 80 espBridge Climate_Gartenhaus_Neu
+setuuid ESPEasy_Climate_Gartenhaus_Neu 67f2888b-f33f-9d3c-2f1e-2ab6e19e2691988a
+attr ESPEasy_Climate_Gartenhaus_Neu Interval 300
+attr ESPEasy_Climate_Gartenhaus_Neu alias ESPEasy_Climate_Gartenhaus_Neu
+attr ESPEasy_Climate_Gartenhaus_Neu group ESPEasy Device
+attr ESPEasy_Climate_Gartenhaus_Neu presenceCheck 1
+attr ESPEasy_Climate_Gartenhaus_Neu readingSwitchText 1
+attr ESPEasy_Climate_Gartenhaus_Neu room ESPEasy
+attr ESPEasy_Climate_Gartenhaus_Neu setState 3
+
+define ESPEasy_ESP_Easy_Teichlevel ESPEasy 192.168.178.136 80 espBridge ESP_Easy_Teichlevel
+setuuid ESPEasy_ESP_Easy_Teichlevel 67f2b275-f33f-9d3c-bd8f-122576268966f39b
+attr ESPEasy_ESP_Easy_Teichlevel Interval 300
+attr ESPEasy_ESP_Easy_Teichlevel alias ESPEasy_ESP_Easy_Teichlevel
+attr ESPEasy_ESP_Easy_Teichlevel group ESPEasy Device
+attr ESPEasy_ESP_Easy_Teichlevel presenceCheck 1
+attr ESPEasy_ESP_Easy_Teichlevel readingSwitchText 1
+attr ESPEasy_ESP_Easy_Teichlevel room ESPEasy
+attr ESPEasy_ESP_Easy_Teichlevel setState 3
+
+define MQTT2_OMG_lilygo_rtl_433_ESP_OOK MQTT2_DEVICE OMG_lilygo_rtl_433_ESP_OOK
+setuuid MQTT2_OMG_lilygo_rtl_433_ESP_OOK 67ff7c26-f33f-9d3c-9fb3-b7c310a2cf188f27
+attr MQTT2_OMG_lilygo_rtl_433_ESP_OOK alias MQTT2_OMG_lilygo_rtl_433_ESP_OOK
+attr MQTT2_OMG_lilygo_rtl_433_ESP_OOK readingList OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/LWT:.* LWT\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RLStoMQTT:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/binary_sensor/901506DAD25C-connectivity/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/901506DAD25C-uptime/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/901506DAD25C-freemem/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/901506DAD25C-ip/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/switch/901506DAD25C-disc/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/switch/901506DAD25C-ohdisc/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/switch/901506DAD25C-onstate/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/switch/901506DAD25C-displayMetric/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/number/901506DAD25C-brightness/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/901506DAD25C-rssi/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/901506DAD25C-tempc/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/button/901506DAD25C-restart/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/button/901506DAD25C-erase/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/update/901506DAD25C-update/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/SYStoMQTT:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/SSD1306toMQTT:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RFtoMQTT:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/WebUItoMQTT:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Interlogix-Security/motion/400204:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Skylink_HA-434TL_motion/10000:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Interlogix-Security/glass/902697:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Secplus-v1/1215:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Secplus-v1/981:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Acurite-986/1R/1122:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/binary_sensor/Acurite-986-1R-1122-battery_ok/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/Acurite-986-1R-1122-rssi/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/Acurite-986-1R-1122-temperature_C/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Acurite-986/1R/1028:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/binary_sensor/Acurite-986-1R-1028-battery_ok/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/Acurite-986-1R-1028-rssi/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Wetterstation/sensor/Acurite-986-1R-1028-temperature_C/config:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Markisol/0/256:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Interlogix-Security/contact/a925c0:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Skylink_HA-434TL_motion/06400:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Markisol/0/0:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Generic-Motion:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Interlogix-Security/motion/400020:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Acurite-986/1R/4:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Digitech-XC0324/03:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Oregon-CM180i/10640:.* { json2nameValue($EVENT) }\
+OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Springfield-Soil/1/32:.* { json2nameValue($EVENT) }
+attr MQTT2_OMG_lilygo_rtl_433_ESP_OOK room MQTT2_DEVICE,ioBroker
+
+
+define MQTT2_Bresser MQTT2_DEVICE Bresser
+setuuid MQTT2_Bresser 67ffcc8b-f33f-9d3c-7d60-5f11a8c40439e910
+attr MQTT2_Bresser alias MQTT2_Bresser
+attr MQTT2_Bresser readingList Bresser:Wetterstation/Bresser/LWT:.* LWT\
+Bresser:Wetterstation/Bresser/RLStoMQTT:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/binary_sensor/901506DAD25C-connectivity/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/901506DAD25C-uptime/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/901506DAD25C-freemem/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/901506DAD25C-ip/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/switch/901506DAD25C-disc/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/switch/901506DAD25C-ohdisc/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/switch/901506DAD25C-onstate/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/switch/901506DAD25C-displayMetric/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/number/901506DAD25C-brightness/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/901506DAD25C-rssi/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/901506DAD25C-tempc/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/button/901506DAD25C-restart/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/button/901506DAD25C-erase/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/update/901506DAD25C-update/config:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/SYStoMQTT:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/SSD1306toMQTT:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/RFtoMQTT:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/WebUItoMQTT:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/RTL_433toMQTT/Bresser-6in1/0/117940066:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-rain_mm/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-rssi/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-wind_avg_m_s/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-wind_dir_deg/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-wind_max_m_s/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/binary_sensor/Bresser-6in1-0-117940066-battery_ok/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-humidity/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-temperature_C/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/Bresser-6in1-0-117940066-uv/config:.* { json2nameValue($EVENT) }\
+Bresser:Wetterstation/Bresser/RTL_433toMQTT/LaCrosse-TX35DTHIT/34:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/binary_sensor/LaCrosse-TX35DTHIT-34-battery_ok/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/LaCrosse-TX35DTHIT-34-rssi/config:.* { json2nameValue($EVENT) }\
+Bresser:homeassistant/sensor/LaCrosse-TX35DTHIT-34-temperature_C/config:.* { json2nameValue($EVENT) }
+attr MQTT2_Bresser room MQTT2_DEVICE,ioBroker
+
+
+define MQTT2_Wetterstation MQTT2_DEVICE Wetterstation
+setuuid MQTT2_Wetterstation 67ffd436-f33f-9d3c-084d-6de0b2834e187c52
+attr MQTT2_Wetterstation alias MQTT2_Wetterstation
+attr MQTT2_Wetterstation readingList Wetterstation:Bresser/Wetterstation/LWT:.* LWT\
+Wetterstation:Bresser/Wetterstation/RLStoMQTT:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/binary_sensor/901506DAD25C-connectivity/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/901506DAD25C-uptime/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/901506DAD25C-freemem/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/901506DAD25C-ip/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/switch/901506DAD25C-disc/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/switch/901506DAD25C-ohdisc/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/switch/901506DAD25C-onstate/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/switch/901506DAD25C-displayMetric/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/number/901506DAD25C-brightness/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/901506DAD25C-rssi/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/901506DAD25C-tempc/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/button/901506DAD25C-restart/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/button/901506DAD25C-erase/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/update/901506DAD25C-update/config:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/SYStoMQTT:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/SSD1306toMQTT:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RFtoMQTT:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/WebUItoMQTT:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Bresser-6in1/0/117940066:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/binary_sensor/Bresser-6in1-0-117940066-battery_ok/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-humidity/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-rssi/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-temperature_C/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-uv/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-wind_avg_m_s/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-wind_dir_deg/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-wind_max_m_s/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/Bresser-6in1-0-117940066-rain_mm/config:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/34:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/binary_sensor/LaCrosse-TX35DTHIT-34-battery_ok/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/LaCrosse-TX35DTHIT-34-rssi/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/LaCrosse-TX35DTHIT-34-temperature_C/config:.* { json2nameValue($EVENT) }\
+Wetterstation:MesswerteWetterstation/sensor/LaCrosse-TX35DTHIT-34-humidity/config:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/46:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/0:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/33:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/56:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1950353159:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/9:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/38:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/155780871:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/60:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/43:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/220:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/49:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65535:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/32:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/0:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/47:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/4:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/11:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/30:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/19:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1392510727:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/0:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/13:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/458163975:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/26:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/131:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/16:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1153171456:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1316550905:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/61:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-796719353:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/4:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1334511367:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1033042169:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/57:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/49:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/37:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1942947591:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/53:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/62:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/31:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/44:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/34:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1950873849:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/14:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/34:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/1035077383:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/15:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/23:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/40:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/10:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/39:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1890646265:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/23:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/615974663:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/2:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/38:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/64904:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/30:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/45:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/41:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/132:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-830142713:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65178:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/216:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/50:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/21:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65399:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-207550713:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/19:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/36:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65382:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-519174393:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/1:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX29IT/8:.* { json2nameValue($EVENT) }\
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1791752441:.* { json2nameValue($EVENT) }
+attr MQTT2_Wetterstation room MQTT2_DEVICE,ioBroker
+
+define ioBroker_Bridge MQTT2_CLIENT 192.168.178.50:1883
+setuuid ioBroker_Bridge 69fb7131-f33f-9d3c-ebcf-c39571e35f1eea3b
+attr ioBroker_Bridge alias ioBroker_Bridge
+attr ioBroker_Bridge clientId fhem_haupt_instanz
+attr ioBroker_Bridge connectTimeout 10
+attr ioBroker_Bridge disable 0
+attr ioBroker_Bridge ignoreRegexp fhem_haupt_instanz/.*
+attr ioBroker_Bridge keepaliveTimeout 60
+attr ioBroker_Bridge nextOpenDelay 10
+attr ioBroker_Bridge room MQTT2_DEVICE,ioBroker
+attr ioBroker_Bridge username thomas
+
+
+define shellyplus1pm_c82e1895ba2c MQTT2_DEVICE shellyplus1pm_c82e1895ba2c
+setuuid shellyplus1pm_c82e1895ba2c 6ac5359e-f33f-9d3c-13df-220cb0cbd7082b78
+attr shellyplus1pm_c82e1895ba2c alias shellyplus1pm_c82e1895ba2c
+attr shellyplus1pm_c82e1895ba2c readingList shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/online:.* online\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/mqtt:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/events/rpc:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/sys:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/cloud:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/temperature_100:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/switch_0:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/temperature_101:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/wifi:.* { json2nameValue($EVENT) }\
+shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/script_1:.* { json2nameValue($EVENT) }
+attr shellyplus1pm_c82e1895ba2c room MQTT2_DEVICE,ioBroker
+define FileLog_shellyplus1pm_c82e1895ba2c FileLog ./log/shellyplus1pm_c82e1895ba2c-%Y.log shellyplus1pm_c82e1895ba2c
+setuuid FileLog_shellyplus1pm_c82e1895ba2c 6ac5359e-f33f-9d3c-8541-ed2d7c982645ce49
+attr FileLog_shellyplus1pm_c82e1895ba2c alias FileLog_shellyplus1pm_c82e1895ba2c
+attr FileLog_shellyplus1pm_c82e1895ba2c logtype text
+attr FileLog_shellyplus1pm_c82e1895ba2c room MQTT2_DEVICE
+define Shelly_Heizung MQTT2_DEVICE
+setuuid Shelly_Heizung 6ac55924-f33f-9d3c-9e6a-9c8e08254f9be1b7
+attr Shelly_Heizung IODev MQTT2_Server
+attr Shelly_Heizung alias Shelly_Heizung
+attr Shelly_Heizung readingList shellyplus1pm-c82e1895ba2c/heizung:.* { json2nameValue($EVENT) }
+attr Shelly_Heizung room ioBroker
+define Shelly_Teich MQTT2_DEVICE
+setuuid Shelly_Teich 6ac62aee-f33f-9d3c-7d77-08000cdd7f8113d8
+attr Shelly_Teich IODev MQTT2_Server
+attr Shelly_Teich alias Shelly_Teich
+attr Shelly_Teich readingList shellyplusuni-e08cfe8b2f88/Teich:.* { json2nameValue($EVENT) }
+attr Shelly_Teich room ioBroker
