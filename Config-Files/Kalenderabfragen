@@ -1,0 +1,25 @@
+define Abfall Calendar ical url https://calendar.google.com/calendar/ical/t2in7ils5np4qv5tbfjjq21ang%40group.calendar.google.com/private-37528125537ddcf047ac8fca506177ee/basic.ics 21600
+setuuid Abfall 5c77fe97-f33f-9d3c-b373-3d167bb981f39b46
+attr Abfall alias Abfall
+attr Abfall hideOlderThan 2d
+attr Abfall room Kalender
+define notAbfalltermine notify Abfall:triggered { Abfalltermine() }
+setuuid notAbfalltermine 5c77fe97-f33f-9d3c-1ce5-13ef77cd5b56f6ed
+attr notAbfalltermine alias notAbfalltermine
+attr notAbfalltermine room Kalender
+define MuellterminDummy dummy
+setuuid MuellterminDummy 5c77fe97-f33f-9d3c-0b0b-398147d0b0026a11
+attr MuellterminDummy alias MuellterminDummy
+attr MuellterminDummy room Kalender
+
+define Kalender_Thomas Calendar ical url https://calendar.google.com/calendar/ical/musicnrw%40googlemail.com/private-2c8f6a753200e61310037f4fae1941a0/basic.ics 21600
+setuuid Kalender_Thomas 5c77fe97-f33f-9d3c-a2e5-6df5ed0464b3e6b8
+attr Kalender_Thomas alias Kalender_Thomas
+attr Kalender_Thomas hideOlderThan 0
+attr Kalender_Thomas room Kalender
+define vKalender_Thomas CALVIEW Kalender_Thomas 1 21600
+setuuid vKalender_Thomas 5c77fe97-f33f-9d3c-a51d-6266d0ad79783784
+attr vKalender_Thomas alias vKalender_Thomas
+attr vKalender_Thomas maxreadings 10
+attr vKalender_Thomas modes next
+attr vKalender_Thomas room Kalender
