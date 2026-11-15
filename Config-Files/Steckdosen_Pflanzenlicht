@@ -1,0 +1,13 @@
+define PflanzenlichtLeuchte_ON_DOIF DOIF ([09:00]) (set Plug_Shelly011 on)
+setuuid PflanzenlichtLeuchte_ON_DOIF 5c77fe96-f33f-9d3c-7d7d-a0c7780600f27409
+attr PflanzenlichtLeuchte_ON_DOIF alias PflanzenlichtLeuchte_ON_DOIF
+attr PflanzenlichtLeuchte_ON_DOIF do always
+attr PflanzenlichtLeuchte_ON_DOIF room Licht,Buero
+
+define PflanzenlichtLeuchte_OFF_DOIF DOIF ([17:30]) (set Plug_Shelly011 off)
+setuuid PflanzenlichtLeuchte_OFF_DOIF 5c77fe96-f33f-9d3c-8a0f-2411ddb416f15909
+attr PflanzenlichtLeuchte_OFF_DOIF alias PflanzenlichtLeuchte_OFF_DOIF
+attr PflanzenlichtLeuchte_OFF_DOIF do always
+attr PflanzenlichtLeuchte_OFF_DOIF repeatcmd 10
+attr PflanzenlichtLeuchte_OFF_DOIF repeatsame 2
+attr PflanzenlichtLeuchte_OFF_DOIF room Licht,Buero
