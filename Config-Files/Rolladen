@@ -1,0 +1,406 @@
+define FileLog_1_Rollo_buero FileLog ./log/1_Rollo_buero-%Y.log 1_Rollo_buero
+setuuid FileLog_1_Rollo_buero 5c77fe97-f33f-9d3c-045f-bdbdb5c473e4220d
+attr FileLog_1_Rollo_buero alias FileLog_1_Rollo_buero
+attr FileLog_1_Rollo_buero logtype text
+attr FileLog_1_Rollo_buero room CUL_HM
+define LichtWetter Twilight 51.464262 7.906943 1
+setuuid LichtWetter 5c77fe97-f33f-9d3c-23a5-3d0fec8f7ef94119
+attr LichtWetter alias LichtWetter
+attr LichtWetter room Aussen
+
+# Luxwert für Südseite
+define Helligkeitswert dummy
+setuuid Helligkeitswert 5c77fe97-f33f-9d3c-f552-5f337d34b0fb7f58
+attr Helligkeitswert alias Helligkeitswert
+attr Helligkeitswert room Rolladen
+# Luxwert für Gästezimmer
+define Helligkeitswert2 dummy
+setuuid Helligkeitswert2 5c77fe97-f33f-9d3c-ff93-6f514b8ff168601a
+attr Helligkeitswert2 alias Helligkeitswert2
+attr Helligkeitswert2 room Rolladen
+# Luxwert für Wohnzimmer
+define Helligkeitswert3 dummy
+setuuid Helligkeitswert3 5c77fe97-f33f-9d3c-9fda-3b0774e79cba17bd
+attr Helligkeitswert3 alias Helligkeitswert3
+attr Helligkeitswert3 room Rolladen
+define Temperaturwert dummy
+setuuid Temperaturwert 5c77fe97-f33f-9d3c-9935-923d887203746a9e
+attr Temperaturwert alias Temperaturwert
+attr Temperaturwert room Rolladen
+define TemperaturwertWZ dummy
+setuuid TemperaturwertWZ 5c77fe97-f33f-9d3c-308b-b6039a2311d9a4f8
+attr TemperaturwertWZ alias TemperaturwertWZ
+attr TemperaturwertWZ room Rolladen
+
+define RolloUpWT dummy
+setuuid RolloUpWT 5ed53ef6-f33f-9d3c-37c2-e0fd1a537beda745
+attr RolloUpWT alias RolloUpWT
+attr RolloUpWT room Rolladen
+
+define RolloUpFT dummy
+setuuid RolloUpFT 5ed53ef6-f33f-9d3c-3d97-5e3863b5d07abb7f
+attr RolloUpFT alias RolloUpFT
+attr RolloUpFT room Rolladen
+
+define RolloUpWE dummy
+setuuid RolloUpWE 5ed53ef6-f33f-9d3c-da95-88d44fab77afd033
+attr RolloUpWE alias RolloUpWE
+attr RolloUpWE room Rolladen
+
+define RolloDown dummy
+setuuid RolloDown 5ed53ef6-f33f-9d3c-62f7-778a137f4e1bd8f9
+attr RolloDown alias RolloDown
+attr RolloDown room Rolladen
+
+define RolloDownWZ dummy
+setuuid RolloDownWZ 5ed53ef6-f33f-9d3c-0ef1-c57bf7d6eaf0bb5e
+attr RolloDownWZ alias RolloDownWZ
+attr RolloDownWZ room Rolladen
+
+
+define Moduswahl dummy
+setuuid Moduswahl 5c77fe97-f33f-9d3c-c535-7a0ac88be9d5d7a6
+attr Moduswahl alias Moduswahl
+attr Moduswahl room Rolladen
+define ExtremTemperatur dummy
+setuuid ExtremTemperatur 5c77fe97-f33f-9d3c-28b7-4524609f36fc363c
+attr ExtremTemperatur alias ExtremTemperatur
+attr ExtremTemperatur room Rolladen
+
+# Taster Rolladenaktor Buero
+define FileLog_Taster1 FileLog ./log/Taster1-%Y.log Taster1
+setuuid FileLog_Taster1 5c77fe97-f33f-9d3c-6fe7-e6f8bfdc33140397
+attr FileLog_Taster1 alias FileLog_Taster1
+attr FileLog_Taster1 logtype text
+attr FileLog_Taster1 room CUL_HM
+
+# Rolladenaktor Buero
+# define 1_Rollo_buero CUL_HM 6A3C20
+# setuuid 1_Rollo_buero 5e68e041-f33f-9d3c-d5fb-e76c4951cbfbb9ac
+# attr 1_Rollo_buero .mId 006A
+# attr 1_Rollo_buero IODev CUL868
+# attr 1_Rollo_buero autoReadReg 4_reqStatus
+# attr 1_Rollo_buero expert 2_raw
+# attr 1_Rollo_ buero userattr room_map structexclude
+# attr 1_Rollo_ buero IOgrp VCCU:CUL868
+# attr 1_Rollo_ buero peerIDs 00000000,
+# attr 1_Rollo_ buero rssiLog 1
+# attr 1_Rollo_buero firmware 2.11
+# attr 1_Rollo_buero model HM-LC-BL1PBU-FM
+# attr 1_Rollo_buero room CUL_HM,Buero,Rolladen
+# attr 1_Rollo_buero serialNr PEQ1443831
+# attr 1_Rollo_buero subType blindActuator
+# attr 1_Rollo_buero webCmd statusRequest:toggleDir:on:off:up:down:stop
+# define FileLog_ 1_Rollo_buero FileLog ./log/HM_6A3C20-%Y.log HM_6A3C20
+# setuuid FileLog_ 1_Rollo_buero 5e68e041-f33f-9d3c-6962-5ba38ee181dedb6c
+# attr FileLog_ 1_Rollo_buero logtype text
+# attr FileLog_ 1_Rollo_buero room CUL_HM
+
+
+define 1_Rollo_buero CUL_HM 54AA5C
+setuuid 1_Rollo_buero 5c77fe97-f33f-9d3c-35ea-29381ce30addca93
+attr 1_Rollo_buero userattr room_map structexclude
+attr 1_Rollo_buero .mId 006A
+attr 1_Rollo_buero IOgrp VCCU:myHmUART
+attr 1_Rollo_buero alias 1_Rollo_buero
+attr 1_Rollo_buero autoReadReg 4_reqStatus
+attr 1_Rollo_buero expert defReg,rawReg
+attr 1_Rollo_buero firmware 2.8
+attr 1_Rollo_buero model HM-LC-BL1PBU-FM
+attr 1_Rollo_buero peerIDs 00000000
+attr 1_Rollo_buero room Buero,CUL_HM,Rolladen
+attr 1_Rollo_buero serialNr OEQ0038533
+attr 1_Rollo_buero subType blindActuator
+attr 1_Rollo_buero webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_HM_54AA5C FileLog ./log/HM_54AA5C-%Y.log HM_54AA5C
+setuuid FileLog_HM_54AA5C 5c77fe97-f33f-9d3c-e678-4850ff65039dc2bc
+attr FileLog_HM_54AA5C alias FileLog_HM_54AA5C
+attr FileLog_HM_54AA5C logtype text
+attr FileLog_HM_54AA5C room CUL_HM
+
+# Rolladenaktor Kueche
+define 1_Rollo_kueche CUL_HM 550609
+setuuid 1_Rollo_kueche 5c77fe97-f33f-9d3c-e64f-92717c9127c976ba
+attr 1_Rollo_kueche userattr room_map structexclude
+attr 1_Rollo_kueche .mId 006A
+attr 1_Rollo_kueche IOgrp VCCU:myHmUART
+attr 1_Rollo_kueche alias 1_Rollo_kueche
+attr 1_Rollo_kueche autoReadReg 4_reqStatus
+attr 1_Rollo_kueche expert defReg,rawReg
+attr 1_Rollo_kueche firmware 2.8
+attr 1_Rollo_kueche model HM-LC-BL1PBU-FM
+attr 1_Rollo_kueche peerIDs 00000000
+attr 1_Rollo_kueche room CUL_HM,Kueche,Rolladen
+attr 1_Rollo_kueche rssiLog 1
+attr 1_Rollo_kueche serialNr OEQ0035617
+attr 1_Rollo_kueche subType blindActuator
+attr 1_Rollo_kueche webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_1_Rollo_kueche FileLog ./log/1_Rollo_kueche-%Y.log 1_Rollo_kueche
+setuuid FileLog_1_Rollo_kueche 5c77fe97-f33f-9d3c-377e-5bbd8b2d5930c201
+attr FileLog_1_Rollo_kueche alias FileLog_1_Rollo_kueche
+attr FileLog_1_Rollo_kueche logtype text
+attr FileLog_1_Rollo_kueche room CUL_HM
+
+# Rolladenaktor Gaestezimmer
+define 3_Rollo_gz CUL_HM 550603
+setuuid 3_Rollo_gz 5c77fe97-f33f-9d3c-635c-ed10e6ead90af9f5
+attr 3_Rollo_gz userattr room_map structexclude
+attr 3_Rollo_gz .mId 006A
+attr 3_Rollo_gz IOgrp VCCU:myHmUART
+attr 3_Rollo_gz alias 3_Rollo_gz
+attr 3_Rollo_gz autoReadReg 4_reqStatus
+attr 3_Rollo_gz expert defReg,rawReg
+attr 3_Rollo_gz firmware 2.8
+attr 3_Rollo_gz model HM-LC-BL1PBU-FM
+attr 3_Rollo_gz peerIDs 00000000
+attr 3_Rollo_gz room CUL_HM,Gaestezimmer,Rolladen
+attr 3_Rollo_gz rssiLog 1
+attr 3_Rollo_gz serialNr OEQ0035620
+attr 3_Rollo_gz subType blindActuator
+attr 3_Rollo_gz webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_3_Rollo_gz FileLog ./log/3_Rollo_gz-%Y.log 3_Rollo_gz
+setuuid FileLog_3_Rollo_gz 5c77fe97-f33f-9d3c-b386-592c44bc41f2e4b4
+attr FileLog_3_Rollo_gz alias FileLog_3_Rollo_gz
+attr FileLog_3_Rollo_gz logtype text
+attr FileLog_3_Rollo_gz room CUL_HM
+
+# Rolladenaktor Bad
+define 2_Rollo_bad CUL_HM 54A91E
+setuuid 2_Rollo_bad 5c77fe97-f33f-9d3c-ea31-b365383227be84b2
+attr 2_Rollo_bad userattr room_map structexclude
+attr 2_Rollo_bad .mId 006A
+attr 2_Rollo_bad IOgrp VCCU:myHmUART
+attr 2_Rollo_bad alias 2_Rollo_bad
+attr 2_Rollo_bad autoReadReg 4_reqStatus
+attr 2_Rollo_bad expert defReg,rawReg
+attr 2_Rollo_bad firmware 2.8
+attr 2_Rollo_bad model HM-LC-BL1PBU-FM
+attr 2_Rollo_bad peerIDs 00000000
+attr 2_Rollo_bad room CUL_HM,Rolladen
+attr 2_Rollo_bad serialNr OEQ0038863
+attr 2_Rollo_bad subType blindActuator
+attr 2_Rollo_bad webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_2_Rollo_bad FileLog ./log/2_Rollo_bad-%Y.log 2_Rollo_bad
+setuuid FileLog_2_Rollo_bad 5c77fe97-f33f-9d3c-bf41-d17074be34aac548
+attr FileLog_2_Rollo_bad alias FileLog_2_Rollo_bad
+attr FileLog_2_Rollo_bad logtype text
+attr FileLog_2_Rollo_bad room CUL_HM
+
+# Rolladenaktor Wohnzimmer Tuer
+define 4_Rollo_wztuer CUL_HM 678BCE
+setuuid 4_Rollo_wztuer 5cb4c4a3-f33f-9d3c-7085-c292bc530d64d0ee
+attr 4_Rollo_wztuer userattr room_map structexclude
+attr 4_Rollo_wztuer .mId 006A
+attr 4_Rollo_wztuer IOgrp VCCU:myHmUART
+attr 4_Rollo_wztuer alias 4_Rollo_wztuer
+attr 4_Rollo_wztuer autoReadReg 4_reqStatus
+attr 4_Rollo_wztuer expert defReg,rawReg
+attr 4_Rollo_wztuer firmware 2.11
+attr 4_Rollo_wztuer model HM-LC-BL1PBU-FM
+attr 4_Rollo_wztuer peerIDs 00000000
+attr 4_Rollo_wztuer room CUL_HM,Rolladen
+attr 4_Rollo_wztuer serialNr OEQ2337162
+attr 4_Rollo_wztuer subType blindActuator
+attr 4_Rollo_wztuer webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_HM_678BCE FileLog ./log/HM_678BCE-%Y.log HM_678BCE
+setuuid FileLog_HM_678BCE 5cb4c4a3-f33f-9d3c-5510-529cf20ab1eab1ea
+attr FileLog_HM_678BCE alias FileLog_HM_678BCE
+attr FileLog_HM_678BCE logtype text
+attr FileLog_HM_678BCE room CUL_HM
+
+
+# Rolladenaktor Wohnzimmer Fenster
+define 4_Rollo_wz_fenster CUL_HM 56065F
+setuuid 4_Rollo_wz_fenster 5c77fe97-f33f-9d3c-c71a-6e29ff6687996f73
+attr 4_Rollo_wz_fenster userattr room_map structexclude
+attr 4_Rollo_wz_fenster .mId 006A
+attr 4_Rollo_wz_fenster IOgrp VCCU:myHmUART
+attr 4_Rollo_wz_fenster alias 4_Rollo_wz_fenster
+attr 4_Rollo_wz_fenster autoReadReg 4_reqStatus
+attr 4_Rollo_wz_fenster expert defReg,rawReg
+attr 4_Rollo_wz_fenster firmware 2.8
+attr 4_Rollo_wz_fenster model HM-LC-BL1PBU-FM
+attr 4_Rollo_wz_fenster peerIDs 00000000
+attr 4_Rollo_wz_fenster room CUL_HM,Rolladen
+attr 4_Rollo_wz_fenster rssiLog 1
+attr 4_Rollo_wz_fenster serialNr OEQ0038959
+attr 4_Rollo_wz_fenster subType blindActuator
+attr 4_Rollo_wz_fenster webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_4_Rollo_wz_fenster FileLog ./log/4_Rollo_wz_fenster-%Y.log 4_Rollo_wz_fenster
+setuuid FileLog_4_Rollo_wz_fenster 5c77fe97-f33f-9d3c-2047-8d57f2e50901b781
+attr FileLog_4_Rollo_wz_fenster alias FileLog_4_Rollo_wz_fenster
+attr FileLog_4_Rollo_wz_fenster logtype text
+attr FileLog_4_Rollo_wz_fenster room CUL_HM
+
+
+# Rolladenaktor Schlafzimmer Fenster
+define 5_Rollo_sz CUL_HM 560640
+setuuid 5_Rollo_sz 5c77fe97-f33f-9d3c-79e1-210d0660e98b9040
+attr 5_Rollo_sz userattr room_map structexclude
+attr 5_Rollo_sz .mId 006A
+attr 5_Rollo_sz IOgrp VCCU:myHmUART
+attr 5_Rollo_sz alias 5_Rollo_sz
+attr 5_Rollo_sz autoReadReg 4_reqStatus
+attr 5_Rollo_sz expert defReg,rawReg
+attr 5_Rollo_sz firmware 2.8
+attr 5_Rollo_sz model HM-LC-BL1PBU-FM
+attr 5_Rollo_sz peerIDs 00000000
+attr 5_Rollo_sz room CUL_HM,Rolladen,Schlafzimmer
+attr 5_Rollo_sz serialNr OEQ0038907
+attr 5_Rollo_sz subType blindActuator
+attr 5_Rollo_sz webCmd statusRequest:toggleDir:on:off:up:down:stop
+define FileLog_5_Rollo_sz FileLog ./log/5_Rollo_sz-%Y.log 5_Rollo_sz
+setuuid FileLog_5_Rollo_sz 5c77fe97-f33f-9d3c-9587-719d6b02552d3e02
+attr FileLog_5_Rollo_sz alias FileLog_5_Rollo_sz
+attr FileLog_5_Rollo_sz logtype text
+attr FileLog_5_Rollo_sz room CUL_HM
+
+
+
+# Buero
+define 1_Rollo_buero_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 1_Rollo_buero 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 1_Rollo_buero 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 1_Rollo_buero 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 1_Rollo_buero 100) DOELSEIF ([[RolloDown]]) (set 1_Rollo_buero 0)
+setuuid 1_Rollo_buero_auto 5c77fe97-f33f-9d3c-bec4-52d2c7f3add3faad
+attr 1_Rollo_buero_auto userattr do always
+attr 1_Rollo_buero_auto alias 1_Rollo_buero_auto
+attr 1_Rollo_buero_auto room Buero,Rolladen
+
+
+define 1_Rollo_buero_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [Temperaturwert:state] and [10:30-17:15]) (set 1_Rollo_buero 35) DOELSE (set 1_Rollo_buero 100)
+setuuid 1_Rollo_buero_sonne 5c77fe97-f33f-9d3c-0f63-4f0feb804bdff1ce
+attr 1_Rollo_buero_sonne userattr do always
+attr 1_Rollo_buero_sonne alias 1_Rollo_buero_sonne
+attr 1_Rollo_buero_sonne room Rolladen,Buero
+attr 1_Rollo_buero_sonne wait 600:600
+
+define 1_Rollo_buero_sonne_extreme DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [ExtremTemperatur:state] and [10:30-17:15]) (set 1_Rollo_buero 0) DOELSE (set 1_Rollo_buero 100)
+setuuid 1_Rollo_buero_sonne_extreme 5c77fe97-f33f-9d3c-1507-28a10122c0b5e548
+attr 1_Rollo_buero_sonne_extreme userattr do always
+attr 1_Rollo_buero_sonne_extreme alias 1_Rollo_buero_sonne_extreme
+attr 1_Rollo_buero_sonne_extreme room Rolladen,Buero
+attr 1_Rollo_buero_sonne_extreme wait 600:600
+
+
+# Kueche
+define 1_Rollo_kueche_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 1_Rollo_kueche 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 1_Rollo_kueche 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 1_Rollo_kueche 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 1_Rollo_kueche 100) DOELSEIF ([[RolloDown]]) (set 1_Rollo_kueche 0)
+setuuid 1_Rollo_kueche_auto 5c77fe97-f33f-9d3c-0d23-c8f4da33dde1f9f1
+attr 1_Rollo_kueche_auto userattr do always
+attr 1_Rollo_kueche_auto alias 1_Rollo_kueche_auto
+attr 1_Rollo_kueche_auto room Kueche,Rolladen
+
+define 1_Rollo_kueche_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [Temperaturwert:state] and [10:30-17:15]) (set 1_Rollo_kueche 35) DOELSE (set 1_Rollo_kueche 100)
+setuuid 1_Rollo_kueche_sonne 5c77fe97-f33f-9d3c-3d8c-2a5e2f8a3d161a12
+attr 1_Rollo_kueche_sonne userattr do always
+attr 1_Rollo_kueche_sonne alias 1_Rollo_kueche_sonne
+attr 1_Rollo_kueche_sonne room Rolladen,Kueche
+attr 1_Rollo_kueche_sonne wait 600:600
+
+define 1_Rollo_kueche_sonne_extreme DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [ExtremTemperatur:state] and [10:30-17:15]) (set 1_Rollo_kueche 0) DOELSE (set 1_Rollo_kueche 100)
+setuuid 1_Rollo_kueche_sonne_extreme 5c77fe97-f33f-9d3c-49f6-c1b070b3b35f6a78
+attr 1_Rollo_kueche_sonne_extreme userattr do always
+attr 1_Rollo_kueche_sonne_extreme alias 1_Rollo_kueche_sonne_extreme
+attr 1_Rollo_kueche_sonne_extreme room Rolladen,Kueche
+attr 1_Rollo_kueche_sonne_extreme wait 600:600
+
+
+# Bad
+define 2_Rollo_bad_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 2_Rollo_bad 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 2_Rollo_bad 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 2_Rollo_bad 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 2_Rollo_bad 100) DOELSEIF ([[RolloDown]]) (set 2_Rollo_bad 0)
+setuuid 2_Rollo_bad_auto 5c77fe97-f33f-9d3c-e2af-56a52ee93ecfb0c9
+attr 2_Rollo_bad_auto userattr do always
+attr 2_Rollo_bad_auto alias 2_Rollo_bad_auto
+attr 2_Rollo_bad_auto room Bad,Rolladen
+
+
+define 2_Rollo_bad_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [Temperaturwert:state] and [10:30-15:30]) (set 2_Rollo_bad 35) DOELSE (set 2_Rollo_bad 100)
+setuuid 2_Rollo_bad_sonne 5c77fe97-f33f-9d3c-3b87-5100f2382e6ed44a
+attr 2_Rollo_bad_sonne userattr do always
+attr 2_Rollo_bad_sonne alias 2_Rollo_bad_sonne
+attr 2_Rollo_bad_sonne room Rolladen,Bad
+attr 2_Rollo_bad_sonne wait 600:600
+
+define 2_Rollo_bad_sonne_extreme DOIF ([Sonnensensor1:brightness] > [Helligkeitswert:state] and [AussenTempSens1_T1:temperature] > [ExtremTemperatur:state] and [10:30-15:30]) (set 2_Rollo_bad 0) DOELSE (set 2_Rollo_bad 100)
+setuuid 2_Rollo_bad_sonne_extreme 5c77fe97-f33f-9d3c-e899-ba79f8dc833249b2
+attr 2_Rollo_bad_sonne_extreme userattr do always
+attr 2_Rollo_bad_sonne_extreme alias 2_Rollo_bad_sonne_extreme
+attr 2_Rollo_bad_sonne_extreme room Rolladen,Bad
+attr 2_Rollo_bad_sonne_extreme wait 600:600
+
+
+# Gaestezimmer
+define 3_Rollo_gz_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 3_Rollo_gz 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 3_Rollo_gz 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 3_Rollo_gz 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 3_Rollo_gz 100) DOELSEIF ([[RolloDown]]) (set 3_Rollo_gz 0)
+setuuid 3_Rollo_gz_auto 5c77fe97-f33f-9d3c-f764-4f6005eb3168c476
+attr 3_Rollo_gz_auto userattr do always
+attr 3_Rollo_gz_auto alias 3_Rollo_gz_auto
+attr 3_Rollo_gz_auto room Gaestezimmer,Rolladen
+
+
+define 3_Rollo_gz_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert2:state] and [AussenTempSens1_T1:temperature] > [Temperaturwert:state] and [16:00-20:30]) (set 3_Rollo_gz 25) DOELSE (set 3_Rollo_gz 100)
+setuuid 3_Rollo_gz_sonne 5c77fe97-f33f-9d3c-f03c-91cd9da02355ca51
+attr 3_Rollo_gz_sonne userattr do always
+attr 3_Rollo_gz_sonne alias 3_Rollo_gz_sonne
+attr 3_Rollo_gz_sonne room Rolladen,Gaestezimmer
+attr 3_Rollo_gz_sonne wait 600:600
+
+define 3_Rollo_gz_sonne_extreme DOIF ([Sonnensensor1:brightness] > [Helligkeitswert2:state] and [AussenTempSens1_T1:temperature] > [ExtremTemperatur:state] and [16:00-20:30]) (set 3_Rollo_gz 0) DOELSE (set 3_Rollo_gz 100)
+setuuid 3_Rollo_gz_sonne_extreme 5c77fe97-f33f-9d3c-eabe-69927dfb5ae05824
+attr 3_Rollo_gz_sonne_extreme userattr do always
+attr 3_Rollo_gz_sonne_extreme alias 3_Rollo_gz_sonne_extreme
+attr 3_Rollo_gz_sonne_extreme room Rolladen,Gaestezimmer
+attr 3_Rollo_gz_sonne_extreme wait 600:600
+
+
+# Wohnzimmer
+define 4_Rollo_wz_fenster_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 4_Rollo_wz_fenster 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 4_Rollo_wz_fenster 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 4_Rollo_wz_fenster 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 4_Rollo_wz_fenster 100) DOELSEIF ([[RolloDownWZ]]) (set 4_Rollo_wz_fenster 0)
+setuuid 4_Rollo_wz_fenster_auto 5c77fe97-f33f-9d3c-0e18-2f9b3bae9125eaec
+attr 4_Rollo_wz_fenster_auto userattr do always
+attr 4_Rollo_wz_fenster_auto alias 4_Rollo_wz_fenster_auto
+attr 4_Rollo_wz_fenster_auto room Wohnzimmer,Rolladen
+
+
+define 4_Rollo_wzfenster_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert3:state] and [AussenTempSens1_T1:temperature] > [TemperaturwertWZ:state] and [08:30-11:30]) (set 4_Rollo_wz_fenster 35) DOELSE (set 4_Rollo_wz_fenster 100)
+setuuid 4_Rollo_wzfenster_sonne 5c77fe97-f33f-9d3c-21df-c1aef46a97f99e9a
+attr 4_Rollo_wzfenster_sonne userattr do always
+attr 4_Rollo_wzfenster_sonne alias 4_Rollo_wzfenster_sonne
+attr 4_Rollo_wzfenster_sonne room Rolladen,Wohnzimmer
+attr 4_Rollo_wzfenster_sonne wait 600:600
+
+
+define 4_Rollo_wz_tuer_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 4_Rollo_wztuer 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 4_Rollo_wztuer 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 4_Rollo_wztuer 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 4_Rollo_wztuer 100) DOELSEIF ([[RolloDownWZ]]) (set 4_Rollo_wztuer 0)
+setuuid 4_Rollo_wz_tuer_auto 5c77fe97-f33f-9d3c-d5b1-27fd9a9e366eac36
+attr 4_Rollo_wz_tuer_auto userattr do always
+attr 4_Rollo_wz_tuer_auto alias 4_Rollo_wz_tuer_auto
+attr 4_Rollo_wz_tuer_auto room Wohnzimmer,Rolladen
+
+
+define 4_Rollo_wztuer_sonne DOIF ([Sonnensensor1:brightness] > [Helligkeitswert3:state] and [AussenTempSens1_T1:temperature] > [TemperaturwertWZ:state] and [08:30-11:30]) (set 4_Rollo_wztuer 35) DOELSE (set 4_Rollo_wztuer 100)
+setuuid 4_Rollo_wztuer_sonne 5c77fe97-f33f-9d3c-865a-3363f08ce5a86462
+attr 4_Rollo_wztuer_sonne userattr do always
+attr 4_Rollo_wztuer_sonne alias 4_Rollo_wztuer_sonne
+attr 4_Rollo_wztuer_sonne room Rolladen,Wohnzimmer
+attr 4_Rollo_wztuer_sonne wait 600:600
+
+
+# Schlafzimmer
+define 5_Rollo_sz_auto DOIF ([HomeStatus:state] eq "home_work" and [[RolloUpWT]])  (set 5_Rollo_sz 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpFT]]|8)  (set 5_Rollo_sz 100) DOELSEIF ([HomeStatus:state] eq "home_home" and [[RolloUpWE]]|7)  (set 5_Rollo_sz 100) DOELSEIF ([HomeStatus:state] eq "away" and [08:00:00])  (set 5_Rollo_sz 100) DOELSEIF ([[RolloDown]]) (set 5_Rollo_sz 20)
+setuuid 5_Rollo_sz_auto 5c77fe97-f33f-9d3c-0b66-0317a848940338a4
+attr 5_Rollo_sz_auto userattr do always
+attr 5_Rollo_sz_auto alias 5_Rollo_sz_auto
+attr 5_Rollo_sz_auto room Schlafzimmer,Rolladen
+
+
+# Gruppen
+define Alle_Rolladen structure room 1_Rollo_kueche 1_Rollo_buero 2_Rollo_bad 3_Rollo_gz 4_Rollo_wz_fenster 4_Rollo_wztuer 5_Rollo_sz
+setuuid Alle_Rolladen 5c77fe97-f33f-9d3c-736b-180fc19592f1e9e0
+attr Alle_Rolladen alias Alle_Rolladen
+attr Alle_Rolladen async_delay 2
+attr Alle_Rolladen clientstate_behavior relative
+attr Alle_Rolladen clientstate_priority auf zu
+attr Alle_Rolladen room Rolladen
+attr Alle_Rolladen webCmd auf:stop:zu
+
+define Nacht_LueftenRolladen structure room 2_Rollo_bad 3_Rollo_gz 5_Rollo_sz
+setuuid Nacht_LueftenRolladen 5c77fe97-f33f-9d3c-7393-eda9cef8d777ae5e
+attr Nacht_LueftenRolladen alias Nacht_LueftenRolladen
+attr Nacht_LueftenRolladen async_delay 2
+attr Nacht_LueftenRolladen clientstate_behavior relative
+attr Nacht_LueftenRolladen clientstate_priority auf zu
+attr Nacht_LueftenRolladen room Rolladen
