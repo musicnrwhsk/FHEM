@@ -1,0 +1,532 @@
+define Switch_Shelly1 Shelly 192.168.178.116
+setuuid Switch_Shelly1 6530e80d-f33f-9d3c-07a9-de81e3dc820c3253
+attr Switch_Shelly1 userattr room_map structexclude
+attr Switch_Shelly1 alias ShellyMini_001
+attr Switch_Shelly1 event-on-change-reading .*
+attr Switch_Shelly1 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly1 model shellyplus1
+attr Switch_Shelly1 room Shelly
+attr Switch_Shelly1 stateFormat relay
+attr Switch_Shelly1 webCmd on:off
+
+define Switch_Shelly2 Shelly 192.168.178.23
+setuuid Switch_Shelly2 6645e367-f33f-9d3c-afc6-dbeb1f71179fd963
+attr Switch_Shelly2 userattr room_map structexclude
+attr Switch_Shelly2 alias RegalWZ
+attr Switch_Shelly2 event-on-change-reading .*
+attr Switch_Shelly2 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly2 model shellyplus1
+attr Switch_Shelly2 room Shelly
+attr Switch_Shelly2 stateFormat relay
+attr Switch_Shelly2 webCmd on:off
+
+
+define Switch_Shelly3 Shelly 192.168.178.45
+setuuid Switch_Shelly3 673f1d60-f33f-9d3c-d72e-fafe328c00c93d92
+attr Switch_Shelly3 userattr room_map structexclude
+attr Switch_Shelly3 alias ShellyMini_002
+attr Switch_Shelly3 event-on-change-reading .*
+attr Switch_Shelly3 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly3 model shellyplus1
+attr Switch_Shelly3 room Shelly
+attr Switch_Shelly3 stateFormat relay
+attr Switch_Shelly3 webCmd on:off
+
+define Switch_Shelly4 Shelly 192.168.178.114
+setuuid Switch_Shelly4 6a9a6d27-f33f-9d3c-631a-38b8d991dcbc9157
+attr Switch_Shelly4 userattr room_map structexclude
+attr Switch_Shelly4 alias ShellyMini_003
+attr Switch_Shelly4 event-on-change-reading .*
+attr Switch_Shelly4 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly4 model shellyplus1
+attr Switch_Shelly4 room Shelly
+attr Switch_Shelly4 stateFormat relay
+attr Switch_Shelly4 webCmd on:off
+
+define Switch_Shelly5 Shelly 192.168.178.85
+setuuid Switch_Shelly5 674c8a5a-f33f-9d3c-0640-c0d231849cd232d9
+attr Switch_Shelly5 userattr room_map structexclude
+attr Switch_Shelly5 alias ShellyMini_KuecheKodi
+attr Switch_Shelly5 event-on-change-reading .*
+attr Switch_Shelly5 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly5 model shellyplus1
+attr Switch_Shelly5 room Shelly
+attr Switch_Shelly5 stateFormat relay
+attr Switch_Shelly5 webCmd on:off
+
+define Switch_Shelly6 Shelly 192.168.178.31
+setuuid Switch_Shelly6 676519f9-f33f-9d3c-09a6-d2727e9e9cc54d8b
+attr Switch_Shelly6 userattr room_map structexclude
+attr Switch_Shelly6 alias ShellyMini_005
+attr Switch_Shelly6 event-on-change-reading .*
+attr Switch_Shelly6 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly6 model shellyplus1
+attr Switch_Shelly6 room Shelly
+attr Switch_Shelly6 stateFormat relay
+attr Switch_Shelly6 webCmd on:off
+
+define Switch_Shelly7 Shelly 192.168.178.29
+setuuid Switch_Shelly7 676519f9-f33f-9d3c-13b4-0babff88d6ca6991
+attr Switch_Shelly7 userattr room_map structexclude
+attr Switch_Shelly7 alias ShellyMini_KuecheBodenlicht
+attr Switch_Shelly7 event-on-change-reading .*
+attr Switch_Shelly7 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly7 model shellyplus1
+attr Switch_Shelly7 room Shelly
+attr Switch_Shelly7 stateFormat relay
+attr Switch_Shelly7 webCmd on:off
+
+define Switch_Shelly8 Shelly 192.168.178.80
+setuuid Switch_Shelly8 676519fa-f33f-9d3c-796c-f141b209f23af8c3
+attr Switch_Shelly8 userattr room_map structexclude
+attr Switch_Shelly8 alias ShellyMini_MagicMirror
+attr Switch_Shelly8 event-on-change-reading .*
+attr Switch_Shelly8 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly8 model shellyplus1
+attr Switch_Shelly8 room Shelly
+attr Switch_Shelly8 stateFormat relay
+attr Switch_Shelly8 webCmd on:off
+
+define Switch_Shelly9 Shelly 192.168.178.21
+setuuid Switch_Shelly9 676519fa-f33f-9d3c-0d88-bb53d3fa068942ca
+attr Switch_Shelly9 userattr room_map structexclude
+attr Switch_Shelly9 alias ShellyMini_LadenTablet
+attr Switch_Shelly9 event-on-change-reading .*
+attr Switch_Shelly9 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly9 model shellyplus1
+attr Switch_Shelly9 room Shelly
+attr Switch_Shelly9 stateFormat relay
+attr Switch_Shelly9 webCmd on:off
+
+define Switch_Shelly10 Shelly 192.168.178.25
+setuuid Switch_Shelly10 676519fa-f33f-9d3c-34b4-d8dcd4586a470e1b
+attr Switch_Shelly10 userattr room_map structexclude
+attr Switch_Shelly10 alias ShellyMini_LichtGarderobe
+attr Switch_Shelly10 event-on-change-reading .*
+attr Switch_Shelly10 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly10 model shellyplus1
+attr Switch_Shelly10 room Shelly
+attr Switch_Shelly10 stateFormat relay
+attr Switch_Shelly10 webCmd on:off
+
+define Switch_Shelly11 Shelly 192.168.178.26
+setuuid Switch_Shelly11 676519fa-f33f-9d3c-2cd8-fbc6d3185e10534c
+attr Switch_Shelly11 userattr room_map structexclude
+attr Switch_Shelly11 alias ShellyMini_LichtFlur
+attr Switch_Shelly11 event-on-change-reading .*
+attr Switch_Shelly11 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly11 model shellyplus1
+attr Switch_Shelly11 room Shelly
+attr Switch_Shelly11 stateFormat relay
+attr Switch_Shelly11 webCmd on:off
+
+define Switch_Shelly12 Shelly 192.168.178.59
+setuuid Switch_Shelly12 676519fa-f33f-9d3c-5cd7-25be08ba409553f4
+attr Switch_Shelly12 userattr room_map structexclude
+attr Switch_Shelly12 alias ShellyMini_12
+attr Switch_Shelly12 event-on-change-reading .*
+attr Switch_Shelly12 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly12 model shellyplus1
+attr Switch_Shelly12 room Shelly
+attr Switch_Shelly12 stateFormat relay
+attr Switch_Shelly12 webCmd on:off
+
+define Switch_Shelly13 Shelly 192.168.178.46
+setuuid Switch_Shelly13 676519fa-f33f-9d3c-2e5f-01d016f71183a34c
+attr Switch_Shelly13 userattr room_map structexclude
+attr Switch_Shelly13 alias ShellyMini_13
+attr Switch_Shelly13 event-on-change-reading .*
+attr Switch_Shelly13 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly13 model shellyplus1
+attr Switch_Shelly13 room Shelly
+attr Switch_Shelly13 stateFormat relay
+attr Switch_Shelly13 webCmd on:off
+
+define Switch_Shelly14 Shelly 192.168.178.117
+setuuid Switch_Shelly14 676519fa-f33f-9d3c-b931-d7bac21d13c20465
+attr Switch_Shelly14 userattr room_map structexclude
+attr Switch_Shelly14 alias ShellyMini_14
+attr Switch_Shelly14 event-on-change-reading .*
+attr Switch_Shelly14 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly14 model shellyplus1
+attr Switch_Shelly14 room Shelly
+attr Switch_Shelly14 stateFormat relay
+attr Switch_Shelly14 webCmd on:off
+
+define Switch_Shelly15 Shelly 192.168.178.51
+setuuid Switch_Shelly15 67693de2-f33f-9d3c-fd89-dfc376c9af193004
+attr Switch_Shelly15 userattr room_map structexclude
+attr Switch_Shelly15 alias ShellyMini_15
+attr Switch_Shelly15 event-on-change-reading .*
+attr Switch_Shelly15 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly15 model shellyplus1
+attr Switch_Shelly15 room Shelly
+attr Switch_Shelly15 stateFormat relay
+attr Switch_Shelly15 webCmd on:off
+
+define Switch_Shelly16 Shelly 192.168.178.119
+setuuid Switch_Shelly16 67693ef2-f33f-9d3c-b7c1-457b51ad34a22331
+attr Switch_Shelly16 userattr room_map structexclude
+attr Switch_Shelly16 alias ShellyMini_16
+attr Switch_Shelly16 event-on-change-reading .*
+attr Switch_Shelly16 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly16 model shellyplus1
+attr Switch_Shelly16 room Shelly
+attr Switch_Shelly16 stateFormat relay
+attr Switch_Shelly16 webCmd on:off
+
+define Switch_Shelly17 Shelly 192.168.178.47
+setuuid Switch_Shelly17 678a1332-f33f-9d3c-8093-95d8c687f629e12a
+attr Switch_Shelly17 userattr room_map structexclude
+attr Switch_Shelly17 alias ShellyMini_17
+attr Switch_Shelly17 event-on-change-reading .*
+attr Switch_Shelly17 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly17 model shellyplus1
+attr Switch_Shelly17 room Shelly
+attr Switch_Shelly17 stateFormat relay
+attr Switch_Shelly17 webCmd on:off
+
+define Switch_Shelly18 Shelly 192.168.178.91
+setuuid Switch_Shelly18 678a1332-f33f-9d3c-6cc5-55555e28ba9cec92
+attr Switch_Shelly18 userattr room_map structexclude
+attr Switch_Shelly18 alias ShellyMini_18
+attr Switch_Shelly18 event-on-change-reading .*
+attr Switch_Shelly18 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly18 model shellyplus1
+attr Switch_Shelly18 room Shelly
+attr Switch_Shelly18 stateFormat relay
+attr Switch_Shelly18 webCmd on:off
+
+define Switch_Shelly19 Shelly 192.168.178.136
+setuuid Switch_Shelly19 678a1332-f33f-9d3c-f1a6-e1b4634da5743987
+attr Switch_Shelly19 userattr room_map structexclude
+attr Switch_Shelly19 alias ShellyMini_19
+attr Switch_Shelly19 event-on-change-reading .*
+attr Switch_Shelly19 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly19 model shellyplus1
+attr Switch_Shelly19 room Shelly
+attr Switch_Shelly19 stateFormat relay
+attr Switch_Shelly19 webCmd on:off
+
+define Switch_Shelly20 Shelly 192.168.178.113
+setuuid Switch_Shelly20 678a1332-f33f-9d3c-255b-011ce75f7c4b292f
+attr Switch_Shelly20 userattr room_map structexclude
+attr Switch_Shelly20 alias ShellyMini_20
+attr Switch_Shelly20 event-on-change-reading .*
+attr Switch_Shelly20 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly20 model shellyplus1
+attr Switch_Shelly20 room Shelly
+attr Switch_Shelly20 stateFormat relay
+attr Switch_Shelly20 webCmd on:off
+
+define Switch_ShellyPlug_01 Shelly 192.168.178.180
+setuuid Switch_ShellyPlug_01 6864f3aa-f33f-9d3c-d50f-d38a9af89c5009d2
+attr Switch_ShellyPlug_01 userattr room_map structexclude
+attr Switch_ShellyPlug_01 alias ShellyGrafana
+attr Switch_ShellyPlug_01 event-on-change-reading .*
+attr Switch_ShellyPlug_01 icon remotecontrol/black_btn_GREEN
+attr Switch_ShellyPlug_01 model shellyplug
+attr Switch_ShellyPlug_01 room Shelly
+attr Switch_ShellyPlug_01 stateFormat relay
+attr Switch_ShellyPlug_01 webCmd on:off
+
+define Switch_ShellyPlug_02 Shelly 192.168.178.182
+setuuid Switch_ShellyPlug_02 686bc52e-f33f-9d3c-1a7a-06fb00edbe13aa4f
+attr Switch_ShellyPlug_02 userattr room_map structexclude
+attr Switch_ShellyPlug_02 alias ShellyTabletGartenhaus
+attr Switch_ShellyPlug_02 event-on-change-reading .*
+attr Switch_ShellyPlug_02 icon remotecontrol/black_btn_GREEN
+attr Switch_ShellyPlug_02 model shellyplug
+attr Switch_ShellyPlug_02 room Shelly
+attr Switch_ShellyPlug_02 stateFormat relay
+attr Switch_ShellyPlug_02 webCmd on:off
+
+define Switch_Shelly21 Shelly 192.168.178.173
+setuuid Switch_Shelly21 68411db0-f33f-9d3c-2b3c-c8cb25587e671fe1
+attr Switch_Shelly21 userattr room_map structexclude
+attr Switch_Shelly21 alias ShellyMini_21
+attr Switch_Shelly21 event-on-change-reading .*
+attr Switch_Shelly21 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly21 maxtime_close 60
+attr Switch_Shelly21 maxtime_open 60
+attr Switch_Shelly21 mode roller
+attr Switch_Shelly21 model shellyplus2pm
+attr Switch_Shelly21 room Shelly
+attr Switch_Shelly21 slat_control disabled
+attr Switch_Shelly21 webCmd open:closed
+
+define Switch_Shelly22 Shelly 192.168.178.195
+setuuid Switch_Shelly22 692880a2-f33f-9d3c-c87e-9492621004a0eab6
+attr Switch_Shelly22 userattr room_map structexclude
+attr Switch_Shelly22 alias Switch_Shelly22
+attr Switch_Shelly22 event-on-change-reading .*
+attr Switch_Shelly22 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly22 model shellyplus1
+attr Switch_Shelly22 room Shelly,ioBroker
+attr Switch_Shelly22 stateFormat relay
+attr Switch_Shelly22 webCmd on:off
+
+define Switch_Shelly23 Shelly 192.168.178.187
+setuuid Switch_Shelly23 6a9a6d2d-f33f-9d3c-ef44-4295a88ca51ec0d3
+attr Switch_Shelly23 userattr room_map structexclude
+attr Switch_Shelly23 alias Switch_Shelly23
+attr Switch_Shelly23 event-on-change-reading .*
+attr Switch_Shelly23 icon remotecontrol/black_btn_GREEN
+attr Switch_Shelly23 model shellyplus1
+attr Switch_Shelly23 room Shelly
+attr Switch_Shelly23 stateFormat relay
+attr Switch_Shelly23 webCmd on:off
+
+
+define Shelly_Teichpegel Shelly 192.168.178.87
+setuuid Shelly_Teichpegel 6a9a6d2d-f33f-9d3c-1697-ea62e595c0ff4e41
+attr Shelly_Teichpegel alias Shelly_Teichpegel
+attr Shelly_Teichpegel interval 60
+attr Shelly_Teichpegel mode plus
+attr Shelly_Teichpegel model shellyplusuni
+attr Shelly_Teichpegel room Shelly
+
+define Plug_Shelly010 Shelly 192.168.178.105
+setuuid Plug_Shelly010 6a91799a-f33f-9d3c-0c8e-c576a0957b79f3c7
+attr Plug_Shelly010 userattr room_map structexclude
+attr Plug_Shelly010 alias Plug_Shelly010
+attr Plug_Shelly010 event-on-change-reading .*
+attr Plug_Shelly010 icon remotecontrol/black_btn_GREEN
+attr Plug_Shelly010 model shellyplug
+attr Plug_Shelly010 room Shelly
+attr Plug_Shelly010 stateFormat relay
+attr Plug_Shelly010 webCmd on:off
+
+define Plug_Shelly011 Shelly 192.168.178.110
+setuuid Plug_Shelly011 6a917b07-f33f-9d3c-6e5b-1cca869010d51965
+attr Plug_Shelly011 userattr room_map structexclude
+attr Plug_Shelly011 alias Plug_Shelly011
+attr Plug_Shelly011 event-on-change-reading .*
+attr Plug_Shelly011 icon remotecontrol/black_btn_GREEN
+attr Plug_Shelly011 model shellyplug
+attr Plug_Shelly011 room Shelly
+attr Plug_Shelly011 stateFormat relay
+attr Plug_Shelly011 webCmd on:off
+
+define Plug_Shelly012 Shelly 192.168.178.99
+setuuid Plug_Shelly012 6a917bcc-f33f-9d3c-36fa-f930723738f5b38d
+attr Plug_Shelly012 userattr room_map structexclude
+attr Plug_Shelly012 alias Plug_Shelly012
+attr Plug_Shelly012 event-on-change-reading .*
+attr Plug_Shelly012 icon remotecontrol/black_btn_GREEN
+attr Plug_Shelly012 model shellyplug
+attr Plug_Shelly012 room Shelly
+attr Plug_Shelly012 stateFormat relay
+attr Plug_Shelly012 webCmd on:off
+
+define Plug_Shelly013 Shelly 192.168.178.107
+setuuid Plug_Shelly013 6a917caa-f33f-9d3c-5251-3bada8a902bac24e
+attr Plug_Shelly013 userattr room_map structexclude
+attr Plug_Shelly013 alias Plug_Shelly013
+attr Plug_Shelly013 event-on-change-reading .*
+attr Plug_Shelly013 icon remotecontrol/black_btn_GREEN
+attr Plug_Shelly013 model shellyplug
+attr Plug_Shelly013 room Shelly
+attr Plug_Shelly013 stateFormat relay
+attr Plug_Shelly013 webCmd on:off
+
+define MQTT2_shelly1mini_001 MQTT2_DEVICE shelly1mini_001
+setuuid MQTT2_shelly1mini_001 674c8a69-f33f-9d3c-f749-5f470aad7f89063c
+attr MQTT2_shelly1mini_001 alias MQTT2_shelly1mini_001
+attr MQTT2_shelly1mini_001 readingList shelly1mini_001:shelly1mini_001/online:.* online\
+shelly1mini_001:shelly1mini_001/status/ble:.* ble\
+shelly1mini_001:shelly1mini_001/status/cloud:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/input_0:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/mqtt:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/switch_0:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/sys:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/wifi:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/ws:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/events/rpc:.* { json2nameValue($EVENT) }
+attr MQTT2_shelly1mini_001 room MQTT2_DEVICE,ioBroker
+
+define Wasserstand_Gartenhaus notify shellyplusuni_e08cfe8b0b38:xvoltage:.* {   my $wert = $EVTPART1;;   fhem("set ioBroker_Bridge publish FHEM/Shelly/Wasserstand_Gartenhaus $wert");; }
+setuuid Wasserstand_Gartenhaus 69fb7f87-f33f-9d3c-bec2-8fee242dc05edf18
+attr Wasserstand_Gartenhaus alias Wasserstand_Gartenhaus
+attr Wasserstand_Gartenhaus disable 0
+attr Wasserstand_Gartenhaus room MQTT2_DEVICE,ioBroker
+
+define Wasserstand_IBC notify shellyplusuni_e08cfe8b3efc:xvoltage:.* {   my $wert = $EVTPART1;;   fhem("set ioBroker_Bridge publish FHEM/Shelly/Wasserstand_IBC $wert");; }
+setuuid Wasserstand_IBC 69fc4f74-f33f-9d3c-85ed-41369f740cc13b1b
+attr Wasserstand_IBC alias Wasserstand_IBC
+attr Wasserstand_IBC room MQTT2_DEVICE,ioBroker
+
+define Wasserstand_Teich notify shellyplusuni_e08cfe8b2f88:xvoltage:.* {   my $wert = $EVTPART1;;   fhem("set ioBroker_Bridge publish FHEM/Shelly/Wasserstand_Teich $wert");; }
+setuuid Wasserstand_Teich 69fc4f82-f33f-9d3c-39c6-8e3d6a1d5bf6363f
+attr Wasserstand_Teich alias Wasserstand_Teich
+attr Wasserstand_Teich room MQTT2_DEVICE,ioBroker
+
+define Temp_Teich_unten notify shellyplusuni_e08cfe8b2f88:tC:.* { my $wert = $EVTPART1;; fhem("set ioBroker_Bridge publish FHEM/Shelly/Temp_Teich_unten $wert") }
+setuuid Temp_Teich_unten 6a5cf878-f33f-9d3c-a61b-fb69fa938b902f45
+attr Temp_Teich_unten alias Temp_Teich_unten
+
+define Temp_Teich_oben notify shellyplusuni_e08cfe8b2f88:params_temperature_100_tC:.* { my $wert = $EVTPART1;; fhem("set ioBroker_Bridge publish FHEM/Shelly/Temp_Teich_oben $wert") }
+setuuid Temp_Teich_oben 6a5cf91a-f33f-9d3c-56c9-2eb68b528d10cee6
+attr Temp_Teich_oben alias Temp_Teich_oben
+
+define TeichTempUnten notify shellyplusuni_e08cfe8b2f88:params_temperature_100_tC:.* { my $wert = $EVTPART1;; fhem("set ioBroker_Bridge publish FHEM/Shelly/Temperatur_unten $wert");; }
+setuuid TeichTempUnten 6a5d1afb-f33f-9d3c-1c8d-c4813b6296fbd542
+attr TeichTempUnten alias TeichTempUnten
+
+define TeichTempOben notify shellyplusuni_e08cfe8b2f88:params_temperature_101_tC:.* { my $wert = $EVTPART1;; fhem("set ioBroker_Bridge publish FHEM/Shelly/Temperatur_oben $wert");; }
+setuuid TeichTempOben 6a5d1b2e-f33f-9d3c-fed6-db17164ca03ad8fd
+attr TeichTempOben alias TeichTempOben
+
+define shelly2pmg3_8cbfea98faac_CH2 MQTT2_DEVICE
+setuuid shelly2pmg3_8cbfea98faac_CH2 69bb90d0-f33f-9d3c-ecba-10bd997acac12b32
+attr shelly2pmg3_8cbfea98faac_CH2 IODev MQTT2_Server
+attr shelly2pmg3_8cbfea98faac_CH2 alias shelly2pmg3_8cbfea98faac
+attr shelly2pmg3_8cbfea98faac_CH2 cmdIcon open:fts_shutter_up close:fts_shutter_down stop:fts_shutter_manual half:fts_shutter_50
+attr shelly2pmg3_8cbfea98faac_CH2 comment Channel 2 for shelly2pmg3_8cbfea98faac
+attr shelly2pmg3_8cbfea98faac_CH2 devStateIcon { my $light = FW_makeImage(ReadingsVal($name,'state','off'));; my $cons = ReadingsNum($name,'apower',0);; my $total = round(ReadingsNum($name,'aenergy_total',0)/1000,1);;qq(<a href="/fhem?cmd.dummy=set $name toggle&XHR=1">${light}</a><div>Verbrauch: $cons W / Total: $total kwhC</div>) }
+attr shelly2pmg3_8cbfea98faac_CH2 devicetopic MagnetventilGarten
+attr shelly2pmg3_8cbfea98faac_CH2 icon fts_shutter
+attr shelly2pmg3_8cbfea98faac_CH2 jsonMap params_switch_1_state:state params_switch_1_aenergy_total:aenergy_total params_switch_1_apower:apower params_switch_1_temperature_tC:temperature params_switch_1_temperature_tF:0 temperature_tC:temperature temperature_tF:0
+attr shelly2pmg3_8cbfea98faac_CH2 model shellyPlus_2PM_switch
+attr shelly2pmg3_8cbfea98faac_CH2 readingList $DEVICETOPIC/events/rpc:.* { return if $EVENT !~ m{switch:1};; $EVENT =~ s/"output":true/"state":"on"/g;; $EVENT =~ s/"output":false/"state":"off"/g;; json2nameValue($EVENT,'',$JSONMAP) }\
+  $DEVICETOPIC/status/switch.1:.* { json2nameValue($EVENT, '', $JSONMAP) }\
+  $DEVICETOPIC/status/input.1:.* { $EVENT =~ s/"state":true/"input":"on"/g;; $EVENT =~ s/"state":false/"input":"off"/g;;json2nameValue($EVENT, '', $JSONMAP) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/events/rpc:.* { json2nameValue($EVENT) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/cover_0:.* { json2nameValue($EVENT) }
+attr shelly2pmg3_8cbfea98faac_CH2 room MQTT2_DEVICE,ioBroker
+attr shelly2pmg3_8cbfea98faac_CH2 setList toggle:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Toggle","params": {"id":1}}\
+  off:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":1,"on":false}}\
+  on:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":1,"on":true}}\
+  on-for-timer $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":1,"on":true,"toggle_after":$EVTPART1}}\
+  off-for-timer $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":1,"on":false,"toggle_after":$EVTPART1}}
+attr shelly2pmg3_8cbfea98faac_CH2 setStateList open close half stop pct
+attr shelly2pmg3_8cbfea98faac_CH2 webCmd :open:close:half:stop:pct
+
+define shellyplusrgbwpm_30c92257704c MQTT2_DEVICE shellyplusrgbwpm_30c92257704c
+setuuid shellyplusrgbwpm_30c92257704c 69bbccd4-f33f-9d3c-9e22-cf8322d1f678ed2d
+attr shellyplusrgbwpm_30c92257704c alias shellyplusrgbwpm_30c92257704c
+attr shellyplusrgbwpm_30c92257704c devStateIcon on:on:off off:off:on
+attr shellyplusrgbwpm_30c92257704c readingList shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/online:.* online\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/status/mqtt:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/events/rpc:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/status/sys:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/status/cloud:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/status/rgbw_0:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:shellyplusrgbwpm-30c92257704c/status/wifi:.* { json2nameValue($EVENT) }\
+shellyplusrgbwpm_30c92257704c:fhem/rpc:.* { json2nameValue($EVENT) }
+attr shellyplusrgbwpm_30c92257704c room MQTT2_DEVICE,ioBroker
+attr shellyplusrgbwpm_30c92257704c setList on:noArg shellyplusrgbwpm-30c92257704c/rpc {"id":1,"src":"fhem","method":"RGBW.Set","params":{"id":0,"on":true}}\
+off:noArg shellyplusrgbwpm-30c92257704c/rpc {"id":1,"src":"fhem","method":"RGBW.Set","params":{"id":0,"on":false}}
+attr shellyplusrgbwpm_30c92257704c stateFormat {ReadingsVal($name,"output","off") eq "true" ? "on" : "off"}
+attr shellyplusrgbwpm_30c92257704c verbose 2
+attr shellyplusrgbwpm_30c92257704c webCmd on:off
+
+
+define shelly2pmg3_8cbfea98faac MQTT2_DEVICE shelly2pmg3_8cbfea98faac
+setuuid shelly2pmg3_8cbfea98faac 69bbce90-f33f-9d3c-ce64-aa26b7a76daadfe4
+attr shelly2pmg3_8cbfea98faac alias shelly2pmg3_8cbfea98faac
+attr shelly2pmg3_8cbfea98faac event-on-update-reading On
+attr shelly2pmg3_8cbfea98faac readingList shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/sys:.* { json2nameValue($EVENT) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/online:.* online\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/mqtt:.* { json2nameValue($EVENT) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/cloud:.* { json2nameValue($EVENT) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/input_1:.* { json2nameValue($EVENT) }\
+shelly2pmg3_8cbfea98faac:shelly2pmg3-8cbfea98faac/status/wifi:.* { json2nameValue($EVENT) }
+attr shelly2pmg3_8cbfea98faac room MQTT2_DEVICE,ioBroker
+
+
+define shellyplusuni_e08cfe8b2f88 MQTT2_DEVICE shellyplusuni_e08cfe8b2f88
+setuuid shellyplusuni_e08cfe8b2f88 69d6b15e-f33f-9d3c-8e91-2e5576530744cec4
+attr shellyplusuni_e08cfe8b2f88 IODev mqttGenericBridge
+attr shellyplusuni_e08cfe8b2f88 alias shellyplusuni_e08cfe8b2f88
+attr shellyplusuni_e08cfe8b2f88 event-min-interval params_temperature_100_tC:900,params_temperature_101_tC:900,params_voltmeter_100_xvoltage:900
+attr shellyplusuni_e08cfe8b2f88 event-on-update-reading params_temperature_100_tC,params_temperature_101_tC,params_voltmeter_100_xvoltage
+attr shellyplusuni_e08cfe8b2f88 model shellyPlus_uni
+attr shellyplusuni_e08cfe8b2f88 readingList shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/online:.* online\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/ble:.* ble\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/cloud:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/input_0:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/input_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/input_2:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/mqtt:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/switch_0:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/switch_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/sys:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/voltmeter_100:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/wifi:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/ws:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/events/rpc:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/script_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni_e08cfe8b2f88/status/voltmeter:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/temperature_100:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/temperature_101:.* { json2nameValue($EVENT) }\
+shellyplusuni-e08cfe8b2f88/status/temperature:100:.* { json2nameValue($EVENT, 'params_temperature_100_') }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/status/script_2:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b2f88:shellyplusuni-e08cfe8b2f88/Teich:.* { json2nameValue($EVENT) }
+attr shellyplusuni_e08cfe8b2f88 room MQTT2_DEVICE,ioBroker
+attr shellyplusuni_e08cfe8b2f88 userReadings temp_oben_num:params_temperature_101_tC.* { ReadingsNum($NAME,"params_temperature_100_tC",0) }
+
+define shellyplusuni_e08cfe8b3efc MQTT2_DEVICE shellyplusuni_e08cfe8b3efc
+setuuid shellyplusuni_e08cfe8b3efc 69e0e86c-f33f-9d3c-c71c-be04aa3975ca2325
+attr shellyplusuni_e08cfe8b3efc alias shellyplusuni_e08cfe8b3efc
+attr shellyplusuni_e08cfe8b3efc model shellyPlus_uni
+attr shellyplusuni_e08cfe8b3efc readingList shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/online:.* online\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/ble:.* ble\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/cloud:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/input_0:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/input_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/input_2:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/mqtt:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/switch_0:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/switch_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/sys:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/voltmeter_100:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/wifi:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/ws:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/events/rpc:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni-e08cfe8b3efc/status/script_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b3efc:shellyplusuni_e08cfe8b3efc/status/voltmeter:.* { json2nameValue($EVENT) }
+attr shellyplusuni_e08cfe8b3efc room MQTT2_DEVICE,ioBroker
+
+
+define update_Shelly_Uni at +*00:01:00 get shellyplusuni_e08cfe8b3efc status
+setuuid update_Shelly_Uni 69e1e4c1-f33f-9d3c-9f9a-dbb14cda98a54fa6
+attr update_Shelly_Uni alias update_Shelly_Uni
+
+define shellyplusuni_e08cfe8b0b38 MQTT2_DEVICE shellyplusuni_e08cfe8b0b38
+setuuid shellyplusuni_e08cfe8b0b38 69e9c9ed-f33f-9d3c-a09d-3719f9adec8bb5c0
+attr shellyplusuni_e08cfe8b0b38 alias shellyplusuni_e08cfe8b0b38
+attr shellyplusuni_e08cfe8b0b38 devStateIcon {my $onl = ReadingsVal($name,'online','false') eq 'false'?'10px-kreis-rot':'10px-kreis-gruen';; $onl = FW_makeImage($onl);; my $light = FW_makeImage(ReadingsVal($name,'state','off'));; my $temp = ReadingsVal($name,'temperature','-100');; my $ip = ReadingsVal($name,'ip','none');; my $reb = ReadingsVal($name,'sys_restart_required','false') eq 'true'?'<a href="/fhem?cmd.dummy=set '.$name.' x_reboot&XHR=1"> ... Notwendigen Reboot durchführen</a>':'';; qq(<a href="http://$ip" target="_blank">${onl}</a><a href="/fhem?cmd.dummy=set $name toggle&XHR=1">${light}</a>$reb<div>Temp: $temp °C</div>)}
+attr shellyplusuni_e08cfe8b0b38 devicetopic shellyplusuni-e08cfe8b0b38
+attr shellyplusuni_e08cfe8b0b38 event-on-change-reading On
+attr shellyplusuni_e08cfe8b0b38 event-on-update-reading .*
+attr shellyplusuni_e08cfe8b0b38 getList in_mode:noArg in_mode $DEVICETOPIC/rpc {"id": 1,"src":"$DEVICETOPIC", "method": "Switch.GetConfig", "params": {"id": 0}}
+attr shellyplusuni_e08cfe8b0b38 icon message_socket
+attr shellyplusuni_e08cfe8b0b38 jsonMap switch_state:state switch_temperature_tC:temperature switch_temperature_tF:0 params_wifi_sta_ip:ip params_switch_0_temperature_tC:temperature params_switch_0_temperature_tF:0 req_result_in_mode:in_mode
+attr shellyplusuni_e08cfe8b0b38 model shellyPlus_1
+attr shellyplusuni_e08cfe8b0b38 readingList $DEVICETOPIC/online:.* online\
+  $DEVICETOPIC/events/rpc:.* { json2nameValue($EVENT,'',$JSONMAP) }\
+  $DEVICETOPIC/status/mqtt:.* { json2nameValue($EVENT, 'mqtt_', $JSONMAP) }\
+  $DEVICETOPIC/status/sys:.* { json2nameValue($EVENT, 'sys_', $JSONMAP) }\
+  $DEVICETOPIC/status/switch_0:.* { $EVENT =~ s/"output":true/"state":"on"/g;; $EVENT =~ s/"output":false/"state":"off"/g;; json2nameValue($EVENT, 'switch_', $JSONMAP) }\
+  $DEVICETOPIC/status/cloud:.* {}\
+  $DEVICETOPIC/rpc:.* { json2nameValue($EVENT, 'req_', $JSONMAP, 'in_mode')}\
+  $DEVICETOPIC/status/input_0:.* { json2nameValue($EVENT, 'input_', $JSONMAP) }\
+  fhem2shelly/rpc:.* {}\
+shellyplusuni_e08cfe8b0b38:shellyplusuni-e08cfe8b0b38/status/input_2:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b0b38:shellyplusuni-e08cfe8b0b38/status/voltmeter_100:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b0b38:shellyplusuni-e08cfe8b0b38/status/script_1:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b0b38:shellyplusuni_e08cfe8b0b38/status/voltmeter:.* { json2nameValue($EVENT) }\
+shellyplusuni_e08cfe8b0b38:shellyplusuni-e08cfe8b0b38/status/wifi:.* { json2nameValue($EVENT) }
+attr shellyplusuni_e08cfe8b0b38 room MQTT2_DEVICE,ioBroker
+attr shellyplusuni_e08cfe8b0b38 setList toggle:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Toggle","params": {"id":0}}\
+  off:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":0,"on":false}}\
+  on:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":0,"on":true}}\
+  on-for-timer $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":0,"on":true,"toggle_after":$EVTPART1}}\
+  off-for-timer $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Switch.Set","params": {"id":0,"on":false,"toggle_after":$EVTPART1}}\
+  in_mode:toggle,flip,detached {fhem("sleep 0.2;; get $NAME in_mode");; my $val = $EVTPART1 ne 'toggle' ? $EVTPART1 : ReadingsVal($NAME,'in_mode','flip') eq 'flip' ? 'detached':'flip';; qq($DEVICETOPIC/rpc {"id":1,"src":"fhem2shelly","method":"Switch.SetConfig","params": {"id":0, "config": {"in_mode": "$val"}}})}\
+  x_update:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Shelly.Update","params": {"stage":"stable"}}\
+  x_reboot:noArg $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Shelly.Reboot"}\
+  x_eco:true,false $DEVICETOPIC/rpc {"id":0,"src":"fhem2shelly","method":"Sys.SetConfig","params": {"config": {"device": {"eco_mode": $EVTPART1}}}}
+attr shellyplusuni_e08cfe8b0b38 setStateList on off toggle on-for-timer off-for-timer
+attr shellyplusuni_e08cfe8b0b38 webCmd :
