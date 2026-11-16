@@ -1,5 +1,6 @@
 attr global userattr cmdIcon devStateIcon devStateIcon:textField-long devStateStyle icon sortby webCmd webCmdLabel:textField-long widgetOverride
 attr global alias global
+attr global configfile fhem.cfg
 attr global autoload_undefined_devices 1
 attr global autosave 0
 attr global holiday2we NRW
@@ -50,7 +51,7 @@ setuuid WEB 5c77fe90-f33f-9d3c-0483-da622c0231b1dfe6
 attr WEB alias WEB
 attr WEB confirmDelete 0
 attr WEB editConfig 1
-attr WEB longpoll websocket
+attr WEB longpoll 1
 attr WEB stylesheetPrefix dark
 define allowed_WEB allowed
 setuuid allowed_WEB 5c77fe90-f33f-9d3c-428b-c2e602d5ecb63300
@@ -133,10 +134,10 @@ include /opt/fhem/FHEM/Sensoren_neu.cfg
 include /opt/fhem/FHEM/Kalenderabfragen_neu.cfg
 include /opt/fhem/FHEM/Sonoff.cfg
 include /opt/fhem/FHEM/Steckdosen_Garten.cfg
-include /opt/fhem/FHEM/Shelly.cfg
 # include /opt/fhem/FHEM/Fritzbox.cfg
 include /opt/fhem/FHEM/Steckdosen_Pflanzenlicht.cfg
-# include /opt/fhem/FHEM/Steckdosen_XMAS.cfg
+include /opt/fhem/FHEM/Steckdosen_XMAS.cfg
+include /opt/fhem/FHEM/Shelly.cfg
 # include /opt/fhem/FHEM/Backup_neu.cfg
 # include /opt/fhem/FHEM/Test.cfg
 # include /opt/fhem/FHEM/Alarmanlage.cfg
@@ -248,7 +249,7 @@ attr HM_00000A autoReadReg 4_reqStatus
 attr HM_00000A expert defReg,rawReg
 attr HM_00000A model ACTIONDETECTOR
 attr HM_00000A room CUL_HM
-attr HM_00000A subType no
+attr HM_00000A subType virtual
 define FileLog_HM_00000A FileLog ./log/HM_00000A-%Y.log HM_00000A
 setuuid FileLog_HM_00000A 5e5bd529-f33f-9d3c-d7df-fa3427d8ade2e384
 attr FileLog_HM_00000A alias FileLog_HM_00000A
@@ -263,7 +264,7 @@ attr HM_9B7872 autoReadReg 4_reqStatus
 attr HM_9B7872 expert defReg,rawReg
 attr HM_9B7872 model ACTIONDETECTOR
 attr HM_9B7872 room CUL_HM
-attr HM_9B7872 subType no
+attr HM_9B7872 subType virtual
 define FileLog_HM_9B7872 FileLog ./log/HM_9B7872-%Y.log HM_9B7872
 setuuid FileLog_HM_9B7872 5e5bd529-f33f-9d3c-2b98-5b8fe1785f40fe8a
 attr FileLog_HM_9B7872 alias FileLog_HM_9B7872
@@ -278,7 +279,7 @@ attr HM_00C100 autoReadReg 4_reqStatus
 attr HM_00C100 expert defReg,rawReg
 attr HM_00C100 model ACTIONDETECTOR
 attr HM_00C100 room CUL_HM
-attr HM_00C100 subType no
+attr HM_00C100 subType virtual
 define FileLog_HM_00C100 FileLog ./log/HM_00C100-%Y.log HM_00C100
 setuuid FileLog_HM_00C100 5e5bd533-f33f-9d3c-797f-d04b9375abfd4858
 attr FileLog_HM_00C100 alias FileLog_HM_00C100
@@ -293,7 +294,7 @@ attr HM_C10005 autoReadReg 4_reqStatus
 attr HM_C10005 expert defReg,rawReg
 attr HM_C10005 model ACTIONDETECTOR
 attr HM_C10005 room CUL_HM
-attr HM_C10005 subType no
+attr HM_C10005 subType virtual
 define FileLog_HM_C10005 FileLog ./log/HM_C10005-%Y.log HM_C10005
 setuuid FileLog_HM_C10005 5e5bd535-f33f-9d3c-6a4d-a76153cfb76fdd19
 attr FileLog_HM_C10005 alias FileLog_HM_C10005
@@ -308,7 +309,7 @@ attr HM_000A8C autoReadReg 4_reqStatus
 attr HM_000A8C expert defReg,rawReg
 attr HM_000A8C model ACTIONDETECTOR
 attr HM_000A8C room CUL_HM
-attr HM_000A8C subType no
+attr HM_000A8C subType virtual
 define FileLog_HM_000A8C FileLog ./log/HM_000A8C-%Y.log HM_000A8C
 setuuid FileLog_HM_000A8C 5e5bd535-f33f-9d3c-44d6-b147788df5b583a8
 attr FileLog_HM_000A8C alias FileLog_HM_000A8C
@@ -336,19 +337,35 @@ attr VCCU_Btn1 alias VCCU_Btn1
 attr VCCU_Btn1 model CCU-FHEM
 attr VCCU_Btn1 webCmd press short:press long
 
+
 define MQTT2_Server MQTT2_SERVER 1883 global
 setuuid MQTT2_Server 673b7d4f-f33f-9d3c-1a34-0707d218295b869b
 attr MQTT2_Server alias MQTT2_Server
 attr MQTT2_Server autocreate simple
 attr MQTT2_Server room MQTT2
-attr MQTT2_Server verbose 2
+
+define MQTT2_shelly1mini_001 MQTT2_DEVICE shelly1mini_001
+setuuid MQTT2_shelly1mini_001 674c8a69-f33f-9d3c-f749-5f470aad7f89063c
+attr MQTT2_shelly1mini_001 alias MQTT2_shelly1mini_001
+attr MQTT2_shelly1mini_001 readingList shelly1mini_001:shelly1mini_001/online:.* online\
+shelly1mini_001:shelly1mini_001/status/ble:.* ble\
+shelly1mini_001:shelly1mini_001/status/cloud:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/input_0:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/mqtt:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/switch_0:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/sys:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/wifi:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/status/ws:.* { json2nameValue($EVENT) }\
+shelly1mini_001:shelly1mini_001/events/rpc:.* { json2nameValue($EVENT) }
+attr MQTT2_shelly1mini_001 room MQTT2_DEVICE
+
 
 define MQTT2_Switch_Shelly4 MQTT2_DEVICE Switch_Shelly4
 setuuid MQTT2_Switch_Shelly4 674c8a6b-f33f-9d3c-1382-a5e7dc9cc00b7bdf
 attr MQTT2_Switch_Shelly4 alias MQTT2_Switch_Shelly4
 attr MQTT2_Switch_Shelly4 readingList Switch_Shelly4:Switch_Shelly4/online:.* online\
 Switch_Shelly4:Switch_Shelly4/events/rpc:.* { json2nameValue($EVENT) }
-attr MQTT2_Switch_Shelly4 room MQTT2_DEVICE,ioBroker
+attr MQTT2_Switch_Shelly4 room MQTT2_DEVICE
 
 
 define MQTT2_shellyplus1pm_002 MQTT2_DEVICE shellyplus1pm_002
@@ -364,7 +381,7 @@ shellyplus1pm_002:shellyplus1pm-002/status/sys:.* { json2nameValue($EVENT) }\
 shellyplus1pm_002:shellyplus1pm-002/status/wifi:.* { json2nameValue($EVENT) }\
 shellyplus1pm_002:shellyplus1pm-002/status/ws:.* { json2nameValue($EVENT) }\
 shellyplus1pm_002:shellyplus1pm-002/events/rpc:.* { json2nameValue($EVENT) }
-attr MQTT2_shellyplus1pm_002 room MQTT2_DEVICE,ioBroker
+attr MQTT2_shellyplus1pm_002 room MQTT2_DEVICE
 
 define fhem.0.send2ioB dummy
 setuuid fhem.0.send2ioB 676590bb-f33f-9d3c-dab4-8cda1d732e4f0e41
@@ -406,25 +423,6 @@ attr ESPEasy_Climate_2_Wasserstand2 readingSwitchText 1
 attr ESPEasy_Climate_2_Wasserstand2 room ESPEasy
 attr ESPEasy_Climate_2_Wasserstand2 setState 3
 
-define ESPEasy_Climate_Wasserstand1 ESPEasy 192.168.178.102 80 espBridge Climate_Wasserstand1
-setuuid ESPEasy_Climate_Wasserstand1 67c0a7c5-f33f-9d3c-f5ca-a6a6b0a72b952406
-attr ESPEasy_Climate_Wasserstand1 Interval 300
-attr ESPEasy_Climate_Wasserstand1 alias Wasserstand1
-attr ESPEasy_Climate_Wasserstand1 group ESPEasy Device
-attr ESPEasy_Climate_Wasserstand1 presenceCheck 1
-attr ESPEasy_Climate_Wasserstand1 readingSwitchText 1
-attr ESPEasy_Climate_Wasserstand1 room ESPEasy
-attr ESPEasy_Climate_Wasserstand1 setState 3
-
-define ESPEasy_Climate_Wasserstand1_Sysinfo ESPEasy 192.168.178.102 80 espBridge Climate_Wasserstand1_Sysinfo
-setuuid ESPEasy_Climate_Wasserstand1_Sysinfo 67c0a7eb-f33f-9d3c-93b7-ec4538cca0c3e063
-attr ESPEasy_Climate_Wasserstand1_Sysinfo Interval 300
-attr ESPEasy_Climate_Wasserstand1_Sysinfo alias Wasserstand1_Sysinfo
-attr ESPEasy_Climate_Wasserstand1_Sysinfo group ESPEasy Device
-attr ESPEasy_Climate_Wasserstand1_Sysinfo presenceCheck 1
-attr ESPEasy_Climate_Wasserstand1_Sysinfo readingSwitchText 1
-attr ESPEasy_Climate_Wasserstand1_Sysinfo room ESPEasy
-attr ESPEasy_Climate_Wasserstand1_Sysinfo setState 3
 
 define ESPEasy_Climate_Gartenhaus_Neu ESPEasy 192.168.178.137 80 espBridge Climate_Gartenhaus_Neu
 setuuid ESPEasy_Climate_Gartenhaus_Neu 67f2888b-f33f-9d3c-2f1e-2ab6e19e2691988a
@@ -436,15 +434,6 @@ attr ESPEasy_Climate_Gartenhaus_Neu readingSwitchText 1
 attr ESPEasy_Climate_Gartenhaus_Neu room ESPEasy
 attr ESPEasy_Climate_Gartenhaus_Neu setState 3
 
-define ESPEasy_ESP_Easy_Teichlevel ESPEasy 192.168.178.136 80 espBridge ESP_Easy_Teichlevel
-setuuid ESPEasy_ESP_Easy_Teichlevel 67f2b275-f33f-9d3c-bd8f-122576268966f39b
-attr ESPEasy_ESP_Easy_Teichlevel Interval 300
-attr ESPEasy_ESP_Easy_Teichlevel alias ESPEasy_ESP_Easy_Teichlevel
-attr ESPEasy_ESP_Easy_Teichlevel group ESPEasy Device
-attr ESPEasy_ESP_Easy_Teichlevel presenceCheck 1
-attr ESPEasy_ESP_Easy_Teichlevel readingSwitchText 1
-attr ESPEasy_ESP_Easy_Teichlevel room ESPEasy
-attr ESPEasy_ESP_Easy_Teichlevel setState 3
 
 define MQTT2_OMG_lilygo_rtl_433_ESP_OOK MQTT2_DEVICE OMG_lilygo_rtl_433_ESP_OOK
 setuuid MQTT2_OMG_lilygo_rtl_433_ESP_OOK 67ff7c26-f33f-9d3c-9fb3-b7c310a2cf188f27
@@ -492,7 +481,7 @@ OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Acur
 OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Digitech-XC0324/03:.* { json2nameValue($EVENT) }\
 OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Oregon-CM180i/10640:.* { json2nameValue($EVENT) }\
 OMG_lilygo_rtl_433_ESP_OOK:Bresser/OMG_lilygo_rtl_433_ESP_OOK/RTL_433toMQTT/Springfield-Soil/1/32:.* { json2nameValue($EVENT) }
-attr MQTT2_OMG_lilygo_rtl_433_ESP_OOK room MQTT2_DEVICE,ioBroker
+attr MQTT2_OMG_lilygo_rtl_433_ESP_OOK room MQTT2_DEVICE
 
 
 define MQTT2_Bresser MQTT2_DEVICE Bresser
@@ -532,7 +521,7 @@ Bresser:Wetterstation/Bresser/RTL_433toMQTT/LaCrosse-TX35DTHIT/34:.* { json2name
 Bresser:homeassistant/binary_sensor/LaCrosse-TX35DTHIT-34-battery_ok/config:.* { json2nameValue($EVENT) }\
 Bresser:homeassistant/sensor/LaCrosse-TX35DTHIT-34-rssi/config:.* { json2nameValue($EVENT) }\
 Bresser:homeassistant/sensor/LaCrosse-TX35DTHIT-34-temperature_C/config:.* { json2nameValue($EVENT) }
-attr MQTT2_Bresser room MQTT2_DEVICE,ioBroker
+attr MQTT2_Bresser room MQTT2_DEVICE
 
 
 define MQTT2_Wetterstation MQTT2_DEVICE Wetterstation
@@ -631,67 +620,5 @@ Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/615974663:.* { js
 Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/2:.* { json2nameValue($EVENT) }\
 Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/38:.* { json2nameValue($EVENT) }\
 Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/64904:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/30:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/45:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX35DTHIT/41:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/132:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-830142713:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65178:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/216:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/50:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/21:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65399:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-207550713:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/19:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Sharp-SPC775/36:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/Inkbird-ITH20R/65382:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-519174393:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/1:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX29IT/8:.* { json2nameValue($EVENT) }\
-Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/ESIC-EMT7110/-1791752441:.* { json2nameValue($EVENT) }
-attr MQTT2_Wetterstation room MQTT2_DEVICE,ioBroker
-
-define ioBroker_Bridge MQTT2_CLIENT 192.168.178.50:1883
-setuuid ioBroker_Bridge 69fb7131-f33f-9d3c-ebcf-c39571e35f1eea3b
-attr ioBroker_Bridge alias ioBroker_Bridge
-attr ioBroker_Bridge clientId fhem_haupt_instanz
-attr ioBroker_Bridge connectTimeout 10
-attr ioBroker_Bridge disable 0
-attr ioBroker_Bridge ignoreRegexp fhem_haupt_instanz/.*
-attr ioBroker_Bridge keepaliveTimeout 60
-attr ioBroker_Bridge nextOpenDelay 10
-attr ioBroker_Bridge room MQTT2_DEVICE,ioBroker
-attr ioBroker_Bridge username thomas
-
-
-define shellyplus1pm_c82e1895ba2c MQTT2_DEVICE shellyplus1pm_c82e1895ba2c
-setuuid shellyplus1pm_c82e1895ba2c 6ac5359e-f33f-9d3c-13df-220cb0cbd7082b78
-attr shellyplus1pm_c82e1895ba2c alias shellyplus1pm_c82e1895ba2c
-attr shellyplus1pm_c82e1895ba2c readingList shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/online:.* online\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/mqtt:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/events/rpc:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/sys:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/cloud:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/temperature_100:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/switch_0:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/temperature_101:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/wifi:.* { json2nameValue($EVENT) }\
-shellyplus1pm_c82e1895ba2c:shellyplus1pm-c82e1895ba2c/status/script_1:.* { json2nameValue($EVENT) }
-attr shellyplus1pm_c82e1895ba2c room MQTT2_DEVICE,ioBroker
-define FileLog_shellyplus1pm_c82e1895ba2c FileLog ./log/shellyplus1pm_c82e1895ba2c-%Y.log shellyplus1pm_c82e1895ba2c
-setuuid FileLog_shellyplus1pm_c82e1895ba2c 6ac5359e-f33f-9d3c-8541-ed2d7c982645ce49
-attr FileLog_shellyplus1pm_c82e1895ba2c alias FileLog_shellyplus1pm_c82e1895ba2c
-attr FileLog_shellyplus1pm_c82e1895ba2c logtype text
-attr FileLog_shellyplus1pm_c82e1895ba2c room MQTT2_DEVICE
-define Shelly_Heizung MQTT2_DEVICE
-setuuid Shelly_Heizung 6ac55924-f33f-9d3c-9e6a-9c8e08254f9be1b7
-attr Shelly_Heizung IODev MQTT2_Server
-attr Shelly_Heizung alias Shelly_Heizung
-attr Shelly_Heizung readingList shellyplus1pm-c82e1895ba2c/heizung:.* { json2nameValue($EVENT) }
-attr Shelly_Heizung room ioBroker
-define Shelly_Teich MQTT2_DEVICE
-setuuid Shelly_Teich 6ac62aee-f33f-9d3c-7d77-08000cdd7f8113d8
-attr Shelly_Teich IODev MQTT2_Server
-attr Shelly_Teich alias Shelly_Teich
-attr Shelly_Teich readingList shellyplusuni-e08cfe8b2f88/Teich:.* { json2nameValue($EVENT) }
-attr Shelly_Teich room ioBroker
+Wetterstation:Bresser/Wetterstation/RTL_433toMQTT/LaCrosse-TX31UIT/30:.* { json2nameValue($EVENT) }
+attr MQTT2_Wetterstation room MQTT2_DEVICE
