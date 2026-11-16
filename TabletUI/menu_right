@@ -1,0 +1,23 @@
+<header><div data-type="label" class="large">Men&uuml;</div></header>
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Webcam1.html" data-icon="mi-videocam" class="cell small"></div>
+    <div data-type="label" class="cell darker">Webcam</div>
+	
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="2tageDetail.html" data-icon="fa-bar-chart" class="cell small"></div>
+    <div data-type="label" class="cell darker">2-Tage-Vorhersage</div>	
+	
+<!-- <div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Openelec_Test.html" data-icon="fa-volume-up" class="cell small"></div>
+    <div data-type="label" class="cell darker">Openelec FB</div> -->
+
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Wetterdaten.html" data-icon="fa-line-chart" class="cell small"></div>
+    <div data-type="label" class="cell darker">7-Tage-Vorhersage</div>
+	
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="colorwheel.html" data-icon="fa-sun-o" class="cell small"></div>
+	<div data-type="label" class="cell darker">Colorwheel</div>
+	
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="regenradar.html" data-icon="fa-umbrella" class="cell small"></div>
+    <div data-type="label" class="cell darker">Regenradar</div>	
+	
+<!-- <div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Spritpreise.html" data-icon="fa-car" class="cell tiny"></div>
+    <div data-type="label" class="cell darker">Spritpreise</div>	-->
+	
+
