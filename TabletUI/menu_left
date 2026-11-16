@@ -1,0 +1,17 @@
+<header><div data-type="label" class="large">Men&uuml;</header>
+
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Heizung_gross.html" data-icon="fa-thermometer-half" class="cell small"></div>
+    <div data-type="label" class="cell darker">Heizung</div>
+
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Licht_Funksteckdosen.html" data-icon="fa-lightbulb-o" class="cell small"></div>
+    <div data-type="label" class="cell darker">Licht / FSD </div>
+	
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Garten_Funksteckdosen.html" data-icon="fa-tree" class="cell small"></div>
+    <div data-type="label" class="cell darker">Garten </div>	
+
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="Rolladen_neu.html" data-icon="fa-window-maximize" class="cell small"></div>
+    <div data-type="label" class="cell darker">Rolladen</div>
+
+<div style="font-size:30px; color:rgb(96, 0, 0);" data-type="button" data-color="#aa6900" data-url="System.html" data-icon="fa-wrench" class="cell small"></div>
+	<div data-type="label" class="cell darker">System</div>
+	
