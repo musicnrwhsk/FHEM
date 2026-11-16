@@ -1,0 +1,40 @@
+entities:Buero_heizung_Clima
+R_0_tempListSat>09:00 16.0 14:00 18.0 24:00 16.0
+R_1_tempListSun>09:00 16.0 14:00 18.0 24:00 16.0
+R_2_tempListMon>05:45 16.0 16:00 18.0 24:00 16.0
+R_3_tempListTue>05:45 16.0 16:00 18.0 24:00 16.0
+R_4_tempListWed>05:45 16.0 16:00 18.0 24:00 16.0
+R_5_tempListThu>05:45 16.0 16:00 18.0 24:00 16.0
+R_6_tempListFri>05:45 16.0 16:00 18.0 24:00 16.0
+entities:BueroFrank_heizung_Clima
+R_0_tempListSat>24:00 16.0
+R_1_tempListSun>24:00 16.0
+R_2_tempListMon>24:00 16.0
+R_3_tempListTue>24:00 16.0
+R_4_tempListWed>05:45 16.0 15:00 20.0 24:00 16.0
+R_5_tempListThu>05:45 16.0 15:00 20.0 24:00 16.0
+R_6_tempListFri>05:45 16.0 15:00 20.0 24:00 16.0
+entities:Kueche_heizung_Clima
+R_0_tempListSat>07:30 16.0 11:00 20.0 24:00 16.0
+R_1_tempListSun>07:30 16.0 11:00 20.0 24:00 16.0
+R_2_tempListMon>24:00 16.0
+R_3_tempListTue>24:00 16.0
+R_4_tempListWed>24:00 16.0
+R_5_tempListThu>24:00 16.0
+R_6_tempListFri>24:00 16.0
+entities:Bad_heizung_Clima
+R_0_tempListSat>08:00 17.0 09:30 20.0 17:00 17.0 22:00 20.0 24:00 16.0
+R_1_tempListSun>08:00 17.0 09:30 20.0 17:00 17.0 22:00 20.0 24:00 16.0
+R_2_tempListMon>05:30 16.0 06:00 20.0 17:00 16.0 22:00 20.0 24:00 16.0
+R_3_tempListTue>05:30 16.0 06:00 20.0 17:00 16.0 22:00 20.0 24:00 16.0
+R_4_tempListWed>05:30 16.0 06:00 20.0 17:00 16.0 22:00 20.0 24:00 16.0
+R_5_tempListThu>05:30 16.0 06:00 20.0 17:00 16.0 22:00 20.0 24:00 16.0
+R_6_tempListFri>05:30 16.0 06:00 20.0 17:00 16.0 22:00 20.0 24:00 16.0
+entities:Wohnzimmer_heizung_Clima
+R_0_tempListSat>09:00 16.0 23:00 21.0 24:00 16.0
+R_1_tempListSun>09:00 16.0 22:30 21.0 24:00 16.0
+R_2_tempListMon>16:00 16.0 22:00 21.0 24:00 16.0
+R_3_tempListTue>16:00 16.0 22:00 21.0 24:00 16.0
+R_4_tempListWed>16:00 16.0 22:00 21.0 24:00 16.0
+R_5_tempListThu>16:00 16.0 22:00 21.0 24:00 16.0
+R_6_tempListFri>16:00 16.0 22:00 21.0 24:00 16.0
