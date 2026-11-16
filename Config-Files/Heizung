@@ -282,7 +282,7 @@ define hm HMinfo
 setuuid hm 5c77fe97-f33f-9d3c-f7ae-f0a225a9f26c27f3
 attr hm alias hm
 attr hm configDir FHEM
-attr hm configTempFile UrlaubIn.cfg,Arbeitstag.cfg,HomeOffice.cfg,UrlaubOut.cfg
+attr hm configTempFile HomeOffice.cfg
 attr hm room System,CUL_HM
 attr hm sumERROR battery:ok,sabotageError:off,powerError:ok,overload:off,overheat:off,reduced:off,motorErr:ok,error:none,uncertain: [no|yes],smoke_detect:none,cover:closed
 attr hm sumStatus battery,sabotageError,powerError,motor
