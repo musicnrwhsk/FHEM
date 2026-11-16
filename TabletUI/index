@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+	 /* FHEM tablet ui */
+	 /*
+	 * Just another dashboard for FHEM
+	 *
+         * Version: 1.3.5
+	 * Requires: jQuery v1.7+, font-awesome, jquery.gridster, jquery.toast
+	 * URL: https://github.com/knowthelist/fhem-tablet-ui
+	 *
+	 * Copyright (c) 2015 Mario Stephan <mstephan@shared-files.de>
+	 * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+	 *
+	 * - create a new folder named 'tablet' in /<fhem-path>/www
+	 * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+	 * - add 'define tablet_ui HTTPSRV tablet ./www/tablet Tablet Frontend' in fhem.cfg
+	 * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+	 */
+	-->
+	<title>FHEM-Tablet-UI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="widget_base_width" content="125">
+	<meta name="widget_base_height" content="120">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="longpoll" content="1"> <!-- 1=longpoll;0=shortpoll every 30sec -->
+	<meta name="debug" content="0"> <!-- 1=output to console;0=not output -->
+	<meta name="gridster_disable" content="0">
+	<meta name="gridster_cols" content="8">
+	<meta name="gridster_rows" content="5">
+	<meta name="widget_margin" content="2">
+	
+   <meta name="longpoll" content="1">
+   <meta name="longpoll_type" content="1">
+   <meta name="longpoll_filter" content=".*">
+   <meta name="longpoll_maxage" content="0">  <!-- oder 240 -->
+   <meta name="shortpoll_interval" content="10">
+	
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/fhemSVG.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/openautomation.css" />		
+	<link rel="stylesheet" href="/fhem/tablet/fonts/roman/style.css" />
+	<link rel="stylesheet" href="/fhem/tablet/fonts/material/style.css" />		
+    <link rel="stylesheet" href="/fhem/mobile/css/fhem-tablet-ui-user_mobile.css" />
+	
+	
+	<script type="text/javascript" src="/fhem/pgm2/jquery.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/jquery.knob.mod.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.toast.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.circlemenu.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/powerange.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.gridster.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/fa-multi-button.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/js/fhem-tablet-ui.js"></script>
+	
+	<!-- Enable this lines for usage with WebViewControl --><!-- -->
+	<script type="text/javascript" src="/fhem/pgm2/cordova-2.3.0.js"></script>
+	<script type="text/javascript" src="/fhem/js/webviewcontrol.js"></script>
+	<script type="text/javascript">var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+	<!-- End for WebViewControl -->
+ </head> 
+ <body> 
+ 
+ <div class="gridster" style="width:965px">
+ <!-- <div class="gridster"> -->
+ <ul> 
+ 
+  <!-- ========= Home Button  ============== --> 
+ <!-- ====================================== --> 
+ <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" data-template="inc_homebutton.html"></li> 
+ 
+ 
+ <!-- ========= Linkes-Hauptmen� =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="2" data-col="1" data-sizex="1" data-sizey="3" data-template="menu_left_main.html"></li> 
+ 
+ 
+ <!-- ========= Rechtes-Hauptmen� =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="1" data-col="8" data-sizex="1" data-sizey="4" data-template="menu_right_main.html"></li> 
+ 
+
+<!-- ========= Uhrzeit/Datum ========== --> 
+<!-- ====================================== --> 
+ <li data-row="1" data-col="2" data-sizex="1" data-sizey="1" data-template="inc_uhr.html"></li>
+ 
+<!-- ========= Aussentemperatur =========== --> 
+<!-- ====================================== -->
+ <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" data-template="inc_aussentemperatur.html"></li> 
+
+
+<!-- ========= Homestatus =========== --> 
+<!-- ================================= -->
+
+<li data-row="2" data-col="2" data-sizex="2" data-sizey="2">
+        <header>HOMESTATUS</header>
+<div data-type="homestatus"
+     data-device="HomeStatus" data-get="state" data-get-on='["home_home","home_work","away","holiday"]'
+	 data-alias='["Freier Tag","Arbeitstag","Ausgeflogen"," "]'
+	 data-icons='["fa-home","fa-industry","fa-suitcase"," "]'></div>
+</li>
+
+<!-- <li data-row="4" data-col="5" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">aktueller Homestatus</div></header> 
+	<div data-type="label" data-device="HomeStatus" data-get="state" data-get-on='["home","night","away"," "]' data-alias='["Freier Tag","Arbeitstag","Ausgeflogen"," "]'></div> 
+</li>
+-->
+
+
+<!-- ========= Funksteckdosen ============= --> 
+<!-- ======================================  
+
+<li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>Lichtbild B&uuml;ro</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="ESPEasy_Sonoff_S20_1_Sonoff_S20_1"
+                 data-get-on="on.*"
+                 data-set-on="on"
+				 class="center medium inline"
+            </div>
+		</div>
+</li>
+<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+    <Header>Bodenlicht K&uuml;che</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="ESPEasy_Sonoff_Basic_8_Sonoff_Basic_8"
+                 data-get-on="on.*"
+                 data-set-on="on"
+				 class="center medium inline"
+            </div>
+        </div>
+</li>
+<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>Treppenflur</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="ESPEasy_Sonoff_Basic_2_Sonoff_Basic_2"
+                 data-get-on="on.*"
+                 data-set-on="on"
+				 class="center medium inline"
+            </div>
+        </div>
+</li>
+<li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+    <Header>Kodi K&uuml;che</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="ESPEasy_Sonoff_Basic_6_Sonoff_Basic_6"
+                 data-get-on="on.*"
+                 data-set-on="on"
+				 class="center medium inline"
+            </div>
+        </div>
+</li>
+
+-->
+
+<!-- ========= Kalender =================== --> 
+<!-- ====================================== --> 
+
+<li data-row="1" data-col="4" data-sizex="3" data-sizey="2">
+	<header><div data-type="label" class="large">Termin-Planer</div></header>
+        <table class="" width="100%" style="font-size:120%">
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_001_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_001_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_001_etime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_001_summary" style="min-width:14em;"></div></td>
+        </tr>
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_002_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_002_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_002_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_002_summary" ></div></td>
+        </tr>
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_003_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_003_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_003_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_003_summary" ></div></td>
+        </tr>       
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_004_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_004_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_004_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_004_summary" ></div></td>
+        </tr>       
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_005_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_005_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_005_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_005_summary" ></div></td>
+        </tr>
+		        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_006_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_006_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_006_etime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_006_summary" ></div></td>
+        </tr>
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_007_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_007_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_007_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_007_summary" ></div></td>
+        </tr>
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_008_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_008_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_008_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_008_summary" ></div></td>
+        </tr>       
+        <tr>
+            <td>
+            	<div data-type="label" data-device="vKalender_Thomas" data-get="t_009_bdate" data-part="(\d\d\.\d\d\.).*"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_009_btime" data-part="(\d\d\:\d\d).*"></div>
+			</td>
+			<td>
+                <div data-type="label" data-device="vKalender_Thomas" data-get="t_009_etime" data-part="(\d\d\:\d\d).*"></div>
+            </td>
+            <td class="r"><div data-type="label" data-device="vKalender_Thomas" data-get="t_009_summary" ></div></td>
+        </tr>       
+    </table>
+</li> 
+
+<!-- ========= Abfallkalender ============= --> 
+<!-- ====================================== --> 
+
+<li data-row="3" data-col="4" data-sizex="3" data-sizey="1">
+<header><div data-type="label" class="large">Abfall</div></header>
+    <div data-type="symbol"
+        data-device="MuellterminDummy"
+        data-get="BioTonne"
+        data-icons='["fa-trash warn fa-spin","fa-trash warn"]'
+        data-on-colors='["green","green"]'
+        data-get-on='["0","2"]'
+        data-background-icon="fa-circle"
+        class="big inline" >
+    </div>
+    <div     data-type="symbol"
+        data-device="MuellterminDummy"
+        data-get="GelberSack"
+        data-icons='["fa-trash warn fa-spin","fa-trash warn"]'
+        data-on-colors='["yellow","yellow"]'
+        data-get-on='["0","2"]'
+        data-background-icon="fa-circle"
+        class="big inline" >
+    </div>
+    <div     data-type="symbol"
+        data-device="MuellterminDummy"
+        data-get="PapierTonne"
+        data-icons='["fa-trash warn fa-spin","fa-trash warn"]'
+        data-on-colors='["blue","blue"]'
+        data-get-on='["0","2"]'
+        data-background-icon="fa-circle"
+        class="big inline" >
+    </div>
+    <div     data-type="symbol"
+        data-device="MuellterminDummy"
+        data-get="Restmuell"
+        data-icons='["fa-trash warn fa-spin","fa-trash warn"]'
+        data-on-colors='["black","black"]'
+        data-get-on='["0","2"]'
+        data-background-icon="fa-circle"
+        class="big inline" >
+    </div>
+</li>
+
+
+
+<!-- ========= Wettervorhersage =========== --> 
+<!-- ====================================== -->
+<!--  <li data-row="1" data-col="7" data-sizex="1" data-sizey="3" data-template="wettervorhersage.html"></li> -->
+
+<!-- ========= Lichtsensor =========== --> 
+<!-- ================================= -->
+ <li data-row="1" data-col="7" data-sizex="1" data-sizey="1" data-template="inc_Lichtsensor1.html"></li> 
+
+<!-- ========= Garagentor =========== --> 
+<!-- ====================================== -->
+
+<!-- == Sensor Garagentor ================== --> 
+<!-- =======================================  -->
+
+<!-- <li data-row="4" data-col="6" data-sizex="1" data-sizey="1"> -->
+
+<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="big">Garagentor</div></header>
+	<div data-type="symbol" data-device="Neigungssensor_Garage" 
+     data-states='["open","closed"]' 
+	 class="center medium inline"
+     data-icons='["ftui-door warn","ftui-door"]' 
+     data-colors='["#999","#555"]' >
+	</div>
+</li>
+
+<!-- ========= PV-Anlage ========= --> 
+<!-- ====================================== --> 
+<!-- <li data-row="2" data-col="7" data-sizex="1" data-sizey="1" data-template="PVAnlage.html"></li> -->
+
+<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+    <Header>Regenfasspumpe</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="ESPEasy_ESP_Easy_25_Sonoff_Basic_25"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+		</div>
+</li>
+
+
+
+
+
+<li data-row="3" data-col="7" data-sizex="1" data-sizey="1"> 
+<header>GARAGE</header>
+                <div class="sheet">
+                    <div class="row">
+                        <div class="cell">
+                        <div data-type="push" data-device="HM_68F324" data-set-on="on-for-timer 3"></div>
+                           <div data-type="label">Taster</div>                        
+                        </div>
+                        <div class="cell">
+                            <div class="big" data-type="symbol" data-device="HM_68F324"></div>
+                            <div class="top-narrow">Garagentor</div>
+                        </div>
+                    </div>
+                </div>
+</li>
+
+ 
+<!-- ========= Zimmertemperaturen ========= --> 
+<!-- ====================================== --> 
+ 
+<li data-row="4" data-col="2" data-sizex="1" data-sizey="1"> 
+         <header>B&uuml;ro</header> 
+		<div data-type="label"  
+		data-device="Buero_heizung_Clima"  
+      	data-get="measured-temp" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	data-unit="%B0C%0A"  
+      	class="cell inline bigger"></div> 
+</li> 
+
+<li data-row="4" data-col="3" data-sizex="1" data-sizey="1"> 
+         <header>K&uuml;che</header> 
+		<div data-type="label"  
+		data-device="Kueche_heizung_Clima"  
+      	data-get="measured-temp" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	data-unit="%B0C%0A"  
+      	class="cell inline bigger"></div> 
+</li> 
+
+<li data-row="4" data-col="4" data-sizex="1" data-sizey="1"> 
+         <header>Bad</header> 
+		<div data-type="label"  
+		data-device="Bad_heizung_Clima"  
+      	data-get="measured-temp" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	data-unit="%B0C%0A"  
+      	class="cell inline bigger"></div> 
+</li> 
+<li data-row="4" data-col="5" data-sizex="1" data-sizey="1"> 
+         <header>Wohnzimmer</header> 
+		<div data-type="label"  
+		data-device="Wohnzimmer_heizung_Clima"  
+      	data-get="measured-temp" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	data-unit="%B0C%0A"  
+      	class="cell inline bigger"></div> 
+</li> 
+<li data-row="4" data-col="6" data-sizex="1" data-sizey="1"> 
+         <header>B&uuml;ro Frank</header> 
+		<div data-type="label"  
+		data-device="BueroFrank_heizung_Clima"
+		data-get="measured-temp" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	data-unit="%B0C%0A"  
+      	class="cell inline bigger"></div> 
+</li> 
+
+
+
+
+
+
+
+ <!-- ==== Visualisierung Rollos ===== --> 
+<!-- ================================= -->
+<li data-row="5" data-col="1" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large"> </div></header> 
+</li>
+
+
+<li data-row="5" data-col="2" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">B&uuml;ro</div></header> 
+	<div data-type="label" class="large" data-device="1_Rollo_buero" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="1_Rollo_buero" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="3" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">K&uuml;che</div></header>
+	<div data-type="label" class="large" data-device="1_Rollo_kueche" data-get="pct" data-unit="%"></div> 
+		<div 	data-type="symbol" class="cell medium center" data-device="1_Rollo_kueche" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="4" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">Bad</div></header>
+	<div data-type="label" class="large" data-device="2_Rollo_bad" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="2_Rollo_bad" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="5" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">WZ Fenster</div></header>
+	<div data-type="label" class="large" data-device="4_Rollo_wz_fenster" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="4_Rollo_wz_fenster" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="6" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">WZ T&uuml;r</div></header>
+	<div data-type="label" class="large" data-device="4_Rollo_wztuer" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="4_Rollo_wztuer" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="7" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">G&auml;stezimmer</div></header>
+	<div data-type="label" class="large" data-device="3_Rollo_gz" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="3_Rollo_gz" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+<li data-row="5" data-col="8" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header><div data-type="label" class="large">Schlafzimmer</div></header>
+	<div data-type="label" class="large" data-device="5_Rollo_sz" data-get="pct" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="5_Rollo_sz" data-get="pct"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+ 
+</ul> 
+</body> 
+</html> 
+ 
