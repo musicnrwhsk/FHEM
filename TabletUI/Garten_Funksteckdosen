@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+	 /* FHEM tablet ui */
+	 /*
+	 * Just another dashboard for FHEM
+	 *
+         * Version: 1.3.5
+	 * Requires: jQuery v1.7+, font-awesome, jquery.gridster, jquery.toast
+	 * URL: https://github.com/knowthelist/fhem-tablet-ui
+	 *
+	 * Copyright (c) 2015 Mario Stephan <mstephan@shared-files.de>
+	 * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+	 *
+	 * - create a new folder named 'tablet' in /<fhem-path>/www
+	 * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+	 * - add 'define tablet_ui HTTPSRV tablet ./www/tablet Tablet Frontend' in fhem.cfg
+	 * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+	 */
+	-->
+	<title>FHEM-Tablet-UI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="widget_base_width" content="125">
+	<meta name="widget_base_height" content="120">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="longpoll" content="1"> <!-- 1=longpoll;0=shortpoll every 30sec -->
+	<meta name="debug" content="0"> <!-- 1=output to console;0=not output -->
+	<meta name="gridster_disable" content="1">
+	<meta name="gridster_cols" content="8">
+	<meta name="gridster_rows" content="5">
+<!--<meta name="gridster_min_width" content="100">
+    <meta name='longpoll_maxage' content='0'>
+	<meta name="gridster_min_height" content="100"> -->
+	<meta name="widget_margin" content="2">
+	
+	<meta name="longpoll_filter" content=".*">
+	
+    <meta name="longpoll_type" content="1">
+    <meta name="longpoll_maxage" content="240">
+    <meta name="shortpoll_interval" content="10">
+	
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/fhemSVG.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/openautomation.css" />		
+	<link rel="stylesheet" href="/fhem/tablet/fonts/roman/style.css" />
+	<link rel="stylesheet" href="/fhem/tablet/fonts/material/style.css" />		
+    <link rel="stylesheet" href="/fhem/mobile/css/fhem-tablet-ui-user_mobile.css" />
+	
+	
+	<script type="text/javascript" src="/fhem/pgm2/jquery.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/jquery.knob.mod.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.toast.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.circlemenu.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/powerange.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.gridster.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/fa-multi-button.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/js/fhem-tablet-ui.js"></script>
+	
+	<!-- Enable this lines for usage with WebViewControl --><!-- -->
+	<script type="text/javascript" src="/fhem/pgm2/cordova-2.3.0.js"></script>
+	<script type="text/javascript" src="/fhem/js/webviewcontrol.js"></script>
+	<script type="text/javascript">var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+	<!-- End for WebViewControl -->
+ </head> 
+ <body> 
+ 
+ 
+  <div class="gridster"> 
+ <ul> 
+ <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" data-template="inc_homebutton.html"></li> 
+ 
+ 
+ <!-- ========= Linkes-Hauptmen� =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="2" data-col="1" data-sizex="1" data-sizey="4" data-template="menu_left_main.html"></li> 
+ 
+ 
+ <!-- ========= Rechtes-Hauptmen� =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="2" data-col="8" data-sizex="1" data-sizey="4" data-template="menu_right_main.html"></li> 
+ 
+
+<!-- ========= Uhrzeit/Datum ========== --> 
+<!-- ====================================== --> 
+<!--  <li data-row="1" data-col="2" data-sizex="2" data-sizey="1" data-template="inc_uhr.html"></li> --> 
+
+<li data-row="1" data-col="2" data-sizex="1" data-sizey="1"> 
+         <header>Teichtemperatur Grund</header> 
+		<div data-type="label"  
+		data-device="shellyplusuni_e08cfe8b2f88"
+		data-get="params_temperature_100_tC" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	class="cell inline big"></div> 
+</li> 
+
+<li data-row="1" data-col="3" data-sizex="1" data-sizey="1"> 
+         <header>Teichtemperatur oben</header> 
+		<div data-type="label"  
+		data-device="shellyplusuni_e08cfe8b2f88"
+		data-get="params_temperature_101_tC" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	class="cell inline big"></div> 
+</li> 
+
+<!-- 
+<li data-row="3" data-col="5" data-sizex="1" data-sizey="1"> 
+         <header>Fuellstand IBC Liter</header> 
+		<div data-type="label"  
+		data-device="ESPEasy_Climate_2_Wasserstand2"
+		data-get="Volumen" 
+      	data-limits='[-73,19,23]'  
+      	data-colors='["#6699FF","#AA6900","#FF0000"]'  
+      	class="cell inline big"></div> 
+</li>  -->
+
+
+<li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+    <Header>Pflanzen Teich fuellen 111   (Licht an = Pflanzen)</header>
+    <div class="doublebox-h">
+        <div data-type="push" data-device="Switch_Shelly21" 
+             data-icon="fa-angle-up" data-background-icon="fa-square-o" 
+             data-set-on="open"
+			 data-get-on="on.*">
+        </div>
+        <div data-type="push" data-device="Switch_Shelly21" 
+             data-icon="fa-angle-down" data-background-icon="fa-square-o" 
+             data-set-on="closed">
+        </div>
+		<div data-type="switch" data-device="Switch_Shelly21"></div>
+    </div>
+	
+<li data-row="2" data-col="5" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header>0=Teich 100=Pflanzen</header>
+	<div data-type="label" class="large" data-device="shelly2pmg3_8cbfea98faac_CH2" data-get="current_pos" data-unit="%"></div>
+		<div 	data-type="symbol" class="cell medium center" data-device="shelly2pmg3_8cbfea98faac_CH2" data-get="current_pos"
+				data-icons='["oa-fts_shutter_100","oa-fts_shutter_90","oa-fts_shutter_80","oa-fts_shutter_70","oa-fts_shutter_60","oa-fts_shutter_50","oa-fts_shutter_40","oa-fts_shutter_30","oa-fts_shutter_20","oa-fts_shutter_10","oa-fts_window_2w"]'	
+				data-get-on='["0","10","20","30","40","50","60","70","80","90","100"]' data-on-color="#2A2A2A"
+				data-on-background-color="#aa6900" data-background-icon="fa-square">
+		</div>
+</li>
+
+
+
+
+<!-- <li data-row="2" data-col="6" data-sizex="1" data-sizey="1" class="halbTransparent">
+	<header>Pegelstand Teich</header>
+	<div data-type="label"
+		data-device="shellyplusuni_e08cfe8b2f88"
+			data-get="params_voltmeter_100_xvoltage"
+		data-unit=" m"
+		data-limits='[0, 0.45, 0.55 ]'
+		data-colors='["red", "orange", "green"]'
+		class="big bold">
+	</div> -->
+	
+
+<li data-row="3" data-col="6" data-sizex="1" data-sizey="2">
+             <header>Pegelstand Teich</header>
+                <div class="sheet">
+                    <div class="row">
+                        <div class="cell">
+                            <div data-type="range"
+                          data-device="shellyplusuni_e08cfe8b2f88"
+           
+						 data-high="xvoltage"
+                         data-max="0.65" 
+						 data-min="0"
+                         data-limit-high="0.55"
+                         data-limit-low="0.45"                         
+                         data-color-high="green"
+                         data-color="orange"
+                         data-color-low="red"
+                         data-width="50"
+                         data-height="150"
+                         class="top-space"></div>
+                            <div data-type="label"
+                          data-device="shellyplusuni_e08cfe8b2f88"
+                         data-get="params_voltmeter_100_xvoltage" 
+						 data-unit=" m"
+                         data-limits='[0,0.45,0.55]'
+                         data-colors='["red","orange","green"]'
+                         class="bigger top-space"></div>
+                        </div>
+            </div>
+          </div>                 
+          </li>
+
+
+</li>
+
+<li data-row="1" data-col="7" data-sizex="1" data-sizey="2">
+             <header>Wasservolumen IBC</header>
+                <div class="sheet">
+                    <div class="row">
+                        <div class="cell">
+                            <div data-type="range"
+                          data-device="shellyplusuni_e08cfe8b3efc"
+                         data-high="params_voltmeter_100_xvoltage"
+                         data-max="1900" 
+						 data-min="0"
+                         data-limit-high="1500"
+                         data-limit-low="800"                         
+                         data-color-high="green"
+                         data-color="orange"
+                         data-color-low="red"
+                         data-width="50"
+                         data-height="150"
+                         class="top-space"></div>
+                            <div data-type="label"
+                          data-device="shellyplusuni_e08cfe8b3efc"
+                         data-get="params_voltmeter_100_xvoltage" 
+						 data-unit=" l"
+                         data-limits='[0,800,1500]'
+                         data-colors='["red","orange","green"]'
+                         class="bigger top-space"></div>
+                        </div>
+            </div>
+          </div>                 
+          </li>
+
+
+</li>
+
+<li data-row="3" data-col="7" data-sizex="1" data-sizey="2">
+             <header>Tank Gartenhaus</header>
+                <div class="sheet">
+                    <div class="row">
+                        <div class="cell">
+                            <div data-type="range"
+                          data-device="shellyplusuni_e08cfe8b0b38"
+                         data-high="params_voltmeter_100_xvoltage"
+                         data-max="540" 
+						 data-min="0"
+                         data-limit-high="400"
+                         data-limit-low="200"                         
+                         data-color-high="green"
+                         data-color="orange"
+                         data-color-low="red"
+                         data-width="50"
+                         data-height="150"
+                         class="top-space"></div>
+                            <div data-type="label"
+                          data-device="shellyplusuni_e08cfe8b0b38"
+                         data-get="params_voltmeter_100_xvoltage" 
+						 data-unit=" l"
+                         data-limits='[0,200,400]'
+                         data-colors='["red","orange","green"]'
+                         class="bigger top-space"></div>
+                        </div>
+            </div>
+          </div>                 
+          </li>
+
+
+</li>
+ 
+<!-- ========= Au�enthermometer ========== --> 
+<!-- ====================================== --> 
+ <li data-row="1" data-col="4" data-sizex="1" data-sizey="1" data-template="inc_aussentemperatur.html"></li> 
+
+
+
+<!-- ========= Funksteckdosen Garten ============= --> 
+<!-- ====================================== --> 
+
+<li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>Regenfasspumpe</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly20"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+		</div>
+</li>
+<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+    <Header>Streifenlicht Gabione</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly12"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+<li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+    <Header>Streifenlicht Bach</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly13"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+
+
+<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>Skimmer</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly16"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+<li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+    <Header>Springbrunnen</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly17"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+<li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+    <Header>Teichlicht</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly15"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+<li data-row="4" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>UV-Lampe</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly14"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+<li data-row="4" data-col="3" data-sizex="1" data-sizey="1">
+    <Header>Brunnen_Vorbeet</header>
+        <div class="top-space">
+			<div data-type="switch"
+                 data-device="Switch_Shelly1"
+				 data-get="relay_0"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+
+
+<li data-row="4" data-col="4" data-sizex="1" data-sizey="1">
+    <Header>Gartenlicht</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="GartenBeleuchtung"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+
+<li data-row="5" data-col="2" data-sizex="1" data-sizey="1">
+    <Header>Steelenlicht vorn</header>
+        <div class="top-space">
+            <div data-type="switch"
+                 data-device="Switch_Shelly23"
+                 data-get-on="on.*"
+                 data-set-on="on"
+            </div>
+        </div>
+</li>
+
+
+
+</ul> 
+</div>
+</body> 
+</html> 
