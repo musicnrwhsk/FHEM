@@ -1,0 +1,133 @@
+# Sonoffs für Fensterbeleuchtung
+define FensterBeleuchtung structure room ESPEasy_Sonoff_Basic_14_Sonoff_Basic_14 ESPEasy_Sonoff_Basic_15_Sonoff_Basic_15 ESPEasy_Sonoff_Basic_16_Sonoff_Basic_16 ESPEasy_Sonoff_Basic_18_Sonoff_Basic_18 ESPEasy_Sonoff_Basic_12_Sonoff_Basic_12 ESPEasy_Sonoff_Basic_17_Sonoff_Basic_17 Switch_Shelly22
+setuuid FensterBeleuchtung 604f39b5-f33f-9d3c-b878-7a6327dc87a835dd
+attr FensterBeleuchtung alias FensterBeleuchtung
+attr FensterBeleuchtung async_delay 2
+attr FensterBeleuchtung room ESPEasy
+
+# Sonoffs für Krippe und Baum
+define KrippeBaumBeleuchtung structure room Switch_Shelly18
+setuuid KrippeBaumBeleuchtung 604f39b5-f33f-9d3c-b917-b67c88d0e14bd0da
+attr KrippeBaumBeleuchtung alias KrippeBaumBeleuchtung
+attr KrippeBaumBeleuchtung async_delay 2
+attr KrippeBaumBeleuchtung room ESPEasy
+
+# Sonoffs für Aussenbeleuchtung
+define XMASAussen structure room Switch_Shelly3 Switch_Shelly4 ESPEasy_Sonoff_Basic_9_Sonoff_Basic_9
+setuuid XMASAussen 65696e53-f33f-9d3c-7c8b-bbe64601c51d9c75
+attr XMASAussen alias XMASAussen
+attr XMASAussen async_delay 2
+attr XMASAussen room ESPEasy
+
+# Schalten der Außenbeleuchtung morgens
+define XMASAussenMorgens_ON_DOIF DOIF ([05:45:00]) (set XMASAussen on)
+setuuid XMASAussenMorgens_ON_DOIF 604f39b5-f33f-9d3c-f232-9d2e96b2fabac2ec
+attr XMASAussenMorgens_ON_DOIF alias XMASAussenMorgens_ON_DOIF
+attr XMASAussenMorgens_ON_DOIF do always
+attr XMASAussenMorgens_ON_DOIF repeatcmd 10
+attr XMASAussenMorgens_ON_DOIF repeatsame 5
+attr XMASAussenMorgens_ON_DOIF room Licht
+
+define XMASAussenMorgens_OFF_DOIF DOIF ([08:30:00]) (set XMASAussen off)
+setuuid XMASAussenMorgens_OFF_DOIF 604f39b5-f33f-9d3c-273f-de5d92c131501c7d
+attr XMASAussenMorgens_OFF_DOIF alias XMASAussenMorgens_OFF_DOIF
+attr XMASAussenMorgens_OFF_DOIF do always
+attr XMASAussenMorgens_OFF_DOIF repeatcmd 10
+attr XMASAussenMorgens_OFF_DOIF repeatsame 5
+attr XMASAussenMorgens_OFF_DOIF room Licht
+
+# Schalten der Außenbeleuchtung abends
+define XMASAussenAbends_ON_DOIF DOIF ([16:30:00]) (set XMASAussen on)
+setuuid XMASAussenAbends_ON_DOIF 604f39b5-f33f-9d3c-c6fa-468f028a12785ef3
+attr XMASAussenAbends_ON_DOIF alias XMASAussenAbends_ON_DOIF
+attr XMASAussenAbends_ON_DOIF do always
+attr XMASAussenAbends_ON_DOIF repeatcmd 10
+attr XMASAussenAbends_ON_DOIF repeatsame 5
+attr XMASAussenAbends_ON_DOIF room Licht
+
+define XMASAussenAbends_OFF_DOIF DOIF ([22:30:00]) (set XMASAussen off)
+setuuid XMASAussenAbends_OFF_DOIF 604f39b6-f33f-9d3c-fca4-54359bffe3205386
+attr XMASAussenAbends_OFF_DOIF alias XMASAussenAbends_OFF_DOIF
+attr XMASAussenAbends_OFF_DOIF do always
+attr XMASAussenAbends_OFF_DOIF repeatcmd 10
+attr XMASAussenAbends_OFF_DOIF repeatsame 5
+attr XMASAussenAbends_OFF_DOIF room Licht
+
+# Ausschalten der Fensterbeleuchtung morgens
+define XMASFensterMorgens_Off DOIF ([08:30]) (set FensterBeleuchtung off)
+setuuid XMASFensterMorgens_Off 604f39b6-f33f-9d3c-5748-bd9d46f15bcdfa34
+attr XMASFensterMorgens_Off alias XMASFensterMorgens_Off
+attr XMASFensterMorgens_Off do always
+attr XMASFensterMorgens_Off repeatcmd 10
+attr XMASFensterMorgens_Off repeatsame 5
+attr XMASFensterMorgens_Off room Licht
+
+# Einschalten der Fensterbeleuchtung morgens
+define XMASFensterMorgens_On DOIF ([HomeStatus:state] eq "home_work" and [05:45])  (set FensterBeleuchtung on)  DOELSEIF ([HomeStatus:state] eq "home_home" and [08:20])  (set FensterBeleuchtung on)
+setuuid XMASFensterMorgens_On 604f39b6-f33f-9d3c-0d42-21cd87945c3359d3
+attr XMASFensterMorgens_On alias XMASFensterMorgens_On
+attr XMASFensterMorgens_On do always
+attr XMASFensterMorgens_On repeatcmd 10
+attr XMASFensterMorgens_On repeatsame 5
+attr XMASFensterMorgens_On room Licht
+
+define XMASFensterAbends DOIF ([HomeStatus:state] ne "away" and [22:15]) (set FensterBeleuchtung off) DOELSEIF ([HomeStatus:state] eq "away" and [22:01]) (set FensterBeleuchtung off) DOELSEIF ([16:30]) (set FensterBeleuchtung on)
+setuuid XMASFensterAbends 604f39b6-f33f-9d3c-0f91-408a081fd80331bc
+attr XMASFensterAbends alias XMASFensterAbends
+attr XMASFensterAbends do always
+attr XMASFensterAbends repeatcmd 10
+attr XMASFensterAbends repeatsame 5
+attr XMASFensterAbends room Licht
+
+define XMASFensterMorgensAway DOIF ([HomeStatus:state] eq "away" and [08:00]) (set FensterBeleuchtung on)
+setuuid XMASFensterMorgensAway 604f39b6-f33f-9d3c-1f85-9b9422730b2c24bd
+attr XMASFensterMorgensAway alias XMASFensterMorgensAway
+attr XMASFensterMorgensAway do always
+attr XMASFensterMorgensAway repeatcmd 10
+attr XMASFensterMorgensAway repeatsame 5
+attr XMASFensterMorgensAway room Licht
+
+# Schalten der Fensterbeleuchtung abends
+# define XMASFensterAbends_ON_DOIF DOIF ([16:30:00]) (set FensterBeleuchtung on)
+# attr XMASFensterAbends_ON_DOIF do always
+# attr XMASFensterAbends_ON_DOIF room Licht
+
+# define XMASFensterAbends_OFF_DOIF DOIF ([23:00:00]) (set FensterBeleuchtung off)
+# attr XMASFensterAbends_OFF_DOIF do always
+# attr XMASFensterAbends_OFF_DOIF room Licht
+
+# Krippe und Baum ausschalten Morgens
+define XMASKrippeBaumMorgens_Off DOIF ([HomeStatus:state] eq "home_work" and [06:10|8]) (set KrippeBaumBeleuchtung off) DOELSEIF ([HomeStatus:state] eq "home_home" and [10:00|8]) (set KrippeBaumBeleuchtung off)
+setuuid XMASKrippeBaumMorgens_Off 604f39b6-f33f-9d3c-1875-e95f271db1f5fa85
+attr XMASKrippeBaumMorgens_Off alias XMASKrippeBaumMorgens_Off
+attr XMASKrippeBaumMorgens_Off do always
+attr XMASKrippeBaumMorgens_Off repeatcmd 10
+attr XMASKrippeBaumMorgens_Off repeatsame 5
+attr XMASKrippeBaumMorgens_Off room Licht
+
+# Krippe und Baum einschalten Morgens
+define XMASKrippeBaumMorgens_On DOIF ([HomeStatus:state] eq "home_work" and [05:45|8])  (set KrippeBaumBeleuchtung on) DOELSEIF ([HomeStatus:state] eq "home_home" and [08:15|8])  (set KrippeBaumBeleuchtung on) DOELSEIF ([HomeStatus:state] eq "home_home" and [08:30|7])  (set KrippeBaumBeleuchtung on)
+setuuid XMASKrippeBaumMorgens_On 604f39b6-f33f-9d3c-a24b-826f23ac230bbce7
+attr XMASKrippeBaumMorgens_On alias XMASKrippeBaumMorgens_On
+attr XMASKrippeBaumMorgens_On do always
+attr XMASKrippeBaumMorgens_On repeatcmd 10
+attr XMASKrippeBaumMorgens_On repeatsame 5
+attr XMASKrippeBaumMorgens_On room Licht
+
+# Krippe und Baum ausschalten Abends
+define XMASKrippeBaumAbends_Off DOIF ([22:30]) (set KrippeBaumBeleuchtung off)
+setuuid XMASKrippeBaumAbends_Off 604f39b6-f33f-9d3c-6d11-2829d131264c72e5
+attr XMASKrippeBaumAbends_Off alias XMASKrippeBaumAbends_Off
+attr XMASKrippeBaumAbends_Off do always
+attr XMASKrippeBaumAbends_Off repeatcmd 10
+attr XMASKrippeBaumAbends_Off repeatsame 5
+attr XMASKrippeBaumAbends_Off room Licht
+
+# Krippe und Baum einschalten Abends
+define XMASKrippeBaumAbends_On DOIF ([HomeStatus:state] eq "home_work" and [16:30])  (set KrippeBaumBeleuchtung on) DOELSEIF ([HomeStatus:state] eq "home_home" and [16:30|8])  (set KrippeBaumBeleuchtung on) DOELSEIF ([HomeStatus:state] eq "home_home" and [10:00|7])  (set KrippeBaumBeleuchtung on)
+setuuid XMASKrippeBaumAbends_On 604f39b6-f33f-9d3c-e49a-262711caba4ae5ac
+attr XMASKrippeBaumAbends_On alias XMASKrippeBaumAbends_On
+attr XMASKrippeBaumAbends_On do always
+attr XMASKrippeBaumAbends_On repeatcmd 10
+attr XMASKrippeBaumAbends_On repeatsame 5
+attr XMASKrippeBaumAbends_On room Licht
