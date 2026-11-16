@@ -1,0 +1,298 @@
+gers<!DOCTYPE html>
+<html>
+<head>
+	<!-- 
+	 /* FHEM tablet ui */
+	 /*
+	 * Just another dashboard for FHEM
+	 *
+         * Version: 1.3.5
+	 * Requires: jQuery v1.7+, font-awesome, jquery.gridster, jquery.toast
+	 * URL: https://github.com/knowthelist/fhem-tablet-ui
+	 *
+	 * Copyright (c) 2015 Mario Stephan <mstephan@shared-files.de>
+	 * Under MIT License (http://www.opensource.org/licenses/mit-license.php)
+	 *
+	 * - create a new folder named 'tablet' in /<fhem-path>/www
+	 * - copy all files incl. sub folders into /<fhem-path>/www/tablet
+	 * - add 'define tablet_ui HTTPSRV tablet ./www/tablet Tablet Frontend' in fhem.cfg
+	 * - Tadaaa! A new fhem ui in http://<fhem-url>:8083/fhem/tablet/
+	 */
+	-->
+	<title>FHEM-Tablet-UI</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="widget_base_width" content="130">
+	<meta name="widget_base_height" content="125">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="longpoll" content="1"> <!-- 1=longpoll;0=shortpoll every 30sec -->
+	<meta name="debug" content="0"> <!-- 1=output to console;0=not output -->
+	<meta name="gridster_disable" content="0">
+	<meta name="gridster_cols" content="8">
+	<meta name="gridster_rows" content="5">
+<!--<meta name="gridster_min_width" content="100">
+    <meta name='longpoll_maxage' content='0'>
+	<meta name="gridster_min_height" content="100"> -->
+	<meta name="widget_margin" content="2">
+	
+	<meta name="longpoll_filter" content=".*">
+	
+    <meta name="longpoll_type" content="1">
+    <meta name="longpoll_maxage" content="240">
+    <meta name="shortpoll_interval" content="10">
+	
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.gridster.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/css/fhem-tablet-ui.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fhem/tablet/lib/jquery.toast.min.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/fhemSVG.css" />
+	<link rel="stylesheet" href="/fhem/tablet/lib/openautomation.css" />		
+	<link rel="stylesheet" href="/fhem/tablet/fonts/roman/style.css" />
+	<link rel="stylesheet" href="/fhem/tablet/fonts/material/style.css" />		
+    <link rel="stylesheet" href="/fhem/mobile/css/fhem-tablet-ui-user_mobile.css" />
+	
+	
+	<script type="text/javascript" src="/fhem/pgm2/jquery.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/jquery.knob.mod.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.toast.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.circlemenu.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/powerange.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/lib/jquery.gridster.min.js"></script>
+        <script type="text/javascript" src="/fhem/tablet/lib/fa-multi-button.min.js"></script>
+	<script type="text/javascript" src="/fhem/tablet/js/fhem-tablet-ui.js"></script>
+	
+	<!-- Enable this lines for usage with WebViewControl --><!-- -->
+	<script type="text/javascript" src="/fhem/pgm2/cordova-2.3.0.js"></script>
+	<script type="text/javascript" src="/fhem/js/webviewcontrol.js"></script>
+	<script type="text/javascript">var wvcDevices = {'12345': 'Tablet'}; var wvcUserCssFile="webviewcontrol.css"</script>
+	<!-- End for WebViewControl -->
+ </head> 
+ <body> 
+ 
+ 
+ <div class="gridster"> 
+ <ul> 
+ 
+   <!-- ========= Home Button  ============== --> 
+ <!-- ====================================== --> 
+ <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" data-template="inc_homebutton.html"></li> 
+ 
+ 
+ <!-- ========= Linkes-Hauptmenü =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="2" data-col="1" data-sizex="1" data-sizey="3" data-template="menu_left_main.html"></li> 
+ 
+ 
+ <!-- ========= Rechtes-Hauptmenü =========== --> 
+ <!-- ====================================== --> 
+ <li data-row="1" data-col="8" data-sizex="1" data-sizey="4" data-template="menu_right_main.html"></li> 
+
+<li data-row="1" data-col="6" data-sizex="1" data-sizey="3"> 
+<header><div data-type="label" class="large">aktuelle Parameter</div></header> 
+<div>Luxwert Süd</div>
+<div data-type="label" data-device="Helligkeitswert"></div> 
+<div>Luxwert GZ</div>
+<div data-type="label" data-device="Helligkeitswert2"></div> 
+<div>Luxwert WZ</div>
+<div data-type="label" data-device="Helligkeitswert3"></div> 
+<div>Temperaturwert</div>
+<div data-type="label" data-device="Temperaturwert"></div> 
+<div>Temperaturwert WZ</div>
+<div data-type="label" data-device="TemperaturwertWZ"></div> 
+<div>ExtremTemperatur</div>
+<div data-type="label" data-device="ExtremTemperatur"></div> 
+<div>RolloUp Werktag</div>
+<div data-type="label" data-device="RolloUpWT"></div> 
+<div>RolloUp Frei</div>
+<div data-type="label" data-device="RolloUpFT"></div> 
+<div>RolloUp WE</div>
+<div data-type="label" data-device="RolloUpWE"></div> 
+<div>RolloDown</div>
+<div data-type="label" data-device="RolloDown"></div> 
+<div>RolloDown WZ</div>
+<div data-type="label" data-device="RolloDownWZ"></div> 
+</li>
+
+<li data-row="1" data-col="5" data-sizex="1" data-sizey="1"> 
+<header><div data-type="label" class="large">aktuelle Werte</div></header> 
+<div>Luxwert</div>
+<div data-type="label" data-device="Sonnensensor1" data-get="brightness"></div> 
+<div>Temperaturwert</div>
+<div data-type="label" data-device="AussenTempSens1_T1" data-get="temperature"></div> 
+<div>Modus</div>
+<div data-type="label" data-device="Moduswahl"></div> 
+</li>
+
+<li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Timer GartenWasser</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="WasserAutoOffTimer"
+			data-set=""
+			data-alias='["1","5","10","15","20","25","30","35","40"]'
+			data-items='["60","300","600","900","1200","1500","1800","2100","2400"]'
+		</div>
+	</div>
+</li>
+ 
+<li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Lux Rolladen S&uuml;dseite</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="Helligkeitswert"></div> -->
+		<div data-type="select"
+			data-device="Helligkeitswert"
+			data-set=""
+			data-items='["10000","15000","20000","25000","30000","35000","40000"]'
+		</div>
+	</div>  
+</li>
+<li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Lux  Rolladen G&auml;stezimmer</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="Helligkeitswert"></div> -->
+		<div data-type="select"
+			data-device="Helligkeitswert2"
+			data-set=""
+			data-items='["5000","10000","15000","20000","25000","30000","35000","40000"]'
+		</div>
+	</div>  
+</li>
+<li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Lux Rolladen Wohnzimmer</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="Helligkeitswert"></div> -->
+		<div data-type="select"
+			data-device="Helligkeitswert3"
+			data-set=""
+			data-items='["10000","15000","20000","25000","30000","35000","40000"]'
+		</div>
+	</div>  
+</li>	
+<li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Rolladen Temperaturwert</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="Temperaturwert"></div> -->
+		<div data-type="select"
+			data-device="Temperaturwert"
+			data-set=""
+			data-items='["15","20","22","24","26","28"]'  
+		</div>
+	</div>
+</li>	
+
+<li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Rolladen ExtremTemperatur</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="ExtremTemperatur"></div> -->
+		<div data-type="select"
+			data-device="ExtremTemperatur"
+			data-set=""
+			data-items='["20","25","28","30","32"]'  
+		</div>
+	</div>
+</li>
+
+<li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Rolladen WZ Temperatur</div></header> 
+	<div>
+	<!--	<div data-type="label" data-device="TemperaturwertWZ"></div> -->
+		<div data-type="select"
+			data-device="TemperaturwertWZ"
+			data-set=""
+			data-items='["16","18","20","22","24","25"]'  
+		</div>
+	</div>
+</li>
+
+<!--  <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">Rolladen Man./Automatik</div></header> 
+	<div>
+			<div data-type="select"
+			data-device="Moduswahl"
+			data-set=""
+			data-alias='["Manuell","Automatik ohne Astro","Automatik mit Astro"]'
+			data-items='["M","AOA","AMA"]'
+		</div>
+	</div>
+</li>
+-->
+
+<li data-row="1" data-col="7" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">RolloUp Werktag</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="RolloUpWT"
+			data-set=""
+			data-alias='["05:30:00","05:45:00","06:00:00","06:15:00","06:30:00","06:45:00","07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00"]'
+			data-items='["05:30:00","05:45:00","06:00:00","06:15:00","06:30:00","06:45:00","07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00"]'
+		</div>
+	</div>
+</li>
+
+<li data-row="2" data-col="7" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">RolloUp Frei</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="RolloUpFT"
+			data-set=""
+			data-alias='["07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00","08:45:00","09:00:00","09:15:00","09:30:00","09:45:00","10:00:00","10:15:00","10:30:00"]'
+			data-items='["07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00","08:45:00","09:00:00","09:15:00","09:30:00","09:45:00","10:00:00","10:15:00","10:30:00"]'
+		</div>
+	</div>
+</li>
+<li data-row="3" data-col="7" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">RolloUp WE</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="RolloUpWE"
+			data-set=""
+			data-alias='["07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00","08:45:00","09:00:00","09:15:00","09:30:00","09:45:00","10:00:00","10:15:00","10:30:00"]'
+			data-items='["07:00:00","07:15:00","07:30:00","07:45:00","08:00:00","08:15:00","08:30:00","08:45:00","09:00:00","09:15:00","09:30:00","09:45:00","10:00:00","10:15:00","10:30:00"]'
+		</div>
+	</div>
+</li>
+
+<li data-row="4" data-col="7" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">RolloDown</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="RolloDown"
+			data-set=""
+			data-alias='["20:00:00","20:15:00","20:30:00","20:45:00","21:00:00","21:15:00","21:30:00","21:45:00","22:00:00","22:15:00","22:30:00","22:45:00","23:00:00"]'
+			data-items='["20:00:00","20:15:00","20:30:00","20:45:00","21:00:00","21:15:00","21:30:00","21:45:00","22:00:00","22:15:00","22:30:00","22:45:00","23:00:00"]'
+		</div>
+	</div>
+</li>
+<li data-row="4" data-col="6" data-sizex="1" data-sizey="1">
+	<header><div data-type="label" class="large">RolloDown WZ</div></header> 
+	<div>
+		<div data-type="select"
+			data-device="RolloDownWZ"
+			data-set=""
+			data-alias='["20:00:00","20:15:00","20:30:00","20:45:00","21:00:00","21:15:00","21:30:00","21:45:00","22:00:00","22:15:00","22:30:00","22:45:00","23:00:00"]'
+			data-items='["20:00:00","20:15:00","20:30:00","20:45:00","21:00:00","21:15:00","21:30:00","21:45:00","22:00:00","22:15:00","22:30:00","22:45:00","23:00:00"]'
+		</div>
+	</div>
+</li>
+
+<!-- =============Batteriestatus  ============= -->
+<!-- ====================================== -->
+
+<li data-row="3" data-col="2" data-sizex="4" data-sizey="2">
+	<div <header>Batteriestatus</header>>	
+	<div data-type="readingsgroup" data-device="rgBatterieStatus" data-max-update="86400"></div)
+	</div>
+</li>
+
+
+
+
+  
+  
+  
+ 
+  
+</ul> 
+</body> 
+</html> 
